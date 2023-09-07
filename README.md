@@ -1,4 +1,5 @@
-<h1> THÀNH VIÊN NHÓM </h1>
+<h1>ĐỀ TÀI: QUẢN LÝ CỬA HÀNG TIỆN LỢI</h1>
+<h3> THÀNH VIÊN NHÓM </h3>
 
 |       STT     |      MSSV     | Họ tên| Github| Email |
 | :------------:|:-------------:|:-----:|:-----:|:-----:|
