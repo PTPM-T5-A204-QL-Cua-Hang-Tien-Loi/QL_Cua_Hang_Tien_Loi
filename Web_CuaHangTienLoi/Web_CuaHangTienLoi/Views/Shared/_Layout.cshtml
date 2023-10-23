@@ -2,15 +2,283 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-</head>
-<body>
-    @RenderBody()
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel=" stylesheet" href="~/Content/Style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 
-    @Scripts.Render("~/bundles/jquery")
-    @RenderSection("scripts", required: false)
+    <link rel="icon" type="image/x-icon" href="~/Images/ico.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<style>
+    .header-page .header-page section {
+      width: 100%;
+      height: 127px;
+      position: fixed;
+      z-index: 7;
+      background: transparent;
+      transform: translateZ(0);
+    }
+    .container{
+        max-width:1200px;
+        width:100%;
+        margin:0 auto;
+        padding:0 10px;
+        position: relative;
+    }
+    .header-page .group-logo {
+      padding: 5px 0;
+      background: #e6f0ff;
+    }
+    .group-top-menu {
+      position: absolute;
+      right: 0;
+      top: -40px;
+      width: 920px;
+      width: 1010px;
+      color:black;
+    }
+    .header-page #language.my-select {
+      z-index: 2;
+      float: right;
+      display: block;
+      top: 2px;
+      width: 7.8rem;
+      border: 3px solid #ff6a13;
+      font-family: "Montserrat";
+      font-weight: 700;
+      height: 3.5rem;
+      line-height: 3.5rem;
+      transition: 0.3s ease-in-out 0s;
+    }
+    .header-page .logo {
+      position: absolute;
+      width: 16.8rem;
+      height: 6.6rem;
+      display: inline-block;
+      width: 110px;
+      height: 35px;
+      background-size: auto;
+      background-size: cover;
+    }
+    ul, li {
+      list-style-type: none;
+    }
+
+    .group-top-menu .top-menu ul li {
+      float: left;
+      padding-top: 7px;
+    }
+    .group-top-menu .top-menu ul li a {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: #000;
+      border-right: 2px solid #000;
+      padding: 0 20px;
+    }
+    .search {
+      position: relative;
+      right: 90px;
+      float: right;
+      display: block;
+      width: 2.7rem;
+      height: 2.7rem;
+      margin: 0 2rem 0 1.5rem;
+      z-index: 2;
+      transition: 0.3s ease-in-out 0s;
+    }
+    .search .box-search {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 3rem;
+      visibility: hidden;
+      border-bottom: 1px solid #f4821f;
+      background: #e6f0ff;
+      padding-right: 3rem;
+      transition: 0.3s ease-in-out 0s;
+    }
+    .search .btn-search {
+      display: block;
+      width: 2.7rem;
+      height: 2.7rem;
+      background: url(https://gs25.com.vn/Assets/images/btn_search.png) no-repeat center;
+      background-size: auto;
+      background-size: cover;
+    }
+    .search #ip-search {
+      display: block;
+      width: 100%;
+      height: 100%;
+      font-size: 1.6rem;
+      color: #f4821f;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 400;
+      background: transparent;
+    }
+
+    .nav #nav {
+      text-align: center;
+      float: left;
+    }
+    nav #nav li a:hover {
+      text-decoration: underline;
+    }
+    nav #nav li a {
+      display: block;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 23px 0px;
+      line-height: 1.2;
+    }
+    
+    .clear::before, .clear::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+</style>
+<body>
+    <header class="header-page">
+        <header class="header-page">
+            <div class="group-logo">
+                <div class="container">
+                    <div class="btn-mobile btn-showpopup" data-popup="popup-menu">
+                        <div class="hamburger hamburger--minus">
+                            <div class="hamburger-box">
+                                <div class="hamburger-inner"><span></span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#"><img class="logo" src="~/Images/logo-cua-hang-tien-loi-13.png" /></a>
+                    <div id="language" class="my-select">
+                        <span>VI</span>
+                        <ul>
+                            @*<li><a href="/" data-selected="1" data-value="vi">VI</a></li>*@
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="clear" style="background: rgb(0, 124, 255); display: block;">
+                <h2 class="hide">Navigation</h2>
+                <div class="container clear">
+                    <ul id="nav" class="clear">
+                        <li>
+                            <a href="#">Sản phẩm</a>
+
+
+                        </li>
+                        <li>
+                            <a href="#">Tin tức</a>
+                        </li>
+                        <li>
+                            <a href="#">Tuyển dụng</a>
+                        </li>
+                        <li>
+                            <a href="#">Nhượng quyền</a>
+                        </li>
+                    </ul>
+
+                    <div class="group-top-menu">
+
+                        <div class="top-menu">
+                            <ul>
+                                <li>
+                                    <a href="/about-us/">Giới thiệu</a>
+                                </li>
+                                <li>
+                                    <a href="/store/">Cửa hàng</a>
+                                </li>
+                                <li>
+                                    <a href="/membership/">Thành viên</a>
+                                </li>
+                                <li>
+                                    <a href="/contact-us/">Liên hệ</a>
+                                </li>
+                                <li>
+                                    <a href="/bill/">Kiểm tra hóa đơn</a>
+                                </li>
+                                <li>
+                                    <a href="/download-app/">Tải ứng dụng</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="search">
+                            <a href="#" class="btn-search btn-show"></a>
+                            <div class="box-search">
+                                <input type="text" name="keyword" data-alert="Vui lòng nhập từ khóa" id="ip-search" data-url="/search/" placeholder="Tìm kiếm">
+                                <a href="#" class="btn-search btn-box"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="outer-note-customer clear">
+                        <div class="note-header">
+                            <figure><img src="/Assets/images/icon_head_1.png" alt=""></figure>
+                            <div class="copy">
+                                <p>Tưng bừng khai trương Cửa hàng GS25 tại Vũng Tàu Center vào ngày 21/10/2023 <img src="/Assets/images/icon_head_2.png" alt=""></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        </header>
+        @RenderBody();
+    <footer class="bg-info" style="padding-left:50px">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <h3>CỬA HÀNG TIỆN LỢI</h3>
+                <span>Khuyến mãi</span>
+                <br />
+                <span>Sản phẩm</span>
+                <br />
+       
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <h3>HỖ TRỢ KHÁCH HÀNG</h3>
+                <span>Cam kết chất lượng</span>
+                <br />
+                <span>Chính sách vận chuyển</span>
+                <br />
+                <span>Chính sách thanh toán</span>
+                <br />
+                <span>Chính sách đổi hàng</span>
+
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <h3>HƯỚNG DẪN</h3>
+                <span>Chính sách đổi hàng</span>
+                <br />
+                <span>Hướng dẫn mua hàng</span>
+                <br />
+                <span>Liên hệ</span>
+                <br />
+                <span>Chính sách bảo mật</span>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <h3>ĐỊA CHỈ</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.0572727718736!2d106.6266403507256!3d10.806925561546462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752be27d8b4f4d%3A0x92dcba2950430867!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2hp4buHcCBUaOG7sWMgcGjhuqltIFRQLkhDTQ!5e0!3m2!1svi!2s!4v1664525230947!5m2!1svi!2s" width="300" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <hr />
+    </footer>
+
 </body>
 </html>
