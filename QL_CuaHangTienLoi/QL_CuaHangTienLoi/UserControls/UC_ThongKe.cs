@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QL_CuaHangTienLoi
+namespace QL_CuaHangTienLoi.UserControls
 {
-    public partial class Form1 : Form
+    public partial class UC_ThongKe : UserControl
     {
-        public Form1()
+        public UC_ThongKe()
         {
             InitializeComponent();
         }
