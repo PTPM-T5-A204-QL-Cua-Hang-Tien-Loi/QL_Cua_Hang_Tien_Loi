@@ -1,6 +1,17 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "MINISTOP - Trang chủ";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>INDEX</h2>
+<body>
+    <div class="row">
+        <div class="col-md-8">
+            @Html.Action("SlidePartial", "Home")
+        </div>
+        <div class="col-md-4">
+            
+        </div>
+    </div>
+
+    <h2>INDEX</h2>
+</body>

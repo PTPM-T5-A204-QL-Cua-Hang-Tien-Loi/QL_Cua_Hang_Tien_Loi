@@ -16,5 +16,9 @@ namespace Web_CuaHangTienLoi.Controllers
             return View();
         }
 
+        public ActionResult SlidePartial()
+        {
+            return PartialView();
+        }
     }
 }
