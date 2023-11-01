@@ -11,7 +11,7 @@ namespace BLL_DAL
     {
         QLCuaHangTienLoiDataContext qlch = new QLCuaHangTienLoiDataContext();
         public BLL_DAL_ChiTietHD() { }
-        public List<Chi> getCTHDBans_List()
+        public List<CHITIETHDBAN> getCTHDBans_List()
         {
             List<CHITIETHDBAN> list = new List<CHITIETHDBAN>();
             list = qlch.CHITIETHDBANs.ToList();
@@ -22,17 +22,17 @@ namespace BLL_DAL
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("Mã hóa đơn");
-            dt.Columns.Add("Mã hàng");
+            dt.Columns.Add("Mã sản phẩm");
             dt.Columns.Add("Số lượng mua");
             dt.Columns.Add("Đơn giá");
             dt.Columns.Add("Giảm giá");
             dt.Columns.Add("Thành tiền");
-            var cthoadon = from cthd in qlch.CHITIETHDBANs select new { cthd.MAHDBAN, cthd.MAHANG,cthd.SOLUONGMUA,cthd.DONGIA,cthd.GIAMGIA,cthd.THANHTIEN};
+            var cthoadon = from cthd in qlch.CHITIETHDBANs select new { cthd.MAHDBAN,cthd.MASP,cthd.SOLUONGMUA,cthd.DONGIA,cthd.GIAMGIA,cthd.THANHTIEN};
             foreach (var item in cthoadon)
             {
                 var row = dt.NewRow();
                 row[0] = item.MAHDBAN;
-                row[1] = item.MAHANG;
+                row[1] = item.MASP;
                 row[2] = item.SOLUONGMUA;
                 row[3] = item.DONGIA;
                 row[4] = item.GIAMGIA;

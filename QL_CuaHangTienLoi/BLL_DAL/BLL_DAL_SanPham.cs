@@ -8,36 +8,40 @@ using System.Threading.Tasks;
 
 namespace BLL_DAL
 {
-    public class BLL_DAL_Hang
+    public class BLL_DAL_SanPham
     {
         QLCuaHangTienLoiDataContext qlch = new QLCuaHangTienLoiDataContext();
-        public BLL_DAL_Hang() { }
-        public List<HANG> getHangs_List()
+        public BLL_DAL_SanPham() { }
+        public List<SANPHAM> getSanPhams_List()
         {
-            List<HANG> list = new List<HANG>();
-            list = qlch.HANGs.ToList();
+            List<SANPHAM> list = new List<SANPHAM>();
+            list = qlch.SANPHAMs.ToList();
             return list;
         }
         //Gọi hàm này khi dùng cho datagridview
-        public DataTable getHangs_Table()
+        public DataTable getSanPhams_Table()
         {
             DataTable dt = new DataTable();
+            dt.Columns.Add("Hình ảnh");
             dt.Columns.Add("Mã hàng");
             dt.Columns.Add("Tên hàng");
+            dt.Columns.Add("Đơn vị");
             dt.Columns.Add("Số lượng");
             dt.Columns.Add("Mã loại");
-            dt.Columns.Add("Đơn giá nhập");
+            dt.Columns.Add("Mã nhà cung cấp");
             dt.Columns.Add("Đơn giá bán");
-            var hang = from h in qlch.HANGs select new { h.MAHANG, h.TENHANG, h.SOLUONG, h.MALOAIHANG, h.DONGIANHAP, h.DONGIABAN };
+            var hang = from h in qlch.SANPHAMs select new { h.HINHANH,h.MASP, h.TENSP,h.DONVI, h.SOLUONG, h.MALOAI,h.MANCC, h.DONGIABAN };
             foreach(var item in hang)
             {
                 var row = dt.NewRow();
-                row[0] = item.MAHANG;
-                row[1] = item.TENHANG;
-                row[2] = item.SOLUONG;
-                row[3] = item.MALOAIHANG;
-                row[4] = item.DONGIANHAP;
-                row[5] = item.DONGIABAN;
+                row[0] = item.HINHANH;
+                row[1] = item.MASP;
+                row[2] = item.TENSP;
+                row[3] = item.DONVI;
+                row[4] = item.SOLUONG;
+                row[5] = item.MALOAI;
+                row[6] = item.MANCC;
+                row[7] = item.DONGIABAN;
                 dt.Rows.Add(row);
             }    
             return dt;

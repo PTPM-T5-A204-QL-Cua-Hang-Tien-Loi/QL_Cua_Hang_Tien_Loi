@@ -52,11 +52,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL_DAL_ChiTietHD.cs" />
+    <Compile Include="BLL_DAL_ChucVu.cs" />
+    <Compile Include="BLL_DAL_CTNhapHang.cs" />
     <Compile Include="BLL_DAL_HDBan.cs" />
     <Compile Include="BLL_DAL_Khach.cs" />
-    <Compile Include="BLL_DAL_LoaiHang.cs" />
+    <Compile Include="BLL_DAL_LoaiSP.cs" />
+    <Compile Include="BLL_DAL_NhaCC.cs" />
     <Compile Include="BLL_DAL_NhanVien.cs" />
-    <Compile Include="BLL_DAL_Hang.cs" />
+    <Compile Include="BLL_DAL_NhapHang.cs" />
+    <Compile Include="BLL_DAL_Quyen.cs" />
+    <Compile Include="BLL_DAL_SanPham.cs" />
+    <Compile Include="BLL_DAL_TaiKhoan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

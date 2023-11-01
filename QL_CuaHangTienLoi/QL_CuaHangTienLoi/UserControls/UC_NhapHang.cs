@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL_DAL;
 
 namespace QL_CuaHangTienLoi.UserControls
 {
     public partial class UC_NhapHang : UserControl
     {
+        BLL_DAL_NhapHang nhap = new BLL_DAL_NhapHang();
         static UC_NhapHang _obj;
         public static UC_NhapHang Instance
         {
@@ -27,6 +29,12 @@ namespace QL_CuaHangTienLoi.UserControls
         public UC_NhapHang()
         {
             InitializeComponent();
+            
+        }
+
+        private void UC_NhapHang_Load(object sender, EventArgs e)
+        {
+            dgvProduct.DataSource = nhap.getNhapHangs_Table();
         }
     }
 }
