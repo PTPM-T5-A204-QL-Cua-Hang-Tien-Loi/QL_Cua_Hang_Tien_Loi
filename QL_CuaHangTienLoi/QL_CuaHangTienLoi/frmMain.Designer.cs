@@ -169,7 +169,6 @@
             this.btnHomePage.TabIndex = 0;
             this.btnHomePage.Text = "TRANG CHỦ";
             this.btnHomePage.UseVisualStyleBackColor = true;
-            this.btnHomePage.Click += new System.EventHandler(this.btnHomePage_Click);
             // 
             // timer1
             // 

@@ -25,10 +25,5 @@ namespace QL_CuaHangTienLoi
                 Application.Exit();
             }
         }
-
-        private void btnLogic_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

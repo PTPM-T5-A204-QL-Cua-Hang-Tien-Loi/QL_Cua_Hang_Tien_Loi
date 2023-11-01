@@ -77,10 +77,5 @@ namespace QL_CuaHangTienLoi.GUI
         {
 
         }
-
-        private void btnHomePage_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
