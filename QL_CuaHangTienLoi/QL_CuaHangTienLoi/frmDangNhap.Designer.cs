@@ -139,6 +139,7 @@
             this.btnLogic.TabIndex = 4;
             this.btnLogic.Text = "Đăng nhập";
             this.btnLogic.UseVisualStyleBackColor = true;
+            this.btnLogic.Click += new System.EventHandler(this.btnLogic_Click);
             // 
             // frmDangNhap
             // 
