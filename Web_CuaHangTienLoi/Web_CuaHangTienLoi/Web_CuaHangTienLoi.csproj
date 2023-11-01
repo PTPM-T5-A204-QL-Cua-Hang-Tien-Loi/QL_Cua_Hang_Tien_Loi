@@ -44,6 +44,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -127,8 +129,60 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SanphamController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CHITIETHDBAN.cs">
+      <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CHITIETNHAPHANG.cs">
+      <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CHUCVU.cs">
+      <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HDBAN.cs">
+      <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KHACH.cs">
+      <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LOAISP.cs">
+      <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NHACUNGCAP.cs">
+      <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NHANVIEN.cs">
+      <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NHAPHANG.cs">
+      <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QLCuaHangTienLoi.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCuaHangTienLoi.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QLCuaHangTienLoi.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QLCuaHangTienLoi.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCuaHangTienLoi.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QUYEN.cs">
+      <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SANPHAM.cs">
+      <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TAIKHOAN.cs">
+      <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -190,9 +244,28 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <EntityDeploy Include="Models\QLCuaHangTienLoi.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QLCuaHangTienLoi.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\QLCuaHangTienLoi.edmx.diagram">
+      <DependentUpon>QLCuaHangTienLoi.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Images\lider2.jpg" />
     <Content Include="Images\logo-cua-hang-tien-loi-13.png" />
     <Content Include="Images\slide1.jpg" />
+    <Content Include="Images\slider1.jpg" />
+    <Content Include="Models\QLCuaHangTienLoi.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QLCuaHangTienLoi.edmx</DependentUpon>
+      <LastGenOutput>QLCuaHangTienLoi.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\QLCuaHangTienLoi.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QLCuaHangTienLoi.edmx</DependentUpon>
+      <LastGenOutput>QLCuaHangTienLoi.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -221,13 +294,17 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\SlidePartial.cshtml" />
+    <Content Include="Views\SanPham\NuocUong.cshtml" />
+    <Content Include="Views\SanPham\BanhKeo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
