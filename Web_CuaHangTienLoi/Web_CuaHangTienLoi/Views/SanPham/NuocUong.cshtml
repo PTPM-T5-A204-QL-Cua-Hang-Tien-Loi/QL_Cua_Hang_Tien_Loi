@@ -1,4 +1,50 @@
-﻿@*@using Web_CuaHangTienLoi.Models;
-@model List<SANPHAM>*@
+﻿@using Web_CuaHangTienLoi.Models;
+@model List<SANPHAM>
 
-<h2>Nước uống</h2>
+<style>
+        .wsk-cp-product {
+        background: #fff;
+        padding: 15px;
+        border-radius: 6px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        position: relative;
+        margin: 20px auto;
+    }
+           .wsk-cp-text {
+        padding-top: 150%;
+    }
+</style>
+<div class="row">
+    <div class="bg-danger"><h3 style="padding-left:20px">Nước uống</h3></div>
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3">
+            <div class="wsk-cp-product">
+                @*<div class="wsk-cp-img">
+                    <a href="@Url.Action("xemchitiet", new {@Masp=item.MASP)">
+                        <img src=@Url.Content("~/Images/"+ item.HINHANH) class="img-responsive" alt="" width="400" height="400" />
+                    </a>
+                </div>*@
+                <div class="wsk-cp-text">
+                    <div class="category">
+                        <span>#@item.LOAISP.MALOAI</span>
+                    </div>
+                    <div class="title-product">
+                        <h3>@item.TENSP</h3>
+                    </div>
+             
+                    <div class="card-footer">
+                        <div class="wcf-left"><span class="price">@String.Format("{0:0,0}", @item.DONGIABAN)</span></div>
+                        @*@using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = item.MASP, @strURL = Request.Url.ToString() }))
+                        {
+                            <input type="submit" id="bgnGioHang" class="buy-btn" value="" />
+                        }*@
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+

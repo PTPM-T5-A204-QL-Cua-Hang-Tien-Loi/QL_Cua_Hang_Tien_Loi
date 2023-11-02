@@ -17,13 +17,13 @@ namespace Web_CuaHangTienLoi.Controllers
         public ActionResult NuocUong()
         {
             var nuoc = db.SANPHAMs.Where(n => n.MALOAI == "LH001").Take(4).ToList();
-            return PartialView(db);
+            return PartialView(nuoc);
         }
 
         public ActionResult BanhKeo()
         {
             var nuoc = db.SANPHAMs.Where(n => n.MALOAI == "LH003").Take(4).ToList();
-            return PartialView(db);
+            return PartialView(nuoc);
         }
 
     }

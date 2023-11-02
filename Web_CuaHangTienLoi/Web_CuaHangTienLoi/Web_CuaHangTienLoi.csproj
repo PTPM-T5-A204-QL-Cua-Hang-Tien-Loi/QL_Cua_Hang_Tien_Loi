@@ -252,10 +252,10 @@
       <DependentUpon>QLCuaHangTienLoi.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
-    <Content Include="Images\lider2.jpg" />
-    <Content Include="Images\logo-cua-hang-tien-loi-13.png" />
-    <Content Include="Images\slide1.jpg" />
-    <Content Include="Images\slider1.jpg" />
+    <Content Include="Controllers\Images\lider2.jpg" />
+    <Content Include="Controllers\Images\logo-cua-hang-tien-loi-13.png" />
+    <Content Include="Controllers\Images\slide1.jpg" />
+    <Content Include="Controllers\Images\slider1.jpg" />
     <Content Include="Models\QLCuaHangTienLoi.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QLCuaHangTienLoi.edmx</DependentUpon>
