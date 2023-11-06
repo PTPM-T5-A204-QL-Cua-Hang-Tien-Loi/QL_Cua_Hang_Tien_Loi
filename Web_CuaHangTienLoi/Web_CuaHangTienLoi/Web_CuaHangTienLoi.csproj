@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -248,6 +250,11 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>QLCuaHangTienLoi.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="Images\food.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\slider1.png" />
+    <Content Include="Images\thucuong1.jpg" />
+    <Content Include="Images\watter.png" />
     <Content Include="Models\QLCuaHangTienLoi.edmx.diagram">
       <DependentUpon>QLCuaHangTienLoi.edmx</DependentUpon>
     </Content>
@@ -295,7 +302,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\SlidePartial.cshtml" />
     <Content Include="Views\SanPham\NuocUong.cshtml" />
-    <Content Include="Views\SanPham\BanhKeo.cshtml" />
+    <Content Include="Views\SanPham\ThucAn.cshtml" />
+    <Content Include="Views\SanPham\XemChiTiet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

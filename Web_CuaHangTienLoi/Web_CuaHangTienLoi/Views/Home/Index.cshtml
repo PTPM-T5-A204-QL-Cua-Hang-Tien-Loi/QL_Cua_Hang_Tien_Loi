@@ -4,17 +4,23 @@
 }
 
 <body>
+    <br />
     <div class="row">
         <div class="col-md-12">
             @Html.Action("SlidePartial", "Home")
         </div>
-  
     </div>
+    <br />
+    <div class="type-banner">
+        <span class="watter">Nước Uống</span>       
+        <a href="#" class="btn-type-banner">Xem tất cả &gt;</a>
+    </div>
+    @Html.Action("NuocUong", "SanPham")
 
-    <div>
-        @Html.Action("NuocUong", "SanPham")
+    <div class="type-banner">
+        <span class="food">Thức Ăn</span>
+        <a href="#" class="btn-type-banner">Xem tất cả &gt;</a>
     </div>
-    <div>
-        @Html.Action("BanhKeo", "SanPham");
-    </div>
+    @Html.Action("ThucAn", "SanPham")
+
 </body>

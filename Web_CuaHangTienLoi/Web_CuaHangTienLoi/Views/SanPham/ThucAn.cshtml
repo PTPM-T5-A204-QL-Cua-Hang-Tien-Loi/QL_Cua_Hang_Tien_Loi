@@ -2,32 +2,32 @@
 @model List<SANPHAM>
 
 <div class="row">
-   
+
     @foreach (var item in Model)
     {
         <div class="col-md-3">
             <div class="wsk-cp-product">
 
-                <div class="wsk-cp-img">    
+                <div class="wsk-cp-img">
                     <a href="@Url.Action("XemChiTiet", new { @MASP = item.MASP })">
                         <img src=@Url.Content("~/Images/"+ item.HINHANH) class="img-responsive" alt="" width="400" height="400" />
-                   </a>
+                    </a>
                 </div>
 
                 <div class="wsk-cp-text">
                     <div class="category">
-                        <span><img src="~/Images/watter.png" class="icon-type"  /> @item.LOAISP.TENLOAI</span>
+                        <span><img src="~/Images/food.png" class="icon-type" /> @item.LOAISP.TENLOAI</span>
                     </div>
                     <div class="title-product">
                         <h3>@item.TENSP</h3>
                     </div>
-             
+
                     <div class="card-footer">
                         <div class="wcf-left"><span class="price">@String.Format("{0:0,0}", @item.DONGIABAN) VNĐ</span></div>
                         @*@using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = item.MASP, @strURL = Request.Url.ToString() }))
-                        {
-                            <input type="submit" id="bgnGioHang" class="buy-btn" value="" />
-                        }*@
+                            {
+                                <input type="submit" id="bgnGioHang" class="buy-btn" value="" />
+                            }*@
 
                     </div>
                 </div>

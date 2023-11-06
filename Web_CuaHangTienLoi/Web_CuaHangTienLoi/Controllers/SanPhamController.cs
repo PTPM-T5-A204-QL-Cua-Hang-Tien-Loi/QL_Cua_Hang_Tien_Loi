@@ -20,11 +20,21 @@ namespace Web_CuaHangTienLoi.Controllers
             return PartialView(nuoc);
         }
 
-        public ActionResult BanhKeo()
+        public ActionResult ThucAn()
         {
-            var nuoc = db.SANPHAMs.Where(n => n.MALOAI == "LH003").Take(4).ToList();
-            return PartialView(nuoc);
+            var ta = db.SANPHAMs.Where(n => n.MALOAI == "LH003").Take(4).ToList();
+            return PartialView(ta);
         }
 
+        public ActionResult XemChiTiet(string MASP = "")
+        {
+            var chitiet = db.SANPHAMs.SingleOrDefault(n => n.MASP == MASP);
+            if (chitiet == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(chitiet);
+        }
     }
 }
