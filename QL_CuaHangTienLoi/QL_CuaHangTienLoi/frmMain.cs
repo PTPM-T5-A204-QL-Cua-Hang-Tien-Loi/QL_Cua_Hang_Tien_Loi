@@ -28,7 +28,7 @@ namespace QL_CuaHangTienLoi.GUI
 
         private void ShowTabUsing(string tabName)
         {
-            lblTabShow.Text = $"Tab đang hiển thị: {tabName}";
+            lblTabShow.Text = "Tab đang hiển thị: {tabName}";
         }
 
         private void AddTabToControl()

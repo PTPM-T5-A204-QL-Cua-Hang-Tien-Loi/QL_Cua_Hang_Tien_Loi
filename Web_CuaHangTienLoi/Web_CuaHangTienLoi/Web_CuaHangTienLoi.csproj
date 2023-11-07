@@ -130,6 +130,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SanphamController.cs" />
     <Compile Include="Global.asax.cs">
@@ -144,6 +145,7 @@
     <Compile Include="Models\CHUCVU.cs">
       <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\HDBAN.cs">
       <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
     </Compile>
@@ -259,10 +261,6 @@
       <DependentUpon>QLCuaHangTienLoi.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
-    <Content Include="Controllers\Images\lider2.jpg" />
-    <Content Include="Controllers\Images\logo-cua-hang-tien-loi-13.png" />
-    <Content Include="Controllers\Images\slide1.jpg" />
-    <Content Include="Controllers\Images\slider1.jpg" />
     <Content Include="Models\QLCuaHangTienLoi.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QLCuaHangTienLoi.edmx</DependentUpon>
@@ -304,6 +302,8 @@
     <Content Include="Views\SanPham\NuocUong.cshtml" />
     <Content Include="Views\SanPham\ThucAn.cshtml" />
     <Content Include="Views\SanPham\XemChiTiet.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

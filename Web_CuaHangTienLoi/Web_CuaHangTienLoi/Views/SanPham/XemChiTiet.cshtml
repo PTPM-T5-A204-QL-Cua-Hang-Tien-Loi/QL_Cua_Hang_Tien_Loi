@@ -142,10 +142,10 @@
                     <div class="prize">Giá tiền: <span>@String.Format("{0:0,0}", @Model.DONGIABAN) VNĐ</span></div>
                     
                     <div class="product-price-btn">
-
-                            <button type="submit" id="bgnGioHang" class="buy-btn">Thêm vào giỏ hàng</button>
-                        
-
+                        @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = @Model.MASP, @strURL = Request.Url.ToString() }))
+                        {
+                            <button type="submit" id="bgnGioHang" class="buy-btn">mua ngay</button>
+                        }
                     </div>               
                 </div>
             </div>
