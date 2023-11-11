@@ -133,6 +133,7 @@
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SanphamController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -145,6 +146,7 @@
     <Compile Include="Models\CHUCVU.cs">
       <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DangNhap.cs" />
     <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\HDBAN.cs">
       <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
@@ -153,6 +155,9 @@
       <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LOAISP.cs">
+      <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Nguoidung.cs">
       <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NHACUNGCAP.cs">
@@ -248,15 +253,15 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <EntityDeploy Include="Models\QLCuaHangTienLoi.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QLCuaHangTienLoi.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <Content Include="Images\food.png" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\slider1.png" />
     <Content Include="Images\thucuong1.jpg" />
     <Content Include="Images\watter.png" />
+    <EntityDeploy Include="Models\QLCuaHangTienLoi.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QLCuaHangTienLoi.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <Content Include="Models\QLCuaHangTienLoi.edmx.diagram">
       <DependentUpon>QLCuaHangTienLoi.edmx</DependentUpon>
     </Content>
@@ -304,6 +309,10 @@
     <Content Include="Views\SanPham\XemChiTiet.cshtml" />
     <Content Include="Views\GioHang\GioHang.cshtml" />
     <Content Include="Views\GioHang\GioHangPartial.cshtml" />
+    <Content Include="Views\Home\GioiThieu.cshtml" />
+    <Content Include="Views\Home\LienHe.cshtml" />
+    <Content Include="Views\User\Dangnhap.cshtml" />
+    <Content Include="Views\User\DangKy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

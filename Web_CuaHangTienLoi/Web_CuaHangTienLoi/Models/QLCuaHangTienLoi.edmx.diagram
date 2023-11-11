@@ -4,13 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="290d386d25eb4835b97ceb0d45e3e5dc" Name="Diagram1">
+      <Diagram DiagramId="5c3d6c7c42874674981c2a9a341457e5" Name="Diagram1">
         <EntityTypeShape EntityType="QL_CuaHangTienLoi_NewModel.CHITIETHDBAN" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="QL_CuaHangTienLoi_NewModel.CHITIETNHAPHANG" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="QL_CuaHangTienLoi_NewModel.CHUCVU" Width="1.5" PointX="1.5" PointY="16.375" IsExpanded="true" />
         <EntityTypeShape EntityType="QL_CuaHangTienLoi_NewModel.HDBAN" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
         <EntityTypeShape EntityType="QL_CuaHangTienLoi_NewModel.KHACH" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QL_CuaHangTienLoi_NewModel.LOAISP" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_CuaHangTienLoi_NewModel.Nguoidung" Width="1.5" PointX="5.75" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="QL_CuaHangTienLoi_NewModel.NHACUNGCAP" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QL_CuaHangTienLoi_NewModel.NHANVIEN" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
         <EntityTypeShape EntityType="QL_CuaHangTienLoi_NewModel.NHAPHANG" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />

@@ -279,7 +279,7 @@
 </style>
 <body>
     @{
-        var u = Session["use"] as Web_CuaHangTienLoi.Models.TAIKHOAN;
+        var u = Session["use"] as Web_CuaHangTienLoi.Models.Nguoidung;
     }
     
         <header class="header-page">
@@ -321,6 +321,30 @@
                         </li>
                         <li style="margin-left:100px;">                         
                             @Html.Action("GioHangPartial", "GioHang", new { @class = "giohang" })
+                        </li>   
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="row">
+                                @{
+
+                                    if (u != null)
+                                    {
+                                        <div class="col-sm-4 col-md-0">
+                                            Xin chào : @u.Hoten
+                                            &nbsp;
+                                            <a style="color:red" href="/User/DangXuat"> ĐĂNG XUẤT</a>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="col-sm-4 col-md-0">
+                                            <a style="color:white" href="/User/Dangky"> Đăng ký /</a>                                           
+                                            <a style="color:white" href="/User/Dangnhap"> Đăng nhập</a>
+                                        </div>
+                                    }
+                                }
+                            </div>
                         </li>
                     </ul>
 
@@ -328,7 +352,7 @@
                         <div class="top-menu">
                             <ul>
                                 <li>
-                                    <a href="#">Giới thiệu</a>
+                                    <a href="~/Home/GioiThieu" title="gioithieu">Giới thiệu</a>
                                 </li>
                                 <li>
                                     <a href="#">Cửa hàng</a>
@@ -337,7 +361,7 @@
                                     <a href="#">Thành viên</a>
                                 </li>
                                 <li>
-                                    <a href="#">Liên hệ</a>
+                                    <a href="~/Home/LienHe">Liên hệ</a>
                                 </li>
                                 <li>
                                     <a href="#">Kiểm tra hóa đơn</a>

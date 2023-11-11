@@ -12,7 +12,7 @@ namespace Web_CuaHangTienLoi.Controllers
         //
         // GET: /SanPham/
 
-        QL_CuaHangTienLoi_NewEntities db = new QL_CuaHangTienLoi_NewEntities();
+        QL_CuaHangTienLoi_NewEntities1 db = new QL_CuaHangTienLoi_NewEntities1();
 
         public ActionResult NuocUong()
         {

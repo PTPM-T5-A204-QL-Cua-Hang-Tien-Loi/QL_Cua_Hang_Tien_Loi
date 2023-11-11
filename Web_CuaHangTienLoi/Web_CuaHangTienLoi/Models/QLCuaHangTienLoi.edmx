@@ -62,6 +62,17 @@
           <Property Name="MALOAI" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="TENLOAI" Type="nvarchar" MaxLength="40" Nullable="false" />
         </EntityType>
+        <EntityType Name="Nguoidung">
+          <Key>
+            <PropertyRef Name="MaNguoiDung" />
+          </Key>
+          <Property Name="MaNguoiDung" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Hoten" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dienthoai" Type="nchar" MaxLength="12" />
+          <Property Name="Matkhau" Type="varchar" MaxLength="50" />
+          <Property Name="Diachi" Type="nvarchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="NHACUNGCAP">
           <Key>
             <PropertyRef Name="MANCC" />
@@ -275,6 +286,7 @@
           <EntitySet Name="HDBAN" EntityType="Self.HDBAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KHACH" EntityType="Self.KHACH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LOAISP" EntityType="Self.LOAISP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nguoidung" EntityType="Self.Nguoidung" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHACUNGCAP" EntityType="Self.NHACUNGCAP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHAPHANG" EntityType="Self.NHAPHANG" Schema="dbo" store:Type="Tables" />
@@ -401,6 +413,17 @@
           <Property Name="MALOAI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TENLOAI" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="SANPHAMs" Relationship="Self.FK_SANPHAM_LOAISP" FromRole="LOAISP" ToRole="SANPHAM" />
+        </EntityType>
+        <EntityType Name="Nguoidung">
+          <Key>
+            <PropertyRef Name="MaNguoiDung" />
+          </Key>
+          <Property Name="MaNguoiDung" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Hoten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dienthoai" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="Matkhau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Diachi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="NHACUNGCAP">
           <Key>
@@ -622,13 +645,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QL_CuaHangTienLoi_NewEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="QL_CuaHangTienLoi_NewEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CHITIETHDBANs" EntityType="Self.CHITIETHDBAN" />
           <EntitySet Name="CHITIETNHAPHANGs" EntityType="Self.CHITIETNHAPHANG" />
           <EntitySet Name="CHUCVUs" EntityType="Self.CHUCVU" />
           <EntitySet Name="HDBANs" EntityType="Self.HDBAN" />
           <EntitySet Name="KHACHes" EntityType="Self.KHACH" />
           <EntitySet Name="LOAISPs" EntityType="Self.LOAISP" />
+          <EntitySet Name="Nguoidungs" EntityType="Self.Nguoidung" />
           <EntitySet Name="NHACUNGCAPs" EntityType="Self.NHACUNGCAP" />
           <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
           <EntitySet Name="NHAPHANGs" EntityType="Self.NHAPHANG" />
@@ -689,7 +713,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QL_CuaHangTienLoi_NewModelStoreContainer" CdmEntityContainer="QL_CuaHangTienLoi_NewEntities">
+        <EntityContainerMapping StorageEntityContainer="QL_CuaHangTienLoi_NewModelStoreContainer" CdmEntityContainer="QL_CuaHangTienLoi_NewEntities1">
           <EntitySetMapping Name="CHITIETHDBANs">
             <EntityTypeMapping TypeName="QL_CuaHangTienLoi_NewModel.CHITIETHDBAN">
               <MappingFragment StoreEntitySet="CHITIETHDBAN">
@@ -748,6 +772,18 @@
               <MappingFragment StoreEntitySet="LOAISP">
                 <ScalarProperty Name="MALOAI" ColumnName="MALOAI" />
                 <ScalarProperty Name="TENLOAI" ColumnName="TENLOAI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nguoidungs">
+            <EntityTypeMapping TypeName="QL_CuaHangTienLoi_NewModel.Nguoidung">
+              <MappingFragment StoreEntitySet="Nguoidung">
+                <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+                <ScalarProperty Name="Hoten" ColumnName="Hoten" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Dienthoai" ColumnName="Dienthoai" />
+                <ScalarProperty Name="Matkhau" ColumnName="Matkhau" />
+                <ScalarProperty Name="Diachi" ColumnName="Diachi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

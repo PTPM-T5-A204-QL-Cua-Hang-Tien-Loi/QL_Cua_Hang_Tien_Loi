@@ -16,6 +16,16 @@ namespace Web_CuaHangTienLoi.Controllers
             return View();
         }
 
+        public ActionResult GioiThieu()
+        {
+            return View();
+        }
+
+        public ActionResult LienHe()
+        {
+            return View();
+        }
+
         public ActionResult SlidePartial()
         {
             return PartialView();
