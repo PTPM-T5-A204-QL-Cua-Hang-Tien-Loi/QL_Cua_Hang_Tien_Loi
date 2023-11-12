@@ -12,6 +12,18 @@ namespace QL_CuaHangTienLoi.UserControls
 {
     public partial class UC_ThongKe : UserControl
     {
+        static UC_ThongKe _obj;
+        public static UC_ThongKe Instance
+        {
+            get
+            {
+                if (_obj == null)
+                {
+                    _obj = new UC_ThongKe();
+                }
+                return _obj;
+            }
+        }
         public UC_ThongKe()
         {
             InitializeComponent();

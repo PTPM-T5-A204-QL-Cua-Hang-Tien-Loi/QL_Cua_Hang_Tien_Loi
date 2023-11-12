@@ -35,13 +35,16 @@
             this.lblTime = new System.Windows.Forms.Label();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.btnNhanVien = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pnlMain = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblTenNV = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnThongKe = new System.Windows.Forms.Button();
             this.btnNhapHang = new System.Windows.Forms.Button();
             this.btnBanHang = new System.Windows.Forms.Button();
             this.btnSanPham = new System.Windows.Forms.Button();
             this.btnHomePage = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlMove.SuspendLayout();
             this.pnlControl.SuspendLayout();
             this.SuspendLayout();
@@ -51,6 +54,9 @@
             this.pnlMove.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMove.BackColor = System.Drawing.Color.Green;
+            this.pnlMove.Controls.Add(this.button1);
+            this.pnlMove.Controls.Add(this.lblTenNV);
+            this.pnlMove.Controls.Add(this.label1);
             this.pnlMove.Controls.Add(this.lblTabShow);
             this.pnlMove.Location = new System.Drawing.Point(0, 0);
             this.pnlMove.Name = "pnlMove";
@@ -108,68 +114,15 @@
             // btnNhanVien
             // 
             this.btnNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNhanVien.Image = global::QL_CuaHangTienLoi.Properties.Resources.icons8_staff_32;
             this.btnNhanVien.Location = new System.Drawing.Point(19, 479);
             this.btnNhanVien.Name = "btnNhanVien";
             this.btnNhanVien.Size = new System.Drawing.Size(305, 74);
             this.btnNhanVien.TabIndex = 5;
             this.btnNhanVien.Text = "NHÂN VIÊN";
+            this.btnNhanVien.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNhanVien.UseVisualStyleBackColor = true;
             this.btnNhanVien.Click += new System.EventHandler(this.btnNhanVien_Click);
-            // 
-            // btnThongKe
-            // 
-            this.btnThongKe.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThongKe.Location = new System.Drawing.Point(19, 390);
-            this.btnThongKe.Name = "btnThongKe";
-            this.btnThongKe.Size = new System.Drawing.Size(305, 74);
-            this.btnThongKe.TabIndex = 4;
-            this.btnThongKe.Text = "THỐNG KÊ";
-            this.btnThongKe.UseVisualStyleBackColor = true;
-            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
-            // 
-            // btnNhapHang
-            // 
-            this.btnNhapHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNhapHang.Location = new System.Drawing.Point(19, 301);
-            this.btnNhapHang.Name = "btnNhapHang";
-            this.btnNhapHang.Size = new System.Drawing.Size(305, 74);
-            this.btnNhapHang.TabIndex = 3;
-            this.btnNhapHang.Text = "NHẬP HÀNG";
-            this.btnNhapHang.UseVisualStyleBackColor = true;
-            this.btnNhapHang.Click += new System.EventHandler(this.btnNhapHang_Click);
-            // 
-            // btnBanHang
-            // 
-            this.btnBanHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBanHang.Location = new System.Drawing.Point(19, 212);
-            this.btnBanHang.Name = "btnBanHang";
-            this.btnBanHang.Size = new System.Drawing.Size(305, 74);
-            this.btnBanHang.TabIndex = 2;
-            this.btnBanHang.Text = "BÁN HÀNG";
-            this.btnBanHang.UseVisualStyleBackColor = true;
-            this.btnBanHang.Click += new System.EventHandler(this.btnBanHang_Click);
-            // 
-            // btnSanPham
-            // 
-            this.btnSanPham.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSanPham.Location = new System.Drawing.Point(19, 122);
-            this.btnSanPham.Name = "btnSanPham";
-            this.btnSanPham.Size = new System.Drawing.Size(305, 74);
-            this.btnSanPham.TabIndex = 1;
-            this.btnSanPham.Text = "SẢN PHẨM";
-            this.btnSanPham.UseVisualStyleBackColor = true;
-            this.btnSanPham.Click += new System.EventHandler(this.btnSanPham_Click);
-            // 
-            // btnHomePage
-            // 
-            this.btnHomePage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHomePage.Location = new System.Drawing.Point(19, 33);
-            this.btnHomePage.Name = "btnHomePage";
-            this.btnHomePage.Size = new System.Drawing.Size(305, 74);
-            this.btnHomePage.TabIndex = 0;
-            this.btnHomePage.Text = "TRANG CHỦ";
-            this.btnHomePage.UseVisualStyleBackColor = true;
-            this.btnHomePage.Click += new System.EventHandler(this.btnHomePage_Click);
             // 
             // timer1
             // 
@@ -186,6 +139,105 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(1374, 879);
             this.pnlMain.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(1189, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(142, 32);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Xin chào:";
+            // 
+            // lblTenNV
+            // 
+            this.lblTenNV.AutoSize = true;
+            this.lblTenNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenNV.ForeColor = System.Drawing.Color.Gold;
+            this.lblTenNV.Location = new System.Drawing.Point(1337, 17);
+            this.lblTenNV.Name = "lblTenNV";
+            this.lblTenNV.Size = new System.Drawing.Size(203, 29);
+            this.lblTenNV.TabIndex = 5;
+            this.lblTenNV.Text = "NGUYỄN VĂN A";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(1589, 9);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(125, 47);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "ĐĂNG XUẤT";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // btnThongKe
+            // 
+            this.btnThongKe.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThongKe.Image = global::QL_CuaHangTienLoi.Properties.Resources.icons8_plot_32;
+            this.btnThongKe.Location = new System.Drawing.Point(19, 390);
+            this.btnThongKe.Name = "btnThongKe";
+            this.btnThongKe.Size = new System.Drawing.Size(305, 74);
+            this.btnThongKe.TabIndex = 4;
+            this.btnThongKe.Text = "THỐNG KÊ";
+            this.btnThongKe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnThongKe.UseVisualStyleBackColor = true;
+            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
+            // 
+            // btnNhapHang
+            // 
+            this.btnNhapHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNhapHang.Image = global::QL_CuaHangTienLoi.Properties.Resources.icons8_import_32;
+            this.btnNhapHang.Location = new System.Drawing.Point(19, 301);
+            this.btnNhapHang.Name = "btnNhapHang";
+            this.btnNhapHang.Size = new System.Drawing.Size(305, 74);
+            this.btnNhapHang.TabIndex = 3;
+            this.btnNhapHang.Text = "NHẬP HÀNG";
+            this.btnNhapHang.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNhapHang.UseVisualStyleBackColor = true;
+            this.btnNhapHang.Click += new System.EventHandler(this.btnNhapHang_Click);
+            // 
+            // btnBanHang
+            // 
+            this.btnBanHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBanHang.Image = global::QL_CuaHangTienLoi.Properties.Resources.icons8_purchase_order_32;
+            this.btnBanHang.Location = new System.Drawing.Point(19, 212);
+            this.btnBanHang.Name = "btnBanHang";
+            this.btnBanHang.Size = new System.Drawing.Size(305, 74);
+            this.btnBanHang.TabIndex = 2;
+            this.btnBanHang.Text = "BÁN HÀNG";
+            this.btnBanHang.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBanHang.UseVisualStyleBackColor = true;
+            this.btnBanHang.Click += new System.EventHandler(this.btnBanHang_Click);
+            // 
+            // btnSanPham
+            // 
+            this.btnSanPham.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSanPham.Image = global::QL_CuaHangTienLoi.Properties.Resources.icons8_product_32;
+            this.btnSanPham.Location = new System.Drawing.Point(19, 122);
+            this.btnSanPham.Name = "btnSanPham";
+            this.btnSanPham.Size = new System.Drawing.Size(305, 74);
+            this.btnSanPham.TabIndex = 1;
+            this.btnSanPham.Text = "SẢN PHẨM";
+            this.btnSanPham.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSanPham.UseVisualStyleBackColor = true;
+            this.btnSanPham.Click += new System.EventHandler(this.btnSanPham_Click);
+            // 
+            // btnHomePage
+            // 
+            this.btnHomePage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHomePage.Image = global::QL_CuaHangTienLoi.Properties.Resources.icons8_home_32;
+            this.btnHomePage.Location = new System.Drawing.Point(19, 33);
+            this.btnHomePage.Name = "btnHomePage";
+            this.btnHomePage.Size = new System.Drawing.Size(305, 74);
+            this.btnHomePage.TabIndex = 0;
+            this.btnHomePage.Text = "TRANG CHỦ";
+            this.btnHomePage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHomePage.UseVisualStyleBackColor = true;
+            this.btnHomePage.Click += new System.EventHandler(this.btnHomePage_Click);
             // 
             // frmMain
             // 
@@ -223,5 +275,8 @@
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel pnlMain;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTenNV;
+        private System.Windows.Forms.Button button1;
     }
 }

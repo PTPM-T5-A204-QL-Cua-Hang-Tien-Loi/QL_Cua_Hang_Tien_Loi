@@ -22,7 +22,6 @@ namespace BLL_DAL
         public DataTable getSanPhams_Table()
         {
             DataTable dt = new DataTable();
-            dt.Columns.Add("Hình ảnh");
             dt.Columns.Add("Mã hàng");
             dt.Columns.Add("Tên hàng");
             dt.Columns.Add("Đơn vị");
@@ -30,18 +29,17 @@ namespace BLL_DAL
             dt.Columns.Add("Mã loại");
             dt.Columns.Add("Mã nhà cung cấp");
             dt.Columns.Add("Đơn giá bán");
-            var hang = from h in qlch.SANPHAMs select new { h.HINHANH,h.MASP, h.TENSP,h.DONVI, h.SOLUONG, h.MALOAI,h.MANCC, h.DONGIABAN };
+            var hang = from h in qlch.SANPHAMs select new {h.MASP, h.TENSP,h.DONVI, h.SOLUONG, h.MALOAI,h.MANCC, h.DONGIABAN };
             foreach(var item in hang)
             {
                 var row = dt.NewRow();
-                row[0] = item.HINHANH;
-                row[1] = item.MASP;
-                row[2] = item.TENSP;
-                row[3] = item.DONVI;
-                row[4] = item.SOLUONG;
-                row[5] = item.MALOAI;
-                row[6] = item.MANCC;
-                row[7] = item.DONGIABAN;
+                row[0] = item.MASP;
+                row[1] = item.TENSP;
+                row[2] = item.DONVI;
+                row[3] = item.SOLUONG;
+                row[4] = item.MALOAI;
+                row[5] = item.MANCC;
+                row[6] = item.DONGIABAN;
                 dt.Rows.Add(row);
             }    
             return dt;

@@ -36,5 +36,20 @@ namespace QL_CuaHangTienLoi.UserControls
         {
             dgvProduct.DataSource = nhap.getNhapHangs_Table();
         }
+
+        private void btnXemTTNCC_Click(object sender, EventArgs e)
+        {
+            new frmTHNhaCungCap().ShowDialog();
+        }
+
+        private void btnThemSP_Click(object sender, EventArgs e)
+        {
+            new frmSanPham().ShowDialog();
+        }
+
+        private void btnXemLichSuNH_Click(object sender, EventArgs e)
+        {
+            UC_ThongKe.Instance.BringToFront();
+        }
     }
 }

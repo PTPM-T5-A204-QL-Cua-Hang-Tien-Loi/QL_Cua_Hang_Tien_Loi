@@ -44,10 +44,10 @@
             this.cbFindLoaiSP = new System.Windows.Forms.ComboBox();
             this.cbFindNCC = new System.Windows.Forms.TextBox();
             this.txtFindTenSP = new System.Windows.Forms.TextBox();
-            this.chbTypeProduct = new System.Windows.Forms.CheckBox();
-            this.chbSupplier = new System.Windows.Forms.CheckBox();
-            this.chbPrice = new System.Windows.Forms.CheckBox();
-            this.chbName = new System.Windows.Forms.CheckBox();
+            this.chbLoaiSP = new System.Windows.Forms.CheckBox();
+            this.chbNCC = new System.Windows.Forms.CheckBox();
+            this.chbGia = new System.Windows.Forms.CheckBox();
+            this.chbFindTenSP = new System.Windows.Forms.CheckBox();
             this.gbMakeBill = new System.Windows.Forms.GroupBox();
             this.btnTaoPN = new System.Windows.Forms.Button();
             this.btnHuyPN = new System.Windows.Forms.Button();
@@ -86,10 +86,10 @@
             this.gbFilter.Controls.Add(this.cbFindLoaiSP);
             this.gbFilter.Controls.Add(this.cbFindNCC);
             this.gbFilter.Controls.Add(this.txtFindTenSP);
-            this.gbFilter.Controls.Add(this.chbTypeProduct);
-            this.gbFilter.Controls.Add(this.chbSupplier);
-            this.gbFilter.Controls.Add(this.chbPrice);
-            this.gbFilter.Controls.Add(this.chbName);
+            this.gbFilter.Controls.Add(this.chbLoaiSP);
+            this.gbFilter.Controls.Add(this.chbNCC);
+            this.gbFilter.Controls.Add(this.chbGia);
+            this.gbFilter.Controls.Add(this.chbFindTenSP);
             this.gbFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbFilter.Location = new System.Drawing.Point(0, 0);
             this.gbFilter.Margin = new System.Windows.Forms.Padding(0);
@@ -135,6 +135,7 @@
             this.btnThemSP.TabIndex = 32;
             this.btnThemSP.Text = "Thêm sản phẩm mới";
             this.btnThemSP.UseVisualStyleBackColor = true;
+            this.btnThemSP.Click += new System.EventHandler(this.btnThemSP_Click);
             // 
             // btnXemTTNCC
             // 
@@ -145,6 +146,7 @@
             this.btnXemTTNCC.TabIndex = 30;
             this.btnXemTTNCC.Text = "Thông tin các nhà cung cấp";
             this.btnXemTTNCC.UseVisualStyleBackColor = true;
+            this.btnXemTTNCC.Click += new System.EventHandler(this.btnXemTTNCC_Click);
             // 
             // btnChooseProduct
             // 
@@ -163,6 +165,7 @@
             this.btnXemLichSuNH.TabIndex = 28;
             this.btnXemLichSuNH.Text = "Lịch sử nhập hàng";
             this.btnXemLichSuNH.UseVisualStyleBackColor = true;
+            this.btnXemLichSuNH.Click += new System.EventHandler(this.btnXemLichSuNH_Click);
             // 
             // btnFind
             // 
@@ -258,53 +261,53 @@
             this.txtFindTenSP.Size = new System.Drawing.Size(475, 26);
             this.txtFindTenSP.TabIndex = 20;
             // 
-            // chbTypeProduct
+            // chbLoaiSP
             // 
-            this.chbTypeProduct.AutoSize = true;
-            this.chbTypeProduct.Checked = true;
-            this.chbTypeProduct.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbTypeProduct.Location = new System.Drawing.Point(15, 189);
-            this.chbTypeProduct.Name = "chbTypeProduct";
-            this.chbTypeProduct.Size = new System.Drawing.Size(141, 24);
-            this.chbTypeProduct.TabIndex = 19;
-            this.chbTypeProduct.Text = "Loại sản phẩm";
-            this.chbTypeProduct.UseVisualStyleBackColor = true;
+            this.chbLoaiSP.AutoSize = true;
+            this.chbLoaiSP.Checked = true;
+            this.chbLoaiSP.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbLoaiSP.Location = new System.Drawing.Point(15, 189);
+            this.chbLoaiSP.Name = "chbLoaiSP";
+            this.chbLoaiSP.Size = new System.Drawing.Size(141, 24);
+            this.chbLoaiSP.TabIndex = 19;
+            this.chbLoaiSP.Text = "Loại sản phẩm";
+            this.chbLoaiSP.UseVisualStyleBackColor = true;
             // 
-            // chbSupplier
+            // chbNCC
             // 
-            this.chbSupplier.AutoSize = true;
-            this.chbSupplier.Checked = true;
-            this.chbSupplier.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbSupplier.Location = new System.Drawing.Point(15, 141);
-            this.chbSupplier.Name = "chbSupplier";
-            this.chbSupplier.Size = new System.Drawing.Size(134, 24);
-            this.chbSupplier.TabIndex = 18;
-            this.chbSupplier.Text = "Nhà cung cấp";
-            this.chbSupplier.UseVisualStyleBackColor = true;
+            this.chbNCC.AutoSize = true;
+            this.chbNCC.Checked = true;
+            this.chbNCC.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbNCC.Location = new System.Drawing.Point(15, 141);
+            this.chbNCC.Name = "chbNCC";
+            this.chbNCC.Size = new System.Drawing.Size(134, 24);
+            this.chbNCC.TabIndex = 18;
+            this.chbNCC.Text = "Nhà cung cấp";
+            this.chbNCC.UseVisualStyleBackColor = true;
             // 
-            // chbPrice
+            // chbGia
             // 
-            this.chbPrice.AutoSize = true;
-            this.chbPrice.Checked = true;
-            this.chbPrice.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbPrice.Location = new System.Drawing.Point(15, 93);
-            this.chbPrice.Name = "chbPrice";
-            this.chbPrice.Size = new System.Drawing.Size(114, 24);
-            this.chbPrice.TabIndex = 17;
-            this.chbPrice.Text = "Giá (nghìn)";
-            this.chbPrice.UseVisualStyleBackColor = true;
+            this.chbGia.AutoSize = true;
+            this.chbGia.Checked = true;
+            this.chbGia.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbGia.Location = new System.Drawing.Point(15, 93);
+            this.chbGia.Name = "chbGia";
+            this.chbGia.Size = new System.Drawing.Size(114, 24);
+            this.chbGia.TabIndex = 17;
+            this.chbGia.Text = "Giá (nghìn)";
+            this.chbGia.UseVisualStyleBackColor = true;
             // 
-            // chbName
+            // chbFindTenSP
             // 
-            this.chbName.AutoSize = true;
-            this.chbName.Checked = true;
-            this.chbName.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbName.Location = new System.Drawing.Point(15, 45);
-            this.chbName.Name = "chbName";
-            this.chbName.Size = new System.Drawing.Size(137, 24);
-            this.chbName.TabIndex = 16;
-            this.chbName.Text = "Tên sản phẩm";
-            this.chbName.UseVisualStyleBackColor = true;
+            this.chbFindTenSP.AutoSize = true;
+            this.chbFindTenSP.Checked = true;
+            this.chbFindTenSP.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbFindTenSP.Location = new System.Drawing.Point(15, 45);
+            this.chbFindTenSP.Name = "chbFindTenSP";
+            this.chbFindTenSP.Size = new System.Drawing.Size(137, 24);
+            this.chbFindTenSP.TabIndex = 16;
+            this.chbFindTenSP.Text = "Tên sản phẩm";
+            this.chbFindTenSP.UseVisualStyleBackColor = true;
             // 
             // gbMakeBill
             // 
@@ -476,10 +479,10 @@
         private System.Windows.Forms.NumericUpDown numUDFrom;
         private System.Windows.Forms.TextBox cbFindNCC;
         private System.Windows.Forms.TextBox txtFindTenSP;
-        private System.Windows.Forms.CheckBox chbTypeProduct;
-        private System.Windows.Forms.CheckBox chbSupplier;
-        private System.Windows.Forms.CheckBox chbPrice;
-        private System.Windows.Forms.CheckBox chbName;
+        private System.Windows.Forms.CheckBox chbLoaiSP;
+        private System.Windows.Forms.CheckBox chbNCC;
+        private System.Windows.Forms.CheckBox chbGia;
+        private System.Windows.Forms.CheckBox chbFindTenSP;
         private System.Windows.Forms.GroupBox gbMakeBill;
         private System.Windows.Forms.Button btnTaoPN;
         private System.Windows.Forms.Button btnHuyPN;

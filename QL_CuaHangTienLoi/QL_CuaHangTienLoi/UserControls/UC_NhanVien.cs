@@ -12,14 +12,32 @@ namespace QL_CuaHangTienLoi.UserControls
 {
     public partial class UC_NhanVien : UserControl
     {
+        static UC_NhanVien _obj;
+        public static UC_NhanVien Instance
+        {
+            get
+            {
+                if (_obj == null)
+                {
+                    _obj = new UC_NhanVien();
+                }
+                return _obj;
+            }
+        }
+
         public UC_NhanVien()
         {
             InitializeComponent();
         }
 
-        private void UC_NhanVien_Load(object sender, EventArgs e)
+        private void btnAddNew_Click(object sender, EventArgs e)
         {
+            new frmNhanVien().ShowDialog();
+        }
 
+        private void btnCapTK_Click(object sender, EventArgs e)
+        {
+            new frmTaiKhoan().ShowDialog();
         }
     }
 }

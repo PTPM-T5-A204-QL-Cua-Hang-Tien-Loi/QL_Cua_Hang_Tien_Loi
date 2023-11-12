@@ -22,7 +22,7 @@ namespace BLL_DAL
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QL_VanPhongPham")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name= "QL_CUAHANGTIENLOI_New")]
 	public partial class QLCuaHangTienLoiDataContext : System.Data.Linq.DataContext
 	{
 		

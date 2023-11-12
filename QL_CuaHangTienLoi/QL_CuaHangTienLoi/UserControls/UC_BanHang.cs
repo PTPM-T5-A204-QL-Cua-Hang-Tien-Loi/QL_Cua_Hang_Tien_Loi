@@ -28,5 +28,10 @@ namespace QL_CuaHangTienLoi.UserControls
         {
             InitializeComponent();
         }
+
+        private void btnLichSuBH_Click(object sender, EventArgs e)
+        {
+            UC_ThongKe.Instance.BringToFront();
+        }
     }
 }
