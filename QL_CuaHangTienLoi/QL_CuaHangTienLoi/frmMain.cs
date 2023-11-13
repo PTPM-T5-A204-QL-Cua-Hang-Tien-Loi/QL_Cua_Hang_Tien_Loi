@@ -28,7 +28,7 @@ namespace QL_CuaHangTienLoi.GUI
 
         private void ShowTabUsing(string tabName)
         {
-            lblTabShow.Text = "Tab đang hiển thị: {tabName}";
+            lblTabShow.Text = $"Tab đang hiển thị: {tabName}";
         }
 
         private void AddTabToControl()
@@ -37,6 +37,8 @@ namespace QL_CuaHangTienLoi.GUI
             pnlMain.Controls.Add(UC_SanPham.Instance);
             pnlMain.Controls.Add(UC_BanHang.Instance);
             pnlMain.Controls.Add(UC_NhapHang.Instance);
+            pnlMain.Controls.Add(UC_NhanVien.Instance);
+            pnlMain.Controls.Add(UC_ThongKe.Instance);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -70,12 +72,14 @@ namespace QL_CuaHangTienLoi.GUI
 
         private void btnThongKe_Click(object sender, EventArgs e)
         {
-
+            ShowTabUsing(btnThongKe.Text);
+            UC_ThongKe.Instance.BringToFront();
         }
 
         private void btnNhanVien_Click(object sender, EventArgs e)
         {
-
+            ShowTabUsing(btnNhanVien.Text);
+            UC_NhanVien.Instance.BringToFront();
         }
 
         private void btnHomePage_Click(object sender, EventArgs e)

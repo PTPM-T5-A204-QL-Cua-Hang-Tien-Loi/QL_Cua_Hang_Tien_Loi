@@ -72,10 +72,10 @@
             this.numUDFrom = new System.Windows.Forms.NumericUpDown();
             this.cbFindLoaiSP = new System.Windows.Forms.ComboBox();
             this.txtFindTenSP = new System.Windows.Forms.TextBox();
-            this.chbTypeProduct = new System.Windows.Forms.CheckBox();
+            this.chbLoaiSP = new System.Windows.Forms.CheckBox();
             this.chbNCC = new System.Windows.Forms.CheckBox();
             this.chbGia = new System.Windows.Forms.CheckBox();
-            this.chbTenSP = new System.Windows.Forms.CheckBox();
+            this.chbFindTenSP = new System.Windows.Forms.CheckBox();
             this.gbDetail.SuspendLayout();
             this.gbSupplier.SuspendLayout();
             this.gbProductOfSupplier.SuspendLayout();
@@ -172,6 +172,7 @@
             this.btnSeeMoreSupplier.TabIndex = 50;
             this.btnSeeMoreSupplier.Text = "Xem thêm nhà cung cấp khác";
             this.btnSeeMoreSupplier.UseVisualStyleBackColor = true;
+            this.btnSeeMoreSupplier.Click += new System.EventHandler(this.btnSeeMoreSupplier_Click);
             // 
             // btnEditSupplier
             // 
@@ -406,10 +407,10 @@
             this.gbFilter.Controls.Add(this.numUDFrom);
             this.gbFilter.Controls.Add(this.cbFindLoaiSP);
             this.gbFilter.Controls.Add(this.txtFindTenSP);
-            this.gbFilter.Controls.Add(this.chbTypeProduct);
+            this.gbFilter.Controls.Add(this.chbLoaiSP);
             this.gbFilter.Controls.Add(this.chbNCC);
             this.gbFilter.Controls.Add(this.chbGia);
-            this.gbFilter.Controls.Add(this.chbTenSP);
+            this.gbFilter.Controls.Add(this.chbFindTenSP);
             this.gbFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbFilter.Location = new System.Drawing.Point(0, 0);
             this.gbFilter.Name = "gbFilter";
@@ -455,6 +456,7 @@
             this.btnAddNew.TabIndex = 30;
             this.btnAddNew.Text = "Thêm mới";
             this.btnAddNew.UseVisualStyleBackColor = true;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
             // btnReload
             // 
@@ -561,17 +563,17 @@
             this.txtFindTenSP.Size = new System.Drawing.Size(475, 26);
             this.txtFindTenSP.TabIndex = 20;
             // 
-            // chbTypeProduct
+            // chbLoaiSP
             // 
-            this.chbTypeProduct.AutoSize = true;
-            this.chbTypeProduct.Checked = true;
-            this.chbTypeProduct.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbTypeProduct.Location = new System.Drawing.Point(15, 189);
-            this.chbTypeProduct.Name = "chbTypeProduct";
-            this.chbTypeProduct.Size = new System.Drawing.Size(141, 24);
-            this.chbTypeProduct.TabIndex = 19;
-            this.chbTypeProduct.Text = "Loại sản phẩm";
-            this.chbTypeProduct.UseVisualStyleBackColor = true;
+            this.chbLoaiSP.AutoSize = true;
+            this.chbLoaiSP.Checked = true;
+            this.chbLoaiSP.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbLoaiSP.Location = new System.Drawing.Point(15, 189);
+            this.chbLoaiSP.Name = "chbLoaiSP";
+            this.chbLoaiSP.Size = new System.Drawing.Size(141, 24);
+            this.chbLoaiSP.TabIndex = 19;
+            this.chbLoaiSP.Text = "Loại sản phẩm";
+            this.chbLoaiSP.UseVisualStyleBackColor = true;
             // 
             // chbNCC
             // 
@@ -597,17 +599,17 @@
             this.chbGia.Text = "Giá (nghìn)";
             this.chbGia.UseVisualStyleBackColor = true;
             // 
-            // chbTenSP
+            // chbFindTenSP
             // 
-            this.chbTenSP.AutoSize = true;
-            this.chbTenSP.Checked = true;
-            this.chbTenSP.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbTenSP.Location = new System.Drawing.Point(15, 45);
-            this.chbTenSP.Name = "chbTenSP";
-            this.chbTenSP.Size = new System.Drawing.Size(137, 24);
-            this.chbTenSP.TabIndex = 16;
-            this.chbTenSP.Text = "Tên sản phẩm";
-            this.chbTenSP.UseVisualStyleBackColor = true;
+            this.chbFindTenSP.AutoSize = true;
+            this.chbFindTenSP.Checked = true;
+            this.chbFindTenSP.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbFindTenSP.Location = new System.Drawing.Point(15, 45);
+            this.chbFindTenSP.Name = "chbFindTenSP";
+            this.chbFindTenSP.Size = new System.Drawing.Size(137, 24);
+            this.chbFindTenSP.TabIndex = 16;
+            this.chbFindTenSP.Text = "Tên sản phẩm";
+            this.chbFindTenSP.UseVisualStyleBackColor = true;
             // 
             // UC_SanPham
             // 
@@ -677,10 +679,10 @@
         private System.Windows.Forms.NumericUpDown numUDFrom;
         private System.Windows.Forms.ComboBox cbFindLoaiSP;
         private System.Windows.Forms.TextBox txtFindTenSP;
-        private System.Windows.Forms.CheckBox chbTypeProduct;
+        private System.Windows.Forms.CheckBox chbLoaiSP;
         private System.Windows.Forms.CheckBox chbNCC;
         private System.Windows.Forms.CheckBox chbGia;
-        private System.Windows.Forms.CheckBox chbTenSP;
+        private System.Windows.Forms.CheckBox chbFindTenSP;
         private System.Windows.Forms.ComboBox cbFindNCC;
         private System.Windows.Forms.ComboBox comboBox1;
     }

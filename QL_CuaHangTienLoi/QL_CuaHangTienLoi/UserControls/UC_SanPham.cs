@@ -36,5 +36,15 @@ namespace QL_CuaHangTienLoi.UserControls
         {
             dgvSP.DataSource = sanpham.getSanPhams_Table();
         }
+
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            new frmSanPham().ShowDialog();
+        }
+
+        private void btnSeeMoreSupplier_Click(object sender, EventArgs e)
+        {
+            new frmTHNhaCungCap().ShowDialog();
+        }
     }
 }
