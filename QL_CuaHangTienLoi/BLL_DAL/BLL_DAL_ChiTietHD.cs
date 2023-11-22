@@ -41,5 +41,25 @@ namespace BLL_DAL
             }
             return dt;
         }
+        public bool themCTHD(string mahd, string masp, int sl, decimal dongia, decimal giamgia, decimal thanhtien)
+        {
+            try
+            {
+                CHITIETHDBAN cthd = new CHITIETHDBAN();
+                cthd.MAHDBAN = mahd;
+                cthd.MASP = masp;
+                cthd.SOLUONGMUA = sl;
+                cthd.DONGIA = (double)dongia;
+                cthd.GIAMGIA = (double)giamgia;
+                cthd.THANHTIEN = (double)thanhtien;
+                qlch.CHITIETHDBANs.InsertOnSubmit(cthd);
+                qlch.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

@@ -11,14 +11,14 @@ namespace BLL_DAL
     {
         QLCuaHangTienLoiDataContext qlch = new QLCuaHangTienLoiDataContext();
         public BLL_DAL_NhaCC() { }
-        public List<NHACUNGCAP> getKhachs_List()
+        public List<NHACUNGCAP> getNCCs_List()
         {
             List<NHACUNGCAP> list = new List<NHACUNGCAP>();
             list = qlch.NHACUNGCAPs.ToList();
             return list;
         }
         //Gọi hàm này khi dùng cho datagridview
-        public DataTable getKhachs_Table()
+        public DataTable getNCCs_Table()
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("Mã nhà cung cấp");

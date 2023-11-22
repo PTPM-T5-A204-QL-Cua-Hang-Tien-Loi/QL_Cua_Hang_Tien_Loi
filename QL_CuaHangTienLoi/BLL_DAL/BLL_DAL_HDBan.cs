@@ -39,5 +39,24 @@ namespace BLL_DAL
             }
             return dt;
         }
+        public bool taoHD(string mahd, string manv, DateTime ngayban, string makhach, decimal tongtien)
+        {
+            try
+            {
+                HDBAN hd = new HDBAN();
+                hd.MAHDBAN = mahd;
+                hd.MANHANVIEN = manv;
+                hd.NGAYBAN = ngayban;
+                hd.MAKHACH = makhach;
+                hd.TONGTIEN = (double)tongtien;
+                qlch.HDBANs.InsertOnSubmit(hd);
+                qlch.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

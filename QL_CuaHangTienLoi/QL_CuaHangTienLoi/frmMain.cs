@@ -25,7 +25,6 @@ namespace QL_CuaHangTienLoi.GUI
 
             timer1.Start();
         }
-
         private void ShowTabUsing(string tabName)
         {
             lblTabShow.Text = $"Tab đang hiển thị: {tabName}";
