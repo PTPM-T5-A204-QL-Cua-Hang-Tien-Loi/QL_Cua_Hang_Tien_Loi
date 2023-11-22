@@ -68,7 +68,72 @@ namespace QL_CuaHangTienLoi.UserControls
         }
         private void btnFind_Click(object sender, EventArgs e)
         {
-
+            string tensp = txtFindTenSP.Text;
+            string mancc = cbFindNCC.SelectedValue.ToString();
+            string maloai = cbFindLoaiSP.SelectedValue.ToString();
+            float giamin = (float)numUDFrom.Value * 1000;
+            float giamax = (float)numUDTo.Value * 1000;
+            if (chbFindTenSP.Checked && !chbGia.Checked && !chbNCC.Checked && !chbLoaiSP.Checked)
+            {
+                dgvProduct.DataSource = sanpham.timSP_NhieuGiaTri(tensp, 0, 0, null, null);
+            }
+            else if (chbFindTenSP.Checked && chbGia.Checked && !chbNCC.Checked && !chbLoaiSP.Checked)
+            {
+                dgvProduct.DataSource = sanpham.timSP_NhieuGiaTri(tensp, giamin, giamax, null, null);
+            }
+            else if (chbFindTenSP.Checked && !chbGia.Checked && !chbNCC.Checked && chbLoaiSP.Checked)
+            {
+                dgvProduct.DataSource = sanpham.timSP_NhieuGiaTri(tensp, 0, 0, null, maloai);
+            }
+            else if (chbFindTenSP.Checked && !chbGia.Checked && chbNCC.Checked && !chbLoaiSP.Checked)
+            {
+                dgvProduct.DataSource = sanpham.timSP_NhieuGiaTri(tensp, 0, 0, mancc, null);
+            }
+            else if (chbFindTenSP.Checked && chbGia.Checked && !chbNCC.Checked && chbLoaiSP.Checked)
+            {
+                dgvProduct.DataSource = sanpham.timSP_NhieuGiaTri(tensp, giamin, giamax, null, maloai);
+            }
+            else if (chbFindTenSP.Checked && chbGia.Checked && chbNCC.Checked && !chbLoaiSP.Checked)
+            {
+                dgvProduct.DataSource = sanpham.timSP_NhieuGiaTri(tensp, giamin, giamax, mancc, null);
+            }
+            else if (chbFindTenSP.Checked && chbGia.Checked && chbNCC.Checked && !chbLoaiSP.Checked)
+            {
+                dgvProduct.DataSource = sanpham.timSP_NhieuGiaTri(tensp, 0, 0, mancc, maloai);
+            }
+            else if (chbFindTenSP.Checked && chbGia.Checked && chbNCC.Checked && chbLoaiSP.Checked)
+            {
+                dgvProduct.DataSource = sanpham.timSP_NhieuGiaTri(tensp, giamin, giamax, mancc, maloai);
+            }
+            else if (!chbFindTenSP.Checked && chbGia.Checked && !chbNCC.Checked && !chbLoaiSP.Checked)
+            {
+                dgvProduct.DataSource = sanpham.timSP_NhieuGiaTri(null, giamin, giamax, null, null);
+            }
+            else if (!chbFindTenSP.Checked && chbGia.Checked && !chbNCC.Checked && chbLoaiSP.Checked)
+            {
+                dgvProduct.DataSource = sanpham.timSP_NhieuGiaTri(null, giamin, giamax, null, maloai);
+            }
+            else if (!chbFindTenSP.Checked && chbGia.Checked && chbNCC.Checked && !chbLoaiSP.Checked)
+            {
+                dgvProduct.DataSource = sanpham.timSP_NhieuGiaTri(null, giamin, giamax, mancc, null);
+            }
+            else if (!chbFindTenSP.Checked && chbGia.Checked && chbNCC.Checked && !chbLoaiSP.Checked)
+            {
+                dgvProduct.DataSource = sanpham.timSP_NhieuGiaTri(null, giamin, giamax, mancc, maloai);
+            }
+            else if (!chbFindTenSP.Checked && !chbGia.Checked && chbNCC.Checked && chbLoaiSP.Checked)
+            {
+                dgvProduct.DataSource = sanpham.timSP_NhieuGiaTri(null, 0, 0, mancc, maloai);
+            }
+            else if (!chbFindTenSP.Checked && !chbGia.Checked && chbNCC.Checked && !chbLoaiSP.Checked)
+            {
+                dgvProduct.DataSource = sanpham.timSP_NhieuGiaTri(null, 0, 0, mancc, null);
+            }
+            else if (!chbFindTenSP.Checked && !chbGia.Checked && !chbNCC.Checked && chbLoaiSP.Checked)
+            {
+                dgvProduct.DataSource = sanpham.timSP_NhieuGiaTri(null, 0, 0, null, maloai);
+            }
+            
         }
 
         private void btnClear_Click(object sender, EventArgs e)
