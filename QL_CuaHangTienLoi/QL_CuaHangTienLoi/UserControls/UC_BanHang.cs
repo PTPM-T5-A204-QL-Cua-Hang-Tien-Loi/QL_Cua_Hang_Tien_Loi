@@ -99,7 +99,7 @@ namespace QL_CuaHangTienLoi.UserControls
                 }    
                 string masp = dgvProduct.CurrentRow.Cells[0].Value.ToString();
                 string tensp = dgvProduct.CurrentRow.Cells[1].Value.ToString();
-                decimal dongia = decimal.Parse(dgvProduct.CurrentRow.Cells[6].Value.ToString());
+                decimal dongia = decimal.Parse(dgvProduct.CurrentRow.Cells[5].Value.ToString());
                 decimal giamgia = decimal.Parse(txtGiamGia.Text) / 100;
                 decimal sl = numSL.Value;
                 bool flag = false;

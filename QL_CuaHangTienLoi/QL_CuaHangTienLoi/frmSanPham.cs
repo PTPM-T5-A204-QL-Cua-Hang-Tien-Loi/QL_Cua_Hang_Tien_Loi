@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL_DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace QL_CuaHangTienLoi
         public frmSanPham()
         {
             InitializeComponent();
+        }
+
+        public frmSanPham(SANPHAM sp)
+        {
+            InitializeComponent();
+
         }
 
         private void btnThemNCC_Click(object sender, EventArgs e)

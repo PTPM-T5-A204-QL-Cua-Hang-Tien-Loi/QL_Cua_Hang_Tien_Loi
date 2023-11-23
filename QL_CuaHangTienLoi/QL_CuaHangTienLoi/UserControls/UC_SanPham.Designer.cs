@@ -31,32 +31,32 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbDetail = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtLoaiSP = new System.Windows.Forms.TextBox();
             this.btnLoadSupplier = new System.Windows.Forms.Button();
             this.btnEditProduct = new System.Windows.Forms.Button();
             this.gbSupplier = new System.Windows.Forms.GroupBox();
             this.btnSeeMoreSupplier = new System.Windows.Forms.Button();
             this.btnEditSupplier = new System.Windows.Forms.Button();
             this.gbProductOfSupplier = new System.Windows.Forms.GroupBox();
-            this.dgvProductOfSupplier = new System.Windows.Forms.DataGridView();
-            this.txtSupplierPhone = new System.Windows.Forms.TextBox();
+            this.dgvSPcuaNCC = new System.Windows.Forms.DataGridView();
+            this.txtSDTNCC = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtSupplierEmail = new System.Windows.Forms.TextBox();
+            this.txtEmailNCC = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtSupplierAddress = new System.Windows.Forms.TextBox();
+            this.txtDiaChiNCC = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtSupplierName = new System.Windows.Forms.TextBox();
+            this.txtTenNCC = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtSupplierID = new System.Windows.Forms.TextBox();
+            this.txtMaNCC = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.txtDonGia = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtQuantity = new System.Windows.Forms.TextBox();
+            this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtUnit = new System.Windows.Forms.TextBox();
+            this.txtDonVi = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtTenSP = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.picSanPham = new System.Windows.Forms.PictureBox();
             this.gbFilter = new System.Windows.Forms.GroupBox();
@@ -76,10 +76,12 @@
             this.chbNCC = new System.Windows.Forms.CheckBox();
             this.chbGia = new System.Windows.Forms.CheckBox();
             this.chbFindTenSP = new System.Windows.Forms.CheckBox();
+            this.txtMaSP = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.gbDetail.SuspendLayout();
             this.gbSupplier.SuspendLayout();
             this.gbProductOfSupplier.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductOfSupplier)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSPcuaNCC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSanPham)).BeginInit();
             this.gbFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSP)).BeginInit();
@@ -90,18 +92,20 @@
             // gbDetail
             // 
             this.gbDetail.BackColor = System.Drawing.Color.SpringGreen;
-            this.gbDetail.Controls.Add(this.comboBox1);
+            this.gbDetail.Controls.Add(this.txtMaSP);
+            this.gbDetail.Controls.Add(this.label7);
+            this.gbDetail.Controls.Add(this.txtLoaiSP);
             this.gbDetail.Controls.Add(this.btnLoadSupplier);
             this.gbDetail.Controls.Add(this.btnEditProduct);
             this.gbDetail.Controls.Add(this.gbSupplier);
-            this.gbDetail.Controls.Add(this.txtPrice);
+            this.gbDetail.Controls.Add(this.txtDonGia);
             this.gbDetail.Controls.Add(this.label6);
-            this.gbDetail.Controls.Add(this.txtQuantity);
+            this.gbDetail.Controls.Add(this.txtSoLuong);
             this.gbDetail.Controls.Add(this.label5);
-            this.gbDetail.Controls.Add(this.txtUnit);
+            this.gbDetail.Controls.Add(this.txtDonVi);
             this.gbDetail.Controls.Add(this.label4);
             this.gbDetail.Controls.Add(this.label3);
-            this.gbDetail.Controls.Add(this.txtName);
+            this.gbDetail.Controls.Add(this.txtTenSP);
             this.gbDetail.Controls.Add(this.label2);
             this.gbDetail.Controls.Add(this.picSanPham);
             this.gbDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -112,19 +116,17 @@
             this.gbDetail.TabStop = false;
             this.gbDetail.Text = "Thông tin sản phẩm và nhà cung cấp";
             // 
-            // comboBox1
+            // txtLoaiSP
             // 
-            this.comboBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(326, 89);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(312, 28);
-            this.comboBox1.TabIndex = 33;
+            this.txtLoaiSP.Location = new System.Drawing.Point(325, 120);
+            this.txtLoaiSP.Name = "txtLoaiSP";
+            this.txtLoaiSP.ReadOnly = true;
+            this.txtLoaiSP.Size = new System.Drawing.Size(311, 26);
+            this.txtLoaiSP.TabIndex = 39;
             // 
             // btnLoadSupplier
             // 
-            this.btnLoadSupplier.Location = new System.Drawing.Point(338, 259);
+            this.btnLoadSupplier.Location = new System.Drawing.Point(338, 281);
             this.btnLoadSupplier.Name = "btnLoadSupplier";
             this.btnLoadSupplier.Size = new System.Drawing.Size(299, 59);
             this.btnLoadSupplier.TabIndex = 38;
@@ -133,12 +135,13 @@
             // 
             // btnEditProduct
             // 
-            this.btnEditProduct.Location = new System.Drawing.Point(6, 259);
+            this.btnEditProduct.Location = new System.Drawing.Point(6, 281);
             this.btnEditProduct.Name = "btnEditProduct";
             this.btnEditProduct.Size = new System.Drawing.Size(298, 59);
             this.btnEditProduct.TabIndex = 32;
             this.btnEditProduct.Text = "Chỉnh sửa thông tin sản phẩm";
             this.btnEditProduct.UseVisualStyleBackColor = true;
+            this.btnEditProduct.Click += new System.EventHandler(this.btnEditProduct_Click);
             // 
             // gbSupplier
             // 
@@ -146,15 +149,15 @@
             this.gbSupplier.Controls.Add(this.btnSeeMoreSupplier);
             this.gbSupplier.Controls.Add(this.btnEditSupplier);
             this.gbSupplier.Controls.Add(this.gbProductOfSupplier);
-            this.gbSupplier.Controls.Add(this.txtSupplierPhone);
+            this.gbSupplier.Controls.Add(this.txtSDTNCC);
             this.gbSupplier.Controls.Add(this.label12);
-            this.gbSupplier.Controls.Add(this.txtSupplierEmail);
+            this.gbSupplier.Controls.Add(this.txtEmailNCC);
             this.gbSupplier.Controls.Add(this.label11);
-            this.gbSupplier.Controls.Add(this.txtSupplierAddress);
+            this.gbSupplier.Controls.Add(this.txtDiaChiNCC);
             this.gbSupplier.Controls.Add(this.label10);
-            this.gbSupplier.Controls.Add(this.txtSupplierName);
+            this.gbSupplier.Controls.Add(this.txtTenNCC);
             this.gbSupplier.Controls.Add(this.label9);
-            this.gbSupplier.Controls.Add(this.txtSupplierID);
+            this.gbSupplier.Controls.Add(this.txtMaNCC);
             this.gbSupplier.Controls.Add(this.label8);
             this.gbSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbSupplier.Location = new System.Drawing.Point(6, 357);
@@ -185,7 +188,7 @@
             // 
             // gbProductOfSupplier
             // 
-            this.gbProductOfSupplier.Controls.Add(this.dgvProductOfSupplier);
+            this.gbProductOfSupplier.Controls.Add(this.dgvSPcuaNCC);
             this.gbProductOfSupplier.Location = new System.Drawing.Point(7, 223);
             this.gbProductOfSupplier.Name = "gbProductOfSupplier";
             this.gbProductOfSupplier.Size = new System.Drawing.Size(616, 220);
@@ -193,9 +196,9 @@
             this.gbProductOfSupplier.TabStop = false;
             this.gbProductOfSupplier.Text = "Các sản phẩm đang cung cấp";
             // 
-            // dgvProductOfSupplier
+            // dgvSPcuaNCC
             // 
-            this.dgvProductOfSupplier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSPcuaNCC.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Green;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -203,24 +206,24 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductOfSupplier.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvProductOfSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductOfSupplier.EnableHeadersVisualStyles = false;
-            this.dgvProductOfSupplier.Location = new System.Drawing.Point(6, 26);
-            this.dgvProductOfSupplier.Name = "dgvProductOfSupplier";
-            this.dgvProductOfSupplier.ReadOnly = true;
-            this.dgvProductOfSupplier.RowHeadersWidth = 51;
-            this.dgvProductOfSupplier.Size = new System.Drawing.Size(604, 188);
-            this.dgvProductOfSupplier.TabIndex = 0;
+            this.dgvSPcuaNCC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvSPcuaNCC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSPcuaNCC.EnableHeadersVisualStyles = false;
+            this.dgvSPcuaNCC.Location = new System.Drawing.Point(6, 26);
+            this.dgvSPcuaNCC.Name = "dgvSPcuaNCC";
+            this.dgvSPcuaNCC.ReadOnly = true;
+            this.dgvSPcuaNCC.RowHeadersWidth = 51;
+            this.dgvSPcuaNCC.Size = new System.Drawing.Size(604, 188);
+            this.dgvSPcuaNCC.TabIndex = 0;
             // 
-            // txtSupplierPhone
+            // txtSDTNCC
             // 
-            this.txtSupplierPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplierPhone.Location = new System.Drawing.Point(135, 175);
-            this.txtSupplierPhone.Name = "txtSupplierPhone";
-            this.txtSupplierPhone.ReadOnly = true;
-            this.txtSupplierPhone.Size = new System.Drawing.Size(290, 30);
-            this.txtSupplierPhone.TabIndex = 48;
+            this.txtSDTNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSDTNCC.Location = new System.Drawing.Point(135, 175);
+            this.txtSDTNCC.Name = "txtSDTNCC";
+            this.txtSDTNCC.ReadOnly = true;
+            this.txtSDTNCC.Size = new System.Drawing.Size(290, 30);
+            this.txtSDTNCC.TabIndex = 48;
             // 
             // label12
             // 
@@ -231,14 +234,14 @@
             this.label12.TabIndex = 47;
             this.label12.Text = "Số điện thoại";
             // 
-            // txtSupplierEmail
+            // txtEmailNCC
             // 
-            this.txtSupplierEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplierEmail.Location = new System.Drawing.Point(136, 140);
-            this.txtSupplierEmail.Name = "txtSupplierEmail";
-            this.txtSupplierEmail.ReadOnly = true;
-            this.txtSupplierEmail.Size = new System.Drawing.Size(481, 30);
-            this.txtSupplierEmail.TabIndex = 46;
+            this.txtEmailNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmailNCC.Location = new System.Drawing.Point(136, 140);
+            this.txtEmailNCC.Name = "txtEmailNCC";
+            this.txtEmailNCC.ReadOnly = true;
+            this.txtEmailNCC.Size = new System.Drawing.Size(481, 30);
+            this.txtEmailNCC.TabIndex = 46;
             // 
             // label11
             // 
@@ -249,14 +252,14 @@
             this.label11.TabIndex = 45;
             this.label11.Text = "Email";
             // 
-            // txtSupplierAddress
+            // txtDiaChiNCC
             // 
-            this.txtSupplierAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplierAddress.Location = new System.Drawing.Point(135, 105);
-            this.txtSupplierAddress.Name = "txtSupplierAddress";
-            this.txtSupplierAddress.ReadOnly = true;
-            this.txtSupplierAddress.Size = new System.Drawing.Size(481, 30);
-            this.txtSupplierAddress.TabIndex = 44;
+            this.txtDiaChiNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiaChiNCC.Location = new System.Drawing.Point(135, 105);
+            this.txtDiaChiNCC.Name = "txtDiaChiNCC";
+            this.txtDiaChiNCC.ReadOnly = true;
+            this.txtDiaChiNCC.Size = new System.Drawing.Size(481, 30);
+            this.txtDiaChiNCC.TabIndex = 44;
             // 
             // label10
             // 
@@ -267,14 +270,14 @@
             this.label10.TabIndex = 43;
             this.label10.Text = "Địa chỉ kho";
             // 
-            // txtSupplierName
+            // txtTenNCC
             // 
-            this.txtSupplierName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplierName.Location = new System.Drawing.Point(136, 70);
-            this.txtSupplierName.Name = "txtSupplierName";
-            this.txtSupplierName.ReadOnly = true;
-            this.txtSupplierName.Size = new System.Drawing.Size(481, 30);
-            this.txtSupplierName.TabIndex = 42;
+            this.txtTenNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenNCC.Location = new System.Drawing.Point(136, 70);
+            this.txtTenNCC.Name = "txtTenNCC";
+            this.txtTenNCC.ReadOnly = true;
+            this.txtTenNCC.Size = new System.Drawing.Size(481, 30);
+            this.txtTenNCC.TabIndex = 42;
             // 
             // label9
             // 
@@ -285,14 +288,14 @@
             this.label9.TabIndex = 41;
             this.label9.Text = "Tên đại diện";
             // 
-            // txtSupplierID
+            // txtMaNCC
             // 
-            this.txtSupplierID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplierID.Location = new System.Drawing.Point(136, 35);
-            this.txtSupplierID.Name = "txtSupplierID";
-            this.txtSupplierID.ReadOnly = true;
-            this.txtSupplierID.Size = new System.Drawing.Size(290, 30);
-            this.txtSupplierID.TabIndex = 40;
+            this.txtMaNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaNCC.Location = new System.Drawing.Point(136, 35);
+            this.txtMaNCC.Name = "txtMaNCC";
+            this.txtMaNCC.ReadOnly = true;
+            this.txtMaNCC.Size = new System.Drawing.Size(290, 30);
+            this.txtMaNCC.TabIndex = 40;
             // 
             // label8
             // 
@@ -303,52 +306,52 @@
             this.label8.TabIndex = 39;
             this.label8.Text = "Mã định danh";
             // 
-            // txtPrice
+            // txtDonGia
             // 
-            this.txtPrice.Location = new System.Drawing.Point(326, 202);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.ReadOnly = true;
-            this.txtPrice.Size = new System.Drawing.Size(311, 26);
-            this.txtPrice.TabIndex = 34;
+            this.txtDonGia.Location = new System.Drawing.Point(325, 231);
+            this.txtDonGia.Name = "txtDonGia";
+            this.txtDonGia.ReadOnly = true;
+            this.txtDonGia.Size = new System.Drawing.Size(311, 26);
+            this.txtDonGia.TabIndex = 34;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(194, 204);
+            this.label6.Location = new System.Drawing.Point(193, 233);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(103, 20);
             this.label6.TabIndex = 33;
             this.label6.Text = "Giá niêm yết";
             // 
-            // txtQuantity
+            // txtSoLuong
             // 
-            this.txtQuantity.Location = new System.Drawing.Point(326, 164);
-            this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.ReadOnly = true;
-            this.txtQuantity.Size = new System.Drawing.Size(311, 26);
-            this.txtQuantity.TabIndex = 32;
+            this.txtSoLuong.Location = new System.Drawing.Point(325, 193);
+            this.txtSoLuong.Name = "txtSoLuong";
+            this.txtSoLuong.ReadOnly = true;
+            this.txtSoLuong.Size = new System.Drawing.Size(311, 26);
+            this.txtSoLuong.TabIndex = 32;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(194, 167);
+            this.label5.Location = new System.Drawing.Point(193, 196);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(105, 20);
             this.label5.TabIndex = 31;
             this.label5.Text = "Số lượng kho";
             // 
-            // txtUnit
+            // txtDonVi
             // 
-            this.txtUnit.Location = new System.Drawing.Point(326, 127);
-            this.txtUnit.Name = "txtUnit";
-            this.txtUnit.ReadOnly = true;
-            this.txtUnit.Size = new System.Drawing.Size(311, 26);
-            this.txtUnit.TabIndex = 30;
+            this.txtDonVi.Location = new System.Drawing.Point(325, 156);
+            this.txtDonVi.Name = "txtDonVi";
+            this.txtDonVi.ReadOnly = true;
+            this.txtDonVi.Size = new System.Drawing.Size(311, 26);
+            this.txtDonVi.TabIndex = 30;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(194, 130);
+            this.label4.Location = new System.Drawing.Point(193, 159);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 20);
             this.label4.TabIndex = 29;
@@ -357,25 +360,25 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(194, 93);
+            this.label3.Location = new System.Drawing.Point(193, 122);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(119, 20);
             this.label3.TabIndex = 27;
             this.label3.Text = "Loại sản phẩm";
             // 
-            // txtName
+            // txtTenSP
             // 
-            this.txtName.Location = new System.Drawing.Point(325, 33);
-            this.txtName.Multiline = true;
-            this.txtName.Name = "txtName";
-            this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(313, 51);
-            this.txtName.TabIndex = 26;
+            this.txtTenSP.Location = new System.Drawing.Point(324, 62);
+            this.txtTenSP.Multiline = true;
+            this.txtTenSP.Name = "txtTenSP";
+            this.txtTenSP.ReadOnly = true;
+            this.txtTenSP.Size = new System.Drawing.Size(313, 51);
+            this.txtTenSP.TabIndex = 26;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(193, 36);
+            this.label2.Location = new System.Drawing.Point(192, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(115, 20);
             this.label2.TabIndex = 25;
@@ -447,6 +450,7 @@
             this.dgvSP.RowHeadersWidth = 51;
             this.dgvSP.Size = new System.Drawing.Size(661, 525);
             this.dgvSP.TabIndex = 31;
+            this.dgvSP.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSP_CellClick);
             // 
             // btnAddNew
             // 
@@ -611,6 +615,23 @@
             this.chbFindTenSP.Text = "Tên sản phẩm";
             this.chbFindTenSP.UseVisualStyleBackColor = true;
             // 
+            // txtMaSP
+            // 
+            this.txtMaSP.Location = new System.Drawing.Point(324, 25);
+            this.txtMaSP.Name = "txtMaSP";
+            this.txtMaSP.ReadOnly = true;
+            this.txtMaSP.Size = new System.Drawing.Size(313, 26);
+            this.txtMaSP.TabIndex = 41;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(192, 27);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(110, 20);
+            this.label7.TabIndex = 40;
+            this.label7.Text = "Mã sản phẩm";
+            // 
             // UC_SanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -626,7 +647,7 @@
             this.gbSupplier.ResumeLayout(false);
             this.gbSupplier.PerformLayout();
             this.gbProductOfSupplier.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductOfSupplier)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSPcuaNCC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSanPham)).EndInit();
             this.gbFilter.ResumeLayout(false);
             this.gbFilter.PerformLayout();
@@ -646,25 +667,25 @@
         private System.Windows.Forms.Button btnSeeMoreSupplier;
         private System.Windows.Forms.Button btnEditSupplier;
         private System.Windows.Forms.GroupBox gbProductOfSupplier;
-        private System.Windows.Forms.DataGridView dgvProductOfSupplier;
-        private System.Windows.Forms.TextBox txtSupplierPhone;
+        private System.Windows.Forms.DataGridView dgvSPcuaNCC;
+        private System.Windows.Forms.TextBox txtSDTNCC;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtSupplierEmail;
+        private System.Windows.Forms.TextBox txtEmailNCC;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtSupplierAddress;
+        private System.Windows.Forms.TextBox txtDiaChiNCC;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtSupplierName;
+        private System.Windows.Forms.TextBox txtTenNCC;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtSupplierID;
+        private System.Windows.Forms.TextBox txtMaNCC;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtPrice;
+        private System.Windows.Forms.TextBox txtDonGia;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtQuantity;
+        private System.Windows.Forms.TextBox txtSoLuong;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtUnit;
+        private System.Windows.Forms.TextBox txtDonVi;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtTenSP;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox picSanPham;
         private System.Windows.Forms.GroupBox gbFilter;
@@ -684,6 +705,8 @@
         private System.Windows.Forms.CheckBox chbGia;
         private System.Windows.Forms.CheckBox chbFindTenSP;
         private System.Windows.Forms.ComboBox cbFindNCC;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtLoaiSP;
+        private System.Windows.Forms.TextBox txtMaSP;
+        private System.Windows.Forms.Label label7;
     }
 }
