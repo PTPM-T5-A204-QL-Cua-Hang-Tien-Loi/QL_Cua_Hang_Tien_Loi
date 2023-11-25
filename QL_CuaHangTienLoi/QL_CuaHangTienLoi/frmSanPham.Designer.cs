@@ -39,7 +39,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtMaSP = new System.Windows.Forms.TextBox();
             this.cbLoaiSP = new System.Windows.Forms.ComboBox();
-            this.cbDonVi = new System.Windows.Forms.ComboBox();
             this.btnChonAnh = new System.Windows.Forms.Button();
             this.txtGia = new System.Windows.Forms.MaskedTextBox();
             this.btnSave = new System.Windows.Forms.Button();
@@ -47,6 +46,8 @@
             this.btnThemNCC = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.cbNCC = new System.Windows.Forms.ComboBox();
+            this.txtDonVi = new System.Windows.Forms.TextBox();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.picHinhAnh)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,11 +140,11 @@
             // 
             // txtMaSP
             // 
-            this.txtMaSP.Location = new System.Drawing.Point(488, 36);
-            this.txtMaSP.Multiline = true;
+            this.txtMaSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaSP.Location = new System.Drawing.Point(488, 42);
             this.txtMaSP.Name = "txtMaSP";
             this.txtMaSP.ReadOnly = true;
-            this.txtMaSP.Size = new System.Drawing.Size(387, 40);
+            this.txtMaSP.Size = new System.Drawing.Size(387, 30);
             this.txtMaSP.TabIndex = 76;
             // 
             // cbLoaiSP
@@ -155,15 +156,6 @@
             this.cbLoaiSP.Size = new System.Drawing.Size(387, 28);
             this.cbLoaiSP.TabIndex = 77;
             // 
-            // cbDonVi
-            // 
-            this.cbDonVi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbDonVi.FormattingEnabled = true;
-            this.cbDonVi.Location = new System.Drawing.Point(488, 263);
-            this.cbDonVi.Name = "cbDonVi";
-            this.cbDonVi.Size = new System.Drawing.Size(387, 28);
-            this.cbDonVi.TabIndex = 78;
-            // 
             // btnChonAnh
             // 
             this.btnChonAnh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -173,6 +165,7 @@
             this.btnChonAnh.TabIndex = 79;
             this.btnChonAnh.Text = "Chọn ảnh";
             this.btnChonAnh.UseVisualStyleBackColor = true;
+            this.btnChonAnh.Click += new System.EventHandler(this.btnChonAnh_Click);
             // 
             // txtGia
             // 
@@ -192,6 +185,7 @@
             this.btnSave.TabIndex = 84;
             this.btnSave.Text = "Lưu thông tin";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -235,12 +229,26 @@
             this.cbNCC.Size = new System.Drawing.Size(387, 28);
             this.cbNCC.TabIndex = 87;
             // 
+            // txtDonVi
+            // 
+            this.txtDonVi.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDonVi.Location = new System.Drawing.Point(488, 260);
+            this.txtDonVi.Multiline = true;
+            this.txtDonVi.Name = "txtDonVi";
+            this.txtDonVi.Size = new System.Drawing.Size(387, 31);
+            this.txtDonVi.TabIndex = 88;
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
+            // 
             // frmSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(929, 613);
+            this.Controls.Add(this.txtDonVi);
             this.Controls.Add(this.cbNCC);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnThemNCC);
@@ -248,7 +256,6 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtGia);
             this.Controls.Add(this.btnChonAnh);
-            this.Controls.Add(this.cbDonVi);
             this.Controls.Add(this.cbLoaiSP);
             this.Controls.Add(this.txtMaSP);
             this.Controls.Add(this.label1);
@@ -282,7 +289,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtMaSP;
         private System.Windows.Forms.ComboBox cbLoaiSP;
-        private System.Windows.Forms.ComboBox cbDonVi;
         private System.Windows.Forms.Button btnChonAnh;
         private System.Windows.Forms.MaskedTextBox txtGia;
         private System.Windows.Forms.Button btnSave;
@@ -290,5 +296,7 @@
         private System.Windows.Forms.Button btnThemNCC;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbNCC;
+        private System.Windows.Forms.TextBox txtDonVi;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }

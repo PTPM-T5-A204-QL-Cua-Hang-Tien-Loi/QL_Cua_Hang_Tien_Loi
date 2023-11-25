@@ -1,9 +1,12 @@
-﻿using System;
+﻿using BLL_DAL.Function;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Data.Entity.Core.Metadata.Edm;
 using System.Data.Linq.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +41,33 @@ namespace BLL_DAL
                 dt.Rows.Add(row);
             }    
             return dt;
+        }
+
+        public byte[] getHinhAnhSanPham(string maSP)
+        {
+            var query = from sp in qlch.SANPHAMs
+                        where sp.MASP == maSP
+                        select sp.HINHANH;
+
+            if (query != null)
+            {
+                List<byte> byteArray = new List<byte>();
+
+                foreach (System.Data.Linq.Binary linqBinary in query)
+                {
+                    if (linqBinary != null && linqBinary.Length > 0)
+                    {
+                        byteArray.AddRange(linqBinary.ToArray());
+                    }
+                }
+
+                return byteArray.ToArray();
+            }
+            else
+            {
+                return null;
+            }
+
         }
         private DataTable taoTable()
         {
@@ -149,6 +179,37 @@ namespace BLL_DAL
                 newdt.Rows.Add(newRow);
             }
             dt = newdt;
+        }
+
+        public bool Create(SANPHAM sp)
+        {
+            try
+            {
+                qlch.SANPHAMs.InsertOnSubmit(sp);
+                qlch.SubmitChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public System.Drawing.Image GetHinhAnhSP(string maSP)
+        {
+            var imageData = (from sp in qlch.SANPHAMs
+                             where sp.MASP == maSP
+                             select sp.HINHANH).FirstOrDefault();
+
+            if (imageData != null && imageData.Length > 0)
+            {
+                byte[] imageBytes = imageData.ToArray();
+                return FConvert.ByteArrayToImage(imageBytes);
+            }
+            else
+            {
+                return null; 
+            }
         }
     }
 }
