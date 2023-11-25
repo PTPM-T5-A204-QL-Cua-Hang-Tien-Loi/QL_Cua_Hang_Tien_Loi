@@ -20,9 +20,9 @@ namespace BLL_DAL
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
-	
-	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QL_CUAHANGTIENLOI")]
+    using BLL_DAL.Function;
+
+    [global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QL_CUAHANGTIENLOI")]
 	public partial class QLCuaHangTienLoiDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -2220,16 +2220,16 @@ namespace BLL_DAL
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _MASP;
+
+		private string _MASP = GetFormatString.MakingIDNow();
 		
 		private string _TENSP;
 		
 		private string _DONVI;
 		
-		private int _SOLUONG;
+		private int _SOLUONG = 0;
 		
-		private double _DONGIABAN;
+		private double _DONGIABAN = 0.0f;
 		
 		private System.Data.Linq.Binary _HINHANH;
 		
