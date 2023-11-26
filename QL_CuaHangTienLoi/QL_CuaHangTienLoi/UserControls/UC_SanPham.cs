@@ -15,6 +15,8 @@ namespace QL_CuaHangTienLoi.UserControls
     public partial class UC_SanPham : UserControl
     {
         static UC_SanPham _obj;
+
+        SANPHAM _sp = new SANPHAM();
         BLL_DAL_SanPham sanpham = new BLL_DAL_SanPham();
         BLL_DAL_LoaiSP loaisp = new BLL_DAL_LoaiSP();
         BLL_DAL_NhaCC ncc = new BLL_DAL_NhaCC();
@@ -69,14 +71,15 @@ namespace QL_CuaHangTienLoi.UserControls
                 return;
 
             //ClearNCCForm();
-            SANPHAM sp = new SANPHAM();
-            txtTenSP.Text = dgvSP.CurrentRow.Cells[1].Value.ToString();
-            txtLoaiSP.Text = loaisp.geTenLoaiMaLoai(dgvSP.CurrentRow.Cells[4].Value.ToString());
-            txtDonVi.Text = dgvSP.CurrentRow.Cells[2].Value.ToString();
-            txtSoLuong.Text = dgvSP.CurrentRow.Cells[3].Value.ToString();
-            txtDonGia.Text = dgvSP.CurrentRow.Cells[6].Value.ToString();
+            _sp = sanpham.getInfoSanPham(dgvSP.CurrentRow.Cells[0].Value.ToString());
 
-            picSanPham.Image = sanpham.GetHinhAnhSP(dgvSP.CurrentRow.Cells[0].Value.ToString());
+            txtTenSP.Text = _sp.TENSP;
+            txtLoaiSP.Text = loaisp.geTenLoaiMaLoai(dgvSP.CurrentRow.Cells[4].Value.ToString());
+            txtDonVi.Text = _sp.DONVI;
+            txtSoLuong.Text = _sp.SOLUONG.ToString();
+            txtDonGia.Text = _sp.DONGIABAN.ToString();
+
+            picSanPham.Image = sanpham.GetHinhAnhSP(_sp.MASP);
 
             btnEditProduct.Enabled = true;
         }
@@ -96,7 +99,14 @@ namespace QL_CuaHangTienLoi.UserControls
 
         private void btnEditProduct_Click(object sender, EventArgs e)
         {
-
+            if (txtTenSP.Text != "")
+            {
+                new frmSanPham(_sp).ShowDialog();
+            } else
+            {
+                MessageBox.Show("Bạn chưa chọn một sản phẩm!", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnLoadSupplier_Click(object sender, EventArgs e)
