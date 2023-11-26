@@ -241,6 +241,21 @@ namespace BLL_DAL
             }
         }
 
+        public bool Delete(SANPHAM sp)
+        {
+            try
+            {
+                SANPHAM sanPham = qlch.SANPHAMs.Where(u => u.MASP == sp.MASP).SingleOrDefault();
+                qlch.SANPHAMs.DeleteOnSubmit(sanPham);
+                qlch.SubmitChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public System.Drawing.Image GetHinhAnhSP(string maSP)
         {
             var imageData = (from sp in qlch.SANPHAMs

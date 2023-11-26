@@ -109,14 +109,30 @@ namespace QL_CuaHangTienLoi.UserControls
             }
         }
 
-        private void btnLoadSupplier_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
+            if (txtTenSP.Text != "")
+            {
+                if (MessageBox.Show($"Bạn có muốn xóa sản phẩm {_sp.TENSP}?", "CẢNH BÁO",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    if (sanpham.Delete(_sp))
+                    {
+                        MessageBox.Show("Đã xóa thông tin sản phẩm!", "THÔNG BÁO");
+                        dgvSP.DataSource = sanpham.getSanPhams_Table();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thông tin sản phẩm không thành công!", "LỖI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bạn chưa chọn một sản phẩm!", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
         }
     }
 }
