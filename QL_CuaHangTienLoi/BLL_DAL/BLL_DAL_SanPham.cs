@@ -5,7 +5,9 @@ using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Data.Entity.Core.Metadata.Edm;
+using System.Data.Linq;
 using System.Data.Linq.SqlClient;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -69,6 +71,28 @@ namespace BLL_DAL
             }
 
         }
+
+        public SANPHAM getInfoSanPham (string maSp)
+        {
+            SANPHAM sp = new SANPHAM();
+
+            var info = from h in qlch.SANPHAMs where h.MASP.Contains(maSp) select new { h.MASP, h.TENSP, h.DONVI, h.SOLUONG, h.MALOAI, h.MANCC, h.DONGIABAN, h.HINHANH };
+
+            foreach (var item in info)
+            {
+                sp.MASP = item.MASP;
+                sp.TENSP = item.TENSP;
+                sp.DONVI = item.DONVI;
+                sp.SOLUONG = item.SOLUONG;
+                sp.MALOAI = item.MALOAI;
+                sp.MANCC = item.MANCC;
+                sp.HINHANH = item.HINHANH;
+                sp.DONGIABAN = item.DONGIABAN;
+            }
+
+            return sp;
+        }
+
         private DataTable taoTable()
         {
             DataTable dt = new DataTable();
@@ -186,6 +210,28 @@ namespace BLL_DAL
             try
             {
                 qlch.SANPHAMs.InsertOnSubmit(sp);
+                qlch.SubmitChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool Edit(SANPHAM sp)
+        {
+            try
+            {
+                SANPHAM sanPham = qlch.SANPHAMs.Where(u => u.MASP == sp.MASP).SingleOrDefault();
+                sanPham.MASP = sp.MASP;
+                sanPham.TENSP = sp.TENSP;
+                sanPham.DONVI = sp.DONVI;
+                sanPham.SOLUONG = sp.SOLUONG;
+                sanPham.MALOAI = sp.MALOAI;
+                sanPham.MANCC = sp.MANCC;
+                sanPham.HINHANH = sp.HINHANH;
+                sanPham.DONGIABAN = sp.DONGIABAN;
                 qlch.SubmitChanges();
                 return true;
             }

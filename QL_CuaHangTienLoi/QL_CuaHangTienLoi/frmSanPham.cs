@@ -19,6 +19,7 @@ namespace QL_CuaHangTienLoi
         BLL_DAL_LoaiSP loaisp = new BLL_DAL_LoaiSP();
         BLL_DAL_NhaCC ncc = new BLL_DAL_NhaCC();
         private bool checkSPNew;
+        System.Data.Linq.Binary tempPicture;
 
         public frmSanPham()
         {
@@ -32,8 +33,17 @@ namespace QL_CuaHangTienLoi
         private void LoadThongTinSP(SANPHAM sp)
         {
             txtMaSP.Text = sp.MASP;
+            txtTenSP.Text = sp.TENSP;
+            txtDonVi.Text = sp.DONVI.ToString();
             txtSoLuong.Text = sp.SOLUONG.ToString();
             txtGia.Text = sp.DONGIABAN.ToString();
+
+            cbLoaiSP.Text = loaisp.geTenLoaiMaLoai(sp.MALOAI);
+            cbNCC.Text = ncc.geTenNCCTheoMa(sp.MANCC);
+
+            picHinhAnh.Image = sanpham.GetHinhAnhSP(sp.MASP);
+
+
         }
 
         public frmSanPham(SANPHAM sanPham)
@@ -43,6 +53,9 @@ namespace QL_CuaHangTienLoi
             checkSPNew = false;
 
             LoadDataCombobox();
+            LoadThongTinSP(sanPham);
+
+            tempPicture = sanPham.HINHANH;
         }
 
         private void LoadDataCombobox()
@@ -85,15 +98,34 @@ namespace QL_CuaHangTienLoi
             sp.DONGIABAN = double.Parse(txtGia.Text);
             sp.SOLUONG = int.Parse(txtSoLuong.Text);
 
-            System.Drawing.Imaging.ImageFormat format = FConvert.GetImageFormat(picHinhAnh.Image);
-            byte[] imageBytes =  FConvert.ImageToByteArray(picHinhAnh.Image, format);
-            sp.HINHANH = new System.Data.Linq.Binary(imageBytes);
+            try
+            {
+                System.Drawing.Imaging.ImageFormat format = FConvert.GetImageFormat(picHinhAnh.Image);
+                byte[] imageBytes = FConvert.ImageToByteArray(picHinhAnh.Image, format);
+                sp.HINHANH = new System.Data.Linq.Binary(imageBytes);
+            }
+            catch (Exception)
+            {
+                sp.HINHANH = tempPicture;
+            }
 
             if (checkSPNew)
             {
                 if (sanpham.Create(sp))
                 {
                     MessageBox.Show("Thêm sản phẩm mới thành công!", "THÔNG BÁO", MessageBoxButtons.OK);
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi trong quá trình thêm!\n Vui lòng kiểm tra lại dữ liệu!", "LỖI",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            } else
+            {
+                if (sanpham.Edit(sp))
+                {
+                    MessageBox.Show("Cập nhật sản phẩm thành công!", "THÔNG BÁO", MessageBoxButtons.OK);
                     Close();
                 }
                 else
