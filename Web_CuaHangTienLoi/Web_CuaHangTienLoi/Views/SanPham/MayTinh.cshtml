@@ -10,7 +10,7 @@
 
                 <div class="wsk-cp-img">
                     <a href="@Url.Action("XemChiTiet", new { @MASP = item.MASP })">
-                        <img src=@Url.Content("~/Images/"+ item.HINHANH) class="img-responsive" alt="" width="400" height="400" />
+                        <img src="@string.Format("data:image/png;base64,{0}", Convert.ToBase64String(@item.HINHANH))" class="img-responsive" alt="" width="400" height="400" />
                     </a>
                 </div>
 

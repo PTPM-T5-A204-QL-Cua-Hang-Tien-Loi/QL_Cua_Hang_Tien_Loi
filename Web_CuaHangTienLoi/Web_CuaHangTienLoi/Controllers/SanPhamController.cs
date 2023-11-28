@@ -12,20 +12,24 @@ namespace Web_CuaHangTienLoi.Controllers
         //
         // GET: /SanPham/
 
-        QL_CuaHangTienLoi_NewEntities1 db = new QL_CuaHangTienLoi_NewEntities1();
+        QL_CuaHangTienLoiEntities4 db = new QL_CuaHangTienLoiEntities4();
 
-        public ActionResult NuocUong()
+        public ActionResult GiayIn()
         {
-            var nuoc = db.SANPHAMs.Where(n => n.MALOAI == "LH001").Take(4).ToList();
-            return PartialView(nuoc);
+            var gi = db.SANPHAMs.Where(n => n.MALOAI == "LH001").Take(4).ToList();
+            return PartialView(gi);
         }
 
-        public ActionResult ThucAn()
+        public ActionResult MayTinh()
         {
-            var ta = db.SANPHAMs.Where(n => n.MALOAI == "LH003").Take(4).ToList();
-            return PartialView(ta);
+            var mt = db.SANPHAMs.Where(n => n.MALOAI == "LH003").Take(4).ToList();
+            return PartialView(mt);
         }
-
+        public ActionResult getAll()
+        {
+            var mt = db.SANPHAMs.ToList();
+            return PartialView(mt);
+        }
         public ActionResult XemChiTiet(string MASP = "")
         {
             var chitiet = db.SANPHAMs.SingleOrDefault(n => n.MASP == MASP);

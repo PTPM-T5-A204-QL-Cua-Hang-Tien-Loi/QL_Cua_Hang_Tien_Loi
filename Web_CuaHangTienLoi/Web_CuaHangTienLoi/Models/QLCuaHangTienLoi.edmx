@@ -4,7 +4,18 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QL_CuaHangTienLoi_NewModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="QL_CuaHangTienLoiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ChitietdonhangOnl">
+          <Key>
+            <PropertyRef Name="Madon" />
+            <PropertyRef Name="MASP" />
+          </Key>
+          <Property Name="Madon" Type="int" Nullable="false" />
+          <Property Name="MASP" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Soluong" Type="int" />
+          <Property Name="Dongia" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Thanhtien" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
         <EntityType Name="CHITIETHDBAN">
           <Key>
             <PropertyRef Name="MAHDBAN" />
@@ -35,6 +46,15 @@
           </Key>
           <Property Name="MACHUCVU" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="TENCHUCVU" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DonhangOnl">
+          <Key>
+            <PropertyRef Name="Madon" />
+          </Key>
+          <Property Name="Madon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ngaydat" Type="datetime" />
+          <Property Name="Tinhtrang" Type="int" />
+          <Property Name="MaNguoidung" Type="int" />
         </EntityType>
         <EntityType Name="HDBAN">
           <Key>
@@ -124,6 +144,16 @@
           <Property Name="MALOAI" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="MANCC" Type="char" MaxLength="20" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="TAIKHOAN">
           <Key>
             <PropertyRef Name="MATAIKHOAN" />
@@ -135,6 +165,30 @@
           <Property Name="MAQUYEN" Type="int" />
           <Property Name="MANHANVIEN" Type="nvarchar" MaxLength="10" />
         </EntityType>
+        <Association Name="FK_ChitietdonhangOnl_DonhangOnl">
+          <End Role="DonhangOnl" Type="Self.DonhangOnl" Multiplicity="1" />
+          <End Role="ChitietdonhangOnl" Type="Self.ChitietdonhangOnl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DonhangOnl">
+              <PropertyRef Name="Madon" />
+            </Principal>
+            <Dependent Role="ChitietdonhangOnl">
+              <PropertyRef Name="Madon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChitietdonhangOnl_SANPHAM">
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
+          <End Role="ChitietdonhangOnl" Type="Self.ChitietdonhangOnl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SANPHAM">
+              <PropertyRef Name="MASP" />
+            </Principal>
+            <Dependent Role="ChitietdonhangOnl">
+              <PropertyRef Name="MASP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_CHITIETHDBAN_HDBAN">
           <End Role="HDBAN" Type="Self.HDBAN" Multiplicity="1" />
           <End Role="CHITIETHDBAN" Type="Self.CHITIETHDBAN" Multiplicity="*" />
@@ -180,6 +234,18 @@
             </Principal>
             <Dependent Role="CHITIETNHAPHANG">
               <PropertyRef Name="MASP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DonhangOnl_NguoiDung">
+          <End Role="Nguoidung" Type="Self.Nguoidung" Multiplicity="0..1" />
+          <End Role="DonhangOnl" Type="Self.DonhangOnl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nguoidung">
+              <PropertyRef Name="MaNguoiDung" />
+            </Principal>
+            <Dependent Role="DonhangOnl">
+              <PropertyRef Name="MaNguoidung" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -279,10 +345,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QL_CuaHangTienLoi_NewModelStoreContainer">
+        <EntityContainer Name="QL_CuaHangTienLoiModelStoreContainer">
+          <EntitySet Name="ChitietdonhangOnl" EntityType="Self.ChitietdonhangOnl" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CHITIETHDBAN" EntityType="Self.CHITIETHDBAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CHITIETNHAPHANG" EntityType="Self.CHITIETNHAPHANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CHUCVU" EntityType="Self.CHUCVU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DonhangOnl" EntityType="Self.DonhangOnl" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HDBAN" EntityType="Self.HDBAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KHACH" EntityType="Self.KHACH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LOAISP" EntityType="Self.LOAISP" Schema="dbo" store:Type="Tables" />
@@ -292,7 +360,16 @@
           <EntitySet Name="NHAPHANG" EntityType="Self.NHAPHANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QUYEN" EntityType="Self.QUYEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SANPHAM" EntityType="Self.SANPHAM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ChitietdonhangOnl_DonhangOnl" Association="Self.FK_ChitietdonhangOnl_DonhangOnl">
+            <End Role="DonhangOnl" EntitySet="DonhangOnl" />
+            <End Role="ChitietdonhangOnl" EntitySet="ChitietdonhangOnl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChitietdonhangOnl_SANPHAM" Association="Self.FK_ChitietdonhangOnl_SANPHAM">
+            <End Role="SANPHAM" EntitySet="SANPHAM" />
+            <End Role="ChitietdonhangOnl" EntitySet="ChitietdonhangOnl" />
+          </AssociationSet>
           <AssociationSet Name="FK_CHITIETHDBAN_HDBAN" Association="Self.FK_CHITIETHDBAN_HDBAN">
             <End Role="HDBAN" EntitySet="HDBAN" />
             <End Role="CHITIETHDBAN" EntitySet="CHITIETHDBAN" />
@@ -308,6 +385,10 @@
           <AssociationSet Name="FK_CHITIETNHAPHANG_SANPHAM" Association="Self.FK_CHITIETNHAPHANG_SANPHAM">
             <End Role="SANPHAM" EntitySet="SANPHAM" />
             <End Role="CHITIETNHAPHANG" EntitySet="CHITIETNHAPHANG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DonhangOnl_NguoiDung" Association="Self.FK_DonhangOnl_NguoiDung">
+            <End Role="Nguoidung" EntitySet="Nguoidung" />
+            <End Role="DonhangOnl" EntitySet="DonhangOnl" />
           </AssociationSet>
           <AssociationSet Name="FK_HDBAN_KHACH" Association="Self.FK_HDBAN_KHACH">
             <End Role="KHACH" EntitySet="KHACH" />
@@ -346,7 +427,20 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="QL_CuaHangTienLoi_NewModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="QL_CuaHangTienLoiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ChitietdonhangOnl">
+          <Key>
+            <PropertyRef Name="Madon" />
+            <PropertyRef Name="MASP" />
+          </Key>
+          <Property Name="Madon" Type="Int32" Nullable="false" />
+          <Property Name="MASP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Soluong" Type="Int32" />
+          <Property Name="Dongia" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Thanhtien" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="DonhangOnl" Relationship="Self.FK_ChitietdonhangOnl_DonhangOnl" FromRole="ChitietdonhangOnl" ToRole="DonhangOnl" />
+          <NavigationProperty Name="SANPHAM" Relationship="Self.FK_ChitietdonhangOnl_SANPHAM" FromRole="ChitietdonhangOnl" ToRole="SANPHAM" />
+        </EntityType>
         <EntityType Name="CHITIETHDBAN">
           <Key>
             <PropertyRef Name="MAHDBAN" />
@@ -382,6 +476,17 @@
           <Property Name="MACHUCVU" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TENCHUCVU" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="NHANVIENs" Relationship="Self.FK_NHANVIEN_CHUCVU" FromRole="CHUCVU" ToRole="NHANVIEN" />
+        </EntityType>
+        <EntityType Name="DonhangOnl">
+          <Key>
+            <PropertyRef Name="Madon" />
+          </Key>
+          <Property Name="Madon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ngaydat" Type="DateTime" Precision="3" />
+          <Property Name="Tinhtrang" Type="Int32" />
+          <Property Name="MaNguoidung" Type="Int32" />
+          <NavigationProperty Name="ChitietdonhangOnls" Relationship="Self.FK_ChitietdonhangOnl_DonhangOnl" FromRole="DonhangOnl" ToRole="ChitietdonhangOnl" />
+          <NavigationProperty Name="Nguoidung" Relationship="Self.FK_DonhangOnl_NguoiDung" FromRole="DonhangOnl" ToRole="Nguoidung" />
         </EntityType>
         <EntityType Name="HDBAN">
           <Key>
@@ -424,6 +529,7 @@
           <Property Name="Dienthoai" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
           <Property Name="Matkhau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Diachi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DonhangOnls" Relationship="Self.FK_DonhangOnl_NguoiDung" FromRole="Nguoidung" ToRole="DonhangOnl" />
         </EntityType>
         <EntityType Name="NHACUNGCAP">
           <Key>
@@ -483,10 +589,21 @@
           <Property Name="HINHANH" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="MALOAI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MANCC" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="ChitietdonhangOnls" Relationship="Self.FK_ChitietdonhangOnl_SANPHAM" FromRole="SANPHAM" ToRole="ChitietdonhangOnl" />
           <NavigationProperty Name="CHITIETHDBANs" Relationship="Self.FK_CHITIETHDBAN_SANPHAM" FromRole="SANPHAM" ToRole="CHITIETHDBAN" />
           <NavigationProperty Name="CHITIETNHAPHANGs" Relationship="Self.FK_CHITIETNHAPHANG_SANPHAM" FromRole="SANPHAM" ToRole="CHITIETNHAPHANG" />
           <NavigationProperty Name="LOAISP" Relationship="Self.FK_SANPHAM_LOAISP" FromRole="SANPHAM" ToRole="LOAISP" />
           <NavigationProperty Name="NHACUNGCAP" Relationship="Self.FK_SANPHAM_NHACUNGCAP" FromRole="SANPHAM" ToRole="NHACUNGCAP" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="TAIKHOAN">
           <Key>
@@ -501,6 +618,30 @@
           <NavigationProperty Name="NHANVIEN" Relationship="Self.FK_TAIKHOAN_NHANVIEN" FromRole="TAIKHOAN" ToRole="NHANVIEN" />
           <NavigationProperty Name="QUYEN" Relationship="Self.FK_TAIKHOAN_QUYEN" FromRole="TAIKHOAN" ToRole="QUYEN" />
         </EntityType>
+        <Association Name="FK_ChitietdonhangOnl_DonhangOnl">
+          <End Role="DonhangOnl" Type="Self.DonhangOnl" Multiplicity="1" />
+          <End Role="ChitietdonhangOnl" Type="Self.ChitietdonhangOnl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DonhangOnl">
+              <PropertyRef Name="Madon" />
+            </Principal>
+            <Dependent Role="ChitietdonhangOnl">
+              <PropertyRef Name="Madon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChitietdonhangOnl_SANPHAM">
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
+          <End Role="ChitietdonhangOnl" Type="Self.ChitietdonhangOnl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SANPHAM">
+              <PropertyRef Name="MASP" />
+            </Principal>
+            <Dependent Role="ChitietdonhangOnl">
+              <PropertyRef Name="MASP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_CHITIETHDBAN_HDBAN">
           <End Role="HDBAN" Type="Self.HDBAN" Multiplicity="1" />
           <End Role="CHITIETHDBAN" Type="Self.CHITIETHDBAN" Multiplicity="*" />
@@ -558,6 +699,18 @@
             </Principal>
             <Dependent Role="NHANVIEN">
               <PropertyRef Name="MACHUCVU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DonhangOnl_NguoiDung">
+          <End Role="Nguoidung" Type="Self.Nguoidung" Multiplicity="0..1" />
+          <End Role="DonhangOnl" Type="Self.DonhangOnl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nguoidung">
+              <PropertyRef Name="MaNguoiDung" />
+            </Principal>
+            <Dependent Role="DonhangOnl">
+              <PropertyRef Name="MaNguoidung" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -645,10 +798,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QL_CuaHangTienLoi_NewEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="QL_CuaHangTienLoiEntities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ChitietdonhangOnls" EntityType="Self.ChitietdonhangOnl" />
           <EntitySet Name="CHITIETHDBANs" EntityType="Self.CHITIETHDBAN" />
           <EntitySet Name="CHITIETNHAPHANGs" EntityType="Self.CHITIETNHAPHANG" />
           <EntitySet Name="CHUCVUs" EntityType="Self.CHUCVU" />
+          <EntitySet Name="DonhangOnls" EntityType="Self.DonhangOnl" />
           <EntitySet Name="HDBANs" EntityType="Self.HDBAN" />
           <EntitySet Name="KHACHes" EntityType="Self.KHACH" />
           <EntitySet Name="LOAISPs" EntityType="Self.LOAISP" />
@@ -658,7 +813,16 @@
           <EntitySet Name="NHAPHANGs" EntityType="Self.NHAPHANG" />
           <EntitySet Name="QUYENs" EntityType="Self.QUYEN" />
           <EntitySet Name="SANPHAMs" EntityType="Self.SANPHAM" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TAIKHOANs" EntityType="Self.TAIKHOAN" />
+          <AssociationSet Name="FK_ChitietdonhangOnl_DonhangOnl" Association="Self.FK_ChitietdonhangOnl_DonhangOnl">
+            <End Role="DonhangOnl" EntitySet="DonhangOnls" />
+            <End Role="ChitietdonhangOnl" EntitySet="ChitietdonhangOnls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChitietdonhangOnl_SANPHAM" Association="Self.FK_ChitietdonhangOnl_SANPHAM">
+            <End Role="SANPHAM" EntitySet="SANPHAMs" />
+            <End Role="ChitietdonhangOnl" EntitySet="ChitietdonhangOnls" />
+          </AssociationSet>
           <AssociationSet Name="FK_CHITIETHDBAN_HDBAN" Association="Self.FK_CHITIETHDBAN_HDBAN">
             <End Role="HDBAN" EntitySet="HDBANs" />
             <End Role="CHITIETHDBAN" EntitySet="CHITIETHDBANs" />
@@ -678,6 +842,10 @@
           <AssociationSet Name="FK_NHANVIEN_CHUCVU" Association="Self.FK_NHANVIEN_CHUCVU">
             <End Role="CHUCVU" EntitySet="CHUCVUs" />
             <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DonhangOnl_NguoiDung" Association="Self.FK_DonhangOnl_NguoiDung">
+            <End Role="Nguoidung" EntitySet="Nguoidungs" />
+            <End Role="DonhangOnl" EntitySet="DonhangOnls" />
           </AssociationSet>
           <AssociationSet Name="FK_HDBAN_KHACH" Association="Self.FK_HDBAN_KHACH">
             <End Role="KHACH" EntitySet="KHACHes" />
@@ -713,9 +881,20 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QL_CuaHangTienLoi_NewModelStoreContainer" CdmEntityContainer="QL_CuaHangTienLoi_NewEntities1">
+        <EntityContainerMapping StorageEntityContainer="QL_CuaHangTienLoiModelStoreContainer" CdmEntityContainer="QL_CuaHangTienLoiEntities4">
+          <EntitySetMapping Name="ChitietdonhangOnls">
+            <EntityTypeMapping TypeName="QL_CuaHangTienLoiModel.ChitietdonhangOnl">
+              <MappingFragment StoreEntitySet="ChitietdonhangOnl">
+                <ScalarProperty Name="Madon" ColumnName="Madon" />
+                <ScalarProperty Name="MASP" ColumnName="MASP" />
+                <ScalarProperty Name="Soluong" ColumnName="Soluong" />
+                <ScalarProperty Name="Dongia" ColumnName="Dongia" />
+                <ScalarProperty Name="Thanhtien" ColumnName="Thanhtien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="CHITIETHDBANs">
-            <EntityTypeMapping TypeName="QL_CuaHangTienLoi_NewModel.CHITIETHDBAN">
+            <EntityTypeMapping TypeName="QL_CuaHangTienLoiModel.CHITIETHDBAN">
               <MappingFragment StoreEntitySet="CHITIETHDBAN">
                 <ScalarProperty Name="MAHDBAN" ColumnName="MAHDBAN" />
                 <ScalarProperty Name="MASP" ColumnName="MASP" />
@@ -727,7 +906,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CHITIETNHAPHANGs">
-            <EntityTypeMapping TypeName="QL_CuaHangTienLoi_NewModel.CHITIETNHAPHANG">
+            <EntityTypeMapping TypeName="QL_CuaHangTienLoiModel.CHITIETNHAPHANG">
               <MappingFragment StoreEntitySet="CHITIETNHAPHANG">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MANHAPHANG" ColumnName="MANHAPHANG" />
@@ -739,15 +918,25 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CHUCVUs">
-            <EntityTypeMapping TypeName="QL_CuaHangTienLoi_NewModel.CHUCVU">
+            <EntityTypeMapping TypeName="QL_CuaHangTienLoiModel.CHUCVU">
               <MappingFragment StoreEntitySet="CHUCVU">
                 <ScalarProperty Name="MACHUCVU" ColumnName="MACHUCVU" />
                 <ScalarProperty Name="TENCHUCVU" ColumnName="TENCHUCVU" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="DonhangOnls">
+            <EntityTypeMapping TypeName="QL_CuaHangTienLoiModel.DonhangOnl">
+              <MappingFragment StoreEntitySet="DonhangOnl">
+                <ScalarProperty Name="Madon" ColumnName="Madon" />
+                <ScalarProperty Name="Ngaydat" ColumnName="Ngaydat" />
+                <ScalarProperty Name="Tinhtrang" ColumnName="Tinhtrang" />
+                <ScalarProperty Name="MaNguoidung" ColumnName="MaNguoidung" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="HDBANs">
-            <EntityTypeMapping TypeName="QL_CuaHangTienLoi_NewModel.HDBAN">
+            <EntityTypeMapping TypeName="QL_CuaHangTienLoiModel.HDBAN">
               <MappingFragment StoreEntitySet="HDBAN">
                 <ScalarProperty Name="MAHDBAN" ColumnName="MAHDBAN" />
                 <ScalarProperty Name="MANHANVIEN" ColumnName="MANHANVIEN" />
@@ -758,7 +947,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="KHACHes">
-            <EntityTypeMapping TypeName="QL_CuaHangTienLoi_NewModel.KHACH">
+            <EntityTypeMapping TypeName="QL_CuaHangTienLoiModel.KHACH">
               <MappingFragment StoreEntitySet="KHACH">
                 <ScalarProperty Name="MAKHACH" ColumnName="MAKHACH" />
                 <ScalarProperty Name="TENKHACH" ColumnName="TENKHACH" />
@@ -768,7 +957,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LOAISPs">
-            <EntityTypeMapping TypeName="QL_CuaHangTienLoi_NewModel.LOAISP">
+            <EntityTypeMapping TypeName="QL_CuaHangTienLoiModel.LOAISP">
               <MappingFragment StoreEntitySet="LOAISP">
                 <ScalarProperty Name="MALOAI" ColumnName="MALOAI" />
                 <ScalarProperty Name="TENLOAI" ColumnName="TENLOAI" />
@@ -776,7 +965,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Nguoidungs">
-            <EntityTypeMapping TypeName="QL_CuaHangTienLoi_NewModel.Nguoidung">
+            <EntityTypeMapping TypeName="QL_CuaHangTienLoiModel.Nguoidung">
               <MappingFragment StoreEntitySet="Nguoidung">
                 <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
                 <ScalarProperty Name="Hoten" ColumnName="Hoten" />
@@ -788,7 +977,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NHACUNGCAPs">
-            <EntityTypeMapping TypeName="QL_CuaHangTienLoi_NewModel.NHACUNGCAP">
+            <EntityTypeMapping TypeName="QL_CuaHangTienLoiModel.NHACUNGCAP">
               <MappingFragment StoreEntitySet="NHACUNGCAP">
                 <ScalarProperty Name="MANCC" ColumnName="MANCC" />
                 <ScalarProperty Name="TENNCC" ColumnName="TENNCC" />
@@ -799,7 +988,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NHANVIENs">
-            <EntityTypeMapping TypeName="QL_CuaHangTienLoi_NewModel.NHANVIEN">
+            <EntityTypeMapping TypeName="QL_CuaHangTienLoiModel.NHANVIEN">
               <MappingFragment StoreEntitySet="NHANVIEN">
                 <ScalarProperty Name="MANHANVIEN" ColumnName="MANHANVIEN" />
                 <ScalarProperty Name="TENNHANVIEN" ColumnName="TENNHANVIEN" />
@@ -812,7 +1001,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NHAPHANGs">
-            <EntityTypeMapping TypeName="QL_CuaHangTienLoi_NewModel.NHAPHANG">
+            <EntityTypeMapping TypeName="QL_CuaHangTienLoiModel.NHAPHANG">
               <MappingFragment StoreEntitySet="NHAPHANG">
                 <ScalarProperty Name="MANHAPHANG" ColumnName="MANHAPHANG" />
                 <ScalarProperty Name="NGAYTAO" ColumnName="NGAYTAO" />
@@ -822,7 +1011,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="QUYENs">
-            <EntityTypeMapping TypeName="QL_CuaHangTienLoi_NewModel.QUYEN">
+            <EntityTypeMapping TypeName="QL_CuaHangTienLoiModel.QUYEN">
               <MappingFragment StoreEntitySet="QUYEN">
                 <ScalarProperty Name="MAQUYEN" ColumnName="MAQUYEN" />
                 <ScalarProperty Name="TENQUYEN" ColumnName="TENQUYEN" />
@@ -830,7 +1019,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SANPHAMs">
-            <EntityTypeMapping TypeName="QL_CuaHangTienLoi_NewModel.SANPHAM">
+            <EntityTypeMapping TypeName="QL_CuaHangTienLoiModel.SANPHAM">
               <MappingFragment StoreEntitySet="SANPHAM">
                 <ScalarProperty Name="MASP" ColumnName="MASP" />
                 <ScalarProperty Name="TENSP" ColumnName="TENSP" />
@@ -843,8 +1032,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="QL_CuaHangTienLoiModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TAIKHOANs">
-            <EntityTypeMapping TypeName="QL_CuaHangTienLoi_NewModel.TAIKHOAN">
+            <EntityTypeMapping TypeName="QL_CuaHangTienLoiModel.TAIKHOAN">
               <MappingFragment StoreEntitySet="TAIKHOAN">
                 <ScalarProperty Name="MATAIKHOAN" ColumnName="MATAIKHOAN" />
                 <ScalarProperty Name="TAIKHOAN1" ColumnName="TAIKHOAN" />

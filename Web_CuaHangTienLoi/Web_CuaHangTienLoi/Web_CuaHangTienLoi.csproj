@@ -130,12 +130,17 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\DanhMucController.cs" />
+    <Compile Include="Controllers\DatHangController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SanphamController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChitietdonhangOnl.cs">
+      <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CHITIETHDBAN.cs">
       <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
@@ -147,6 +152,9 @@
       <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DangNhap.cs" />
+    <Compile Include="Models\DonhangOnl.cs">
+      <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\HDBAN.cs">
       <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
@@ -188,6 +196,9 @@
       <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SANPHAM.cs">
+      <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TAIKHOAN.cs">
@@ -253,6 +264,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\erro.png" />
     <Content Include="Images\food.png" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\slider1.png" />
@@ -304,8 +316,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\SlidePartial.cshtml" />
-    <Content Include="Views\SanPham\NuocUong.cshtml" />
-    <Content Include="Views\SanPham\ThucAn.cshtml" />
+    <Content Include="Views\SanPham\GiayIn.cshtml" />
+    <Content Include="Views\SanPham\MayTinh.cshtml" />
     <Content Include="Views\SanPham\XemChiTiet.cshtml" />
     <Content Include="Views\GioHang\GioHang.cshtml" />
     <Content Include="Views\GioHang\GioHangPartial.cshtml" />
@@ -313,6 +325,13 @@
     <Content Include="Views\Home\LienHe.cshtml" />
     <Content Include="Views\User\Dangnhap.cshtml" />
     <Content Include="Views\User\DangKy.cshtml" />
+    <Content Include="Views\DanhMuc\DanhmucPartial.cshtml" />
+    <Content Include="Views\DanhMuc\SanPhamTheoLH.cshtml" />
+    <Content Include="Views\DanhMuc\xemchitiet.cshtml" />
+    <Content Include="Views\SanPham\getAll.cshtml" />
+    <Content Include="Views\DatHang\Index.cshtml" />
+    <Content Include="Views\DatHang\Details.cshtml" />
+    <Content Include="Views\GioHang\SuaGioHang_View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

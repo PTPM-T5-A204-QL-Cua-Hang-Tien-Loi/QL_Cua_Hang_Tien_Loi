@@ -12,20 +12,12 @@ namespace Web_CuaHangTienLoi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Nguoidung
+    public partial class sysdiagram
     {
-        public Nguoidung()
-        {
-            this.DonhangOnls = new HashSet<DonhangOnl>();
-        }
-    
-        public int MaNguoiDung { get; set; }
-        public string Hoten { get; set; }
-        public string Email { get; set; }
-        public string Dienthoai { get; set; }
-        public string Matkhau { get; set; }
-        public string Diachi { get; set; }
-    
-        public virtual ICollection<DonhangOnl> DonhangOnls { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

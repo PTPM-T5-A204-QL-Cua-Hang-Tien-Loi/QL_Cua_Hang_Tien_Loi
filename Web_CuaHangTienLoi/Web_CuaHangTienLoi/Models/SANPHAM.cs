@@ -16,6 +16,7 @@ namespace Web_CuaHangTienLoi.Models
     {
         public SANPHAM()
         {
+            this.ChitietdonhangOnls = new HashSet<ChitietdonhangOnl>();
             this.CHITIETHDBANs = new HashSet<CHITIETHDBAN>();
             this.CHITIETNHAPHANGs = new HashSet<CHITIETNHAPHANG>();
         }
@@ -29,6 +30,7 @@ namespace Web_CuaHangTienLoi.Models
         public string MALOAI { get; set; }
         public string MANCC { get; set; }
     
+        public virtual ICollection<ChitietdonhangOnl> ChitietdonhangOnls { get; set; }
         public virtual ICollection<CHITIETHDBAN> CHITIETHDBANs { get; set; }
         public virtual ICollection<CHITIETNHAPHANG> CHITIETNHAPHANGs { get; set; }
         public virtual LOAISP LOAISP { get; set; }

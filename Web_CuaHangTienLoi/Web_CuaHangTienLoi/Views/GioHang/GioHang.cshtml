@@ -15,7 +15,7 @@
 
         <th> Tên SP</th>
 
-        @*<th> Ảnh bìa</th>*@
+        @*<th> Hình ảnh</th>*@
 
         <th> Đơn giá</th>
 
@@ -33,7 +33,7 @@
 
             <td> @item.sTensp</td>
 
-            @*<td> <img src="@Url.Content("~/Images/" +item.sAnhBia)" width="50" height="50" /></td>*@
+            @*<td><img src="@string.Format("data:image/png;base64,{0}", Convert.ToBase64String(@item.sHinhAnh))" width="50" height="50" /></td>*@
 
             <td>  @String.Format("{0:0,0}", item.dDonGia) VNĐ</td>
 
@@ -49,10 +49,17 @@
         <td colspan="6">
             Tổng tiền:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@String.Format("{0:0,0}", @Model.Sum(b => b.ThanhTien)) VNĐ
         </td>
+        <td colspan="6" style="text-align:right">
+            @Html.ActionLink("Chỉnh sửa giỏ hàng", "SuaGioHang_View")
+        </td>
         <td colspan="6" style="text-align:right;color:blue">
-            <a href="#"><input type="submit" value="Đặt hàng" class="btn-danger" /></a>
+            @using (Html.BeginForm("DatHang", "GioHang", new { @class = "" }))
+            {
+                <input type="submit" value="Đặt hàng" class="btn-danger" />
+            }
         </td>
     </tr>
+
 </table>
 <br />
 <style type="text/css">

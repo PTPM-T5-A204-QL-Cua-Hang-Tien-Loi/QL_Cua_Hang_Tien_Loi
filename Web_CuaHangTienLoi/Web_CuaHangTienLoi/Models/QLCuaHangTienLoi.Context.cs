@@ -13,10 +13,10 @@ namespace Web_CuaHangTienLoi.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QL_CuaHangTienLoi_NewEntities1 : DbContext
+    public partial class QL_CuaHangTienLoiEntities4 : DbContext
     {
-        public QL_CuaHangTienLoi_NewEntities1()
-            : base("name=QL_CuaHangTienLoi_NewEntities1")
+        public QL_CuaHangTienLoiEntities4()
+            : base("name=QL_CuaHangTienLoiEntities4")
         {
         }
     
@@ -25,9 +25,11 @@ namespace Web_CuaHangTienLoi.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<ChitietdonhangOnl> ChitietdonhangOnls { get; set; }
         public DbSet<CHITIETHDBAN> CHITIETHDBANs { get; set; }
         public DbSet<CHITIETNHAPHANG> CHITIETNHAPHANGs { get; set; }
         public DbSet<CHUCVU> CHUCVUs { get; set; }
+        public DbSet<DonhangOnl> DonhangOnls { get; set; }
         public DbSet<HDBAN> HDBANs { get; set; }
         public DbSet<KHACH> KHACHes { get; set; }
         public DbSet<LOAISP> LOAISPs { get; set; }
@@ -37,6 +39,7 @@ namespace Web_CuaHangTienLoi.Models
         public DbSet<NHAPHANG> NHAPHANGs { get; set; }
         public DbSet<QUYEN> QUYENs { get; set; }
         public DbSet<SANPHAM> SANPHAMs { get; set; }
+        public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<TAIKHOAN> TAIKHOANs { get; set; }
     }
 }

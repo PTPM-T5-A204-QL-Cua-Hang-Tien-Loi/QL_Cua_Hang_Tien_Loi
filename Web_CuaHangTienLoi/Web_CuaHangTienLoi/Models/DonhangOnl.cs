@@ -12,20 +12,19 @@ namespace Web_CuaHangTienLoi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Nguoidung
+    public partial class DonhangOnl
     {
-        public Nguoidung()
+        public DonhangOnl()
         {
-            this.DonhangOnls = new HashSet<DonhangOnl>();
+            this.ChitietdonhangOnls = new HashSet<ChitietdonhangOnl>();
         }
     
-        public int MaNguoiDung { get; set; }
-        public string Hoten { get; set; }
-        public string Email { get; set; }
-        public string Dienthoai { get; set; }
-        public string Matkhau { get; set; }
-        public string Diachi { get; set; }
+        public int Madon { get; set; }
+        public Nullable<System.DateTime> Ngaydat { get; set; }
+        public Nullable<int> Tinhtrang { get; set; }
+        public Nullable<int> MaNguoidung { get; set; }
     
-        public virtual ICollection<DonhangOnl> DonhangOnls { get; set; }
+        public virtual ICollection<ChitietdonhangOnl> ChitietdonhangOnls { get; set; }
+        public virtual Nguoidung Nguoidung { get; set; }
     }
 }

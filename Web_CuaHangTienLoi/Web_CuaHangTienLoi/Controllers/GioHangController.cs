@@ -12,7 +12,7 @@ namespace Web_CuaHangTienLoi.Controllers
         //
         // GET: /GioHang/
 
-        QL_CuaHangTienLoi_NewEntities1 db = new QL_CuaHangTienLoi_NewEntities1();
+        QL_CuaHangTienLoiEntities4 db = new QL_CuaHangTienLoiEntities4();
        
         public ActionResult GioHang()
         {
@@ -95,5 +95,108 @@ namespace Web_CuaHangTienLoi.Controllers
                 return Redirect(strURL);
             }
         }
+
+        //Xây dựng 1 view cho người dùng chỉnh sửa giỏ hàng
+        public ActionResult SuaGioHang_View()
+        {
+            if (Session["GioHang"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            List<GioHang> lstGioHang = LayGioHang();
+            return View(lstGioHang);
+
+        }
+
+        //Cập nhật giỏ hàng 
+        public ActionResult CapNhatGioHang(string iMaSP, FormCollection f)
+        {
+            //Kiểm tra masp
+            SANPHAM sp = db.SANPHAMs.SingleOrDefault(n => n.MASP == iMaSP);
+            //Nếu get sai masp thì sẽ trả về trang lỗi 404
+            if (sp == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            //Lấy giỏ hàng ra từ session
+            List<GioHang> lstGioHang = LayGioHang();
+            //Kiểm tra sp có tồn tại trong session["GioHang"]
+            GioHang sanpham = lstGioHang.SingleOrDefault(n => n.iMasp == iMaSP);
+            //Nếu mà tồn tại thì chúng ta cho sửa số lượng
+            if (sanpham != null)
+            {
+                sanpham.iSoLuong = int.Parse(f["txtSoLuong"].ToString());
+
+            }
+            return RedirectToAction("GioHang");
+        }
+
+        //Xóa giỏ hàng
+        public ActionResult XoaGioHang(string iMaSP)
+        {
+            //Kiểm tra masp
+            SANPHAM sp = db.SANPHAMs.SingleOrDefault(n => n.MASP == iMaSP);
+            //Nếu get sai masp thì sẽ trả về trang lỗi 404
+            if (sp == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            //Lấy giỏ hàng ra từ session
+            List<GioHang> lstGioHang = LayGioHang();
+            GioHang sanpham = lstGioHang.SingleOrDefault(n => n.iMasp == iMaSP);
+            //Nếu mà tồn tại thì chúng ta cho sửa số lượng
+            if (sanpham != null)
+            {
+                lstGioHang.RemoveAll(n => n.iMasp == iMaSP);
+
+            }
+            if (lstGioHang.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return RedirectToAction("GioHang");
+        }
+
+        //Xây dựng chức năng đặt hàng
+        [HttpPost]
+        public ActionResult DatHang()
+        {
+            //Kiểm tra đăng đăng nhập
+            if (Session["use"] == null || Session["use"].ToString() == "")
+            {
+                return RedirectToAction("Dangnhap", "User");
+            }
+            //Kiểm tra giỏ hàng
+            if (Session["GioHang"] == null)
+            {
+                RedirectToAction("Index", "Home");
+            }
+            //Thêm đơn hàng
+            DonhangOnl ddh = new DonhangOnl();
+            Nguoidung kh = (Nguoidung)Session["use"];
+            List<GioHang> gh = LayGioHang();
+            ddh.MaNguoidung = kh.MaNguoiDung;
+            ddh.Ngaydat = DateTime.Now;
+            Console.WriteLine(ddh);
+            db.DonhangOnls.Add(ddh);
+            db.SaveChanges();
+            //Thêm chi tiết đơn hàng
+            foreach (var item in gh)
+            {
+                ChitietdonhangOnl ctDH = new ChitietdonhangOnl();
+                decimal thanhtien = item.iSoLuong * (decimal)item.dDonGia;
+                ctDH.Madon = ddh.Madon;
+                ctDH.MASP = item.iMasp;
+                ctDH.Soluong = item.iSoLuong;
+                ctDH.Dongia = (decimal)item.dDonGia;
+                ctDH.Thanhtien = (decimal)thanhtien;
+                db.ChitietdonhangOnls.Add(ctDH);
+            }
+            db.SaveChanges();
+            return RedirectToAction("Index", "DatHang");
+        }
+       
     }
 }

@@ -120,6 +120,10 @@
     .product-price-btn button:hover {
       background-color: #004b9c;
     }
+    img {
+        border: 0;
+        vertical-align: middle;
+    }
 </style>
 
 <br />
@@ -130,7 +134,9 @@
                 <div class="img">
                     <div class="item">
                         <article>
-                            <figure><img src="~/Images/@Model.HINHANH" alt="thumb"></figure>
+                            <figure>
+                                <img src="@string.Format("data:image/png;base64,{0}", Convert.ToBase64String(@Model.HINHANH))" class="img-responsive" width="460" height="460" />
+                            </figure>
                         </article>
                     </div>
                 </div>
@@ -144,7 +150,7 @@
                     <div class="product-price-btn">
                         @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = @Model.MASP, @strURL = Request.Url.ToString() }))
                         {
-                            <button type="submit" id="bgnGioHang" class="buy-btn">mua ngay</button>
+                            <button type="submit" id="bgnGioHang" class="buy-btn">THÊM VÀO GIỎ</button>
                         }
                     </div>               
                 </div>

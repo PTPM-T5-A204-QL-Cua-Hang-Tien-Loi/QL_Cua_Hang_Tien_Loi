@@ -11,7 +11,7 @@ namespace Web_CuaHangTienLoi.Controllers
     {
         //
         // GET: /User/
-        QL_CuaHangTienLoi_NewEntities1 db = new QL_CuaHangTienLoi_NewEntities1();
+        QL_CuaHangTienLoiEntities4 db = new QL_CuaHangTienLoiEntities4();
 
         public ActionResult DangKy()
         {

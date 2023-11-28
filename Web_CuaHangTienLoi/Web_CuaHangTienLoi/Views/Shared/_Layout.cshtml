@@ -308,7 +308,7 @@
                 <div class="container clear">
                     <ul id="nav" class="clear">
                         <li>
-                            <a href="#">Sản phẩm</a>
+                            <a href="@Url.Action("getAll","SanPham")">Sản phẩm</a>
                         </li>
                         <li>
                             <a href="#">Tin tức</a>
@@ -322,6 +322,11 @@
                         <li style="margin-left:100px;">                         
                             @Html.Action("GioHangPartial", "GioHang", new { @class = "giohang" })
                         </li>   
+                        <li>
+                            <a style="color:yellow ; margin-left:50px"
+                               class="nav-link"                           
+                               href="@Url.Action("Index", "DatHang")">ĐƠN HÀNG</a>
+                        </li>
                     </ul>
                     <ul>
                         <li>
@@ -358,13 +363,7 @@
                                     <a href="#">Cửa hàng</a>
                                 </li>
                                 <li>
-                                    <a href="#">Thành viên</a>
-                                </li>
-                                <li>
                                     <a href="~/Home/LienHe">Liên hệ</a>
-                                </li>
-                                <li>
-                                    <a href="#">Kiểm tra hóa đơn</a>
                                 </li>
                             </ul>
                         </div>
