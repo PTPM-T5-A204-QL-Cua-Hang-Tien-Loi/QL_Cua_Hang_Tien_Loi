@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +33,15 @@ namespace BLL_DAL
                 dt.Rows.Add(row);
             }
             return dt;
+        }
+
+        public string geTenLoaiMaLoai(string maLoai)
+        {
+            var query = from loai in qlch.LOAISPs
+                        where loai.MALOAI == maLoai
+                        select loai.TENLOAI;
+
+            return query.FirstOrDefault();
         }
     }
 }

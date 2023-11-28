@@ -40,5 +40,14 @@ namespace BLL_DAL
             return dt;
         }
 
+        public string geTenNCCTheoMa(string maNCC)
+        {
+            var query = from ncc in qlch.NHACUNGCAPs
+                        where ncc.MANCC == maNCC
+                        select ncc.TENNCC;
+
+            return query.FirstOrDefault();
+        }
+
     }
 }
