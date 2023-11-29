@@ -44,10 +44,11 @@
             // 
             // txtSoDT
             // 
+            this.txtSoDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSoDT.Location = new System.Drawing.Point(195, 237);
             this.txtSoDT.Mask = "0000-000-000";
             this.txtSoDT.Name = "txtSoDT";
-            this.txtSoDT.Size = new System.Drawing.Size(314, 22);
+            this.txtSoDT.Size = new System.Drawing.Size(314, 30);
             this.txtSoDT.TabIndex = 78;
             // 
             // btnCancel
@@ -70,6 +71,7 @@
             this.btnSave.TabIndex = 77;
             this.btnSave.Text = "Lưu thông tin";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label12
             // 
