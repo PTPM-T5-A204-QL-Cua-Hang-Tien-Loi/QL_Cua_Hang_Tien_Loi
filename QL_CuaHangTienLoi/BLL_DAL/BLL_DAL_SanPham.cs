@@ -45,6 +45,25 @@ namespace BLL_DAL
             return dt;
         }
 
+        public DataTable getSanPhamsTheoMaNCC_Table(string maNCC)
+        {
+            DataTable dt = taoTable();
+            var hang = from h in qlch.SANPHAMs where h.MANCC == maNCC select new { h.MASP, h.TENSP, h.DONVI, h.SOLUONG, h.MALOAI, h.MANCC, h.DONGIABAN };
+            foreach (var item in hang)
+            {
+                var row = dt.NewRow();
+                row[0] = item.MASP;
+                row[1] = item.TENSP;
+                row[2] = item.DONVI;
+                row[3] = item.SOLUONG;
+                row[4] = item.MALOAI;
+                row[5] = item.MANCC;
+                row[6] = item.DONGIABAN;
+                dt.Rows.Add(row);
+            }
+            return dt;
+        }
+
         public byte[] getHinhAnhSanPham(string maSP)
         {
             var query = from sp in qlch.SANPHAMs

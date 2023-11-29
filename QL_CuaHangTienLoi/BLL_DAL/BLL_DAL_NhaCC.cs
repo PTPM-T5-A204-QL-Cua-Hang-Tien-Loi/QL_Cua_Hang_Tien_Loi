@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace BLL_DAL
@@ -40,6 +42,25 @@ namespace BLL_DAL
             return dt;
         }
 
+        public NHACUNGCAP getNCCTheoMaNCC(string maNCC)
+        {
+
+            NHACUNGCAP nHACUNGCAP = new NHACUNGCAP();
+            var result = from ncc in qlch.NHACUNGCAPs where ncc.MANCC == maNCC select new { ncc.MANCC, ncc.TENNCC, ncc.DIACHINCC, ncc.EMAIL, ncc.SDTNCC };
+
+            foreach (var item in result)
+            {
+                nHACUNGCAP.MANCC = item.MANCC;
+                nHACUNGCAP.TENNCC = item.TENNCC;
+                nHACUNGCAP.DIACHINCC = item.DIACHINCC;
+                nHACUNGCAP.EMAIL = item.EMAIL;
+                nHACUNGCAP.SDTNCC = item.SDTNCC;
+            }
+
+            return nHACUNGCAP;
+
+        }
+
         public string geTenNCCTheoMa(string maNCC)
         {
             var query = from ncc in qlch.NHACUNGCAPs
@@ -47,6 +68,55 @@ namespace BLL_DAL
                         select ncc.TENNCC;
 
             return query.FirstOrDefault();
+        }
+
+        public bool Create(NHACUNGCAP ncc)
+        {
+            try
+            {
+                qlch.NHACUNGCAPs.InsertOnSubmit(ncc);
+                qlch.SubmitChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool Update(NHACUNGCAP ncc)
+        {
+            try
+            {
+                NHACUNGCAP nHACUNGCAP = qlch.NHACUNGCAPs.Where(u => u.MANCC == ncc.MANCC).SingleOrDefault();
+                nHACUNGCAP.MANCC = ncc.MANCC;
+                nHACUNGCAP.TENNCC = ncc.TENNCC;
+                nHACUNGCAP.DIACHINCC = ncc.DIACHINCC;
+                nHACUNGCAP.EMAIL = ncc.EMAIL;
+                nHACUNGCAP.SDTNCC = ncc.SDTNCC;
+                qlch.SubmitChanges();
+                var result = qlch.NHACUNGCAPs.Where(n => n.MANCC == ncc.MANCC).ToList();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool Delete(NHACUNGCAP ncc)
+        {
+            try
+            {
+                NHACUNGCAP nHACUNGCAP = qlch.NHACUNGCAPs.Where(u => u.MANCC == ncc.MANCC).SingleOrDefault();
+                qlch.NHACUNGCAPs.DeleteOnSubmit(nHACUNGCAP);
+                qlch.SubmitChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
     }

@@ -28,27 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnReload = new System.Windows.Forms.Button();
             this.chbDiaChiNCC = new System.Windows.Forms.CheckBox();
             this.chbTenNCC = new System.Windows.Forms.CheckBox();
-            this.cbTypeProductFilter = new System.Windows.Forms.ComboBox();
-            this.chbLoaiSP = new System.Windows.Forms.CheckBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
-            this.dgvSupplier = new System.Windows.Forms.DataGridView();
-            this.btnEditSupplier = new System.Windows.Forms.Button();
-            this.txtSupplierAddressFilter = new System.Windows.Forms.TextBox();
-            this.txtSupplierNameFilter = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).BeginInit();
+            this.dgvNCC = new System.Windows.Forms.DataGridView();
+            this.btnEditNCC = new System.Windows.Forms.Button();
+            this.txtFindDiaChiNCC = new System.Windows.Forms.TextBox();
+            this.txtFindTenNCC = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNCC)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAddNew
             // 
-            this.btnAddNew.Location = new System.Drawing.Point(90, 537);
+            this.btnAddNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNew.Location = new System.Drawing.Point(90, 504);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(245, 36);
             this.btnAddNew.TabIndex = 75;
@@ -59,22 +58,24 @@
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(385, 178);
+            this.btnClear.Location = new System.Drawing.Point(385, 145);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(183, 51);
             this.btnClear.TabIndex = 74;
             this.btnClear.Text = "Làm trống";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnReload
             // 
             this.btnReload.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReload.Location = new System.Drawing.Point(90, 178);
+            this.btnReload.Location = new System.Drawing.Point(90, 145);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(194, 51);
             this.btnReload.TabIndex = 73;
             this.btnReload.Text = "Tải lại";
             this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // chbDiaChiNCC
             // 
@@ -102,32 +103,11 @@
             this.chbTenNCC.Text = "Tên nhà cung cấp";
             this.chbTenNCC.UseVisualStyleBackColor = true;
             // 
-            // cbTypeProductFilter
-            // 
-            this.cbTypeProductFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTypeProductFilter.FormattingEnabled = true;
-            this.cbTypeProductFilter.Location = new System.Drawing.Point(369, 122);
-            this.cbTypeProductFilter.Name = "cbTypeProductFilter";
-            this.cbTypeProductFilter.Size = new System.Drawing.Size(475, 24);
-            this.cbTypeProductFilter.TabIndex = 70;
-            // 
-            // chbLoaiSP
-            // 
-            this.chbLoaiSP.AutoSize = true;
-            this.chbLoaiSP.Checked = true;
-            this.chbLoaiSP.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbLoaiSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbLoaiSP.Location = new System.Drawing.Point(91, 121);
-            this.chbLoaiSP.Name = "chbLoaiSP";
-            this.chbLoaiSP.Size = new System.Drawing.Size(162, 29);
-            this.chbLoaiSP.TabIndex = 69;
-            this.chbLoaiSP.Text = "Loại sản phẩm";
-            this.chbLoaiSP.UseVisualStyleBackColor = true;
-            // 
             // btnExit
             // 
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnExit.Location = new System.Drawing.Point(660, 537);
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(660, 504);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(183, 36);
             this.btnExit.TabIndex = 68;
@@ -136,66 +116,71 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(660, 480);
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(660, 447);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(183, 36);
             this.btnDelete.TabIndex = 67;
             this.btnDelete.Text = "Xóa thông tin";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnFind
             // 
             this.btnFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFind.Location = new System.Drawing.Point(660, 178);
+            this.btnFind.Location = new System.Drawing.Point(660, 145);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(184, 51);
             this.btnFind.TabIndex = 66;
             this.btnFind.Text = "Tìm";
             this.btnFind.UseVisualStyleBackColor = true;
             // 
-            // dgvSupplier
+            // dgvNCC
             // 
-            this.dgvSupplier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSupplier.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSupplier.EnableHeadersVisualStyles = false;
-            this.dgvSupplier.Location = new System.Drawing.Point(91, 249);
-            this.dgvSupplier.Name = "dgvSupplier";
-            this.dgvSupplier.RowHeadersWidth = 51;
-            this.dgvSupplier.Size = new System.Drawing.Size(754, 216);
-            this.dgvSupplier.TabIndex = 65;
+            this.dgvNCC.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNCC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvNCC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNCC.EnableHeadersVisualStyles = false;
+            this.dgvNCC.Location = new System.Drawing.Point(91, 216);
+            this.dgvNCC.Name = "dgvNCC";
+            this.dgvNCC.RowHeadersWidth = 51;
+            this.dgvNCC.Size = new System.Drawing.Size(754, 216);
+            this.dgvNCC.TabIndex = 65;
+            this.dgvNCC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNCC_CellClick);
             // 
-            // btnEditSupplier
+            // btnEditNCC
             // 
-            this.btnEditSupplier.Location = new System.Drawing.Point(90, 480);
-            this.btnEditSupplier.Name = "btnEditSupplier";
-            this.btnEditSupplier.Size = new System.Drawing.Size(245, 36);
-            this.btnEditSupplier.TabIndex = 62;
-            this.btnEditSupplier.Text = "Điều chỉnh thông tin";
-            this.btnEditSupplier.UseVisualStyleBackColor = true;
+            this.btnEditNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditNCC.Location = new System.Drawing.Point(90, 447);
+            this.btnEditNCC.Name = "btnEditNCC";
+            this.btnEditNCC.Size = new System.Drawing.Size(245, 36);
+            this.btnEditNCC.TabIndex = 62;
+            this.btnEditNCC.Text = "Điều chỉnh thông tin";
+            this.btnEditNCC.UseVisualStyleBackColor = true;
+            this.btnEditNCC.Click += new System.EventHandler(this.btnEditNCC_Click);
             // 
-            // txtSupplierAddressFilter
+            // txtFindDiaChiNCC
             // 
-            this.txtSupplierAddressFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplierAddressFilter.Location = new System.Drawing.Point(369, 77);
-            this.txtSupplierAddressFilter.Name = "txtSupplierAddressFilter";
-            this.txtSupplierAddressFilter.Size = new System.Drawing.Size(476, 30);
-            this.txtSupplierAddressFilter.TabIndex = 64;
+            this.txtFindDiaChiNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFindDiaChiNCC.Location = new System.Drawing.Point(369, 77);
+            this.txtFindDiaChiNCC.Name = "txtFindDiaChiNCC";
+            this.txtFindDiaChiNCC.Size = new System.Drawing.Size(476, 30);
+            this.txtFindDiaChiNCC.TabIndex = 64;
             // 
-            // txtSupplierNameFilter
+            // txtFindTenNCC
             // 
-            this.txtSupplierNameFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplierNameFilter.Location = new System.Drawing.Point(369, 36);
-            this.txtSupplierNameFilter.Name = "txtSupplierNameFilter";
-            this.txtSupplierNameFilter.Size = new System.Drawing.Size(476, 30);
-            this.txtSupplierNameFilter.TabIndex = 63;
+            this.txtFindTenNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFindTenNCC.Location = new System.Drawing.Point(369, 36);
+            this.txtFindTenNCC.Name = "txtFindTenNCC";
+            this.txtFindTenNCC.Size = new System.Drawing.Size(476, 30);
+            this.txtFindTenNCC.TabIndex = 63;
             // 
             // frmTHNhaCungCap
             // 
@@ -208,19 +193,17 @@
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.chbDiaChiNCC);
             this.Controls.Add(this.chbTenNCC);
-            this.Controls.Add(this.cbTypeProductFilter);
-            this.Controls.Add(this.chbLoaiSP);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnFind);
-            this.Controls.Add(this.dgvSupplier);
-            this.Controls.Add(this.btnEditSupplier);
-            this.Controls.Add(this.txtSupplierAddressFilter);
-            this.Controls.Add(this.txtSupplierNameFilter);
+            this.Controls.Add(this.dgvNCC);
+            this.Controls.Add(this.btnEditNCC);
+            this.Controls.Add(this.txtFindDiaChiNCC);
+            this.Controls.Add(this.txtFindTenNCC);
             this.Name = "frmTHNhaCungCap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tổng hợp nhà cung cấp";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNCC)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,14 +216,12 @@
         private System.Windows.Forms.Button btnReload;
         private System.Windows.Forms.CheckBox chbDiaChiNCC;
         private System.Windows.Forms.CheckBox chbTenNCC;
-        private System.Windows.Forms.ComboBox cbTypeProductFilter;
-        private System.Windows.Forms.CheckBox chbLoaiSP;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnFind;
-        private System.Windows.Forms.DataGridView dgvSupplier;
-        private System.Windows.Forms.Button btnEditSupplier;
-        private System.Windows.Forms.TextBox txtSupplierAddressFilter;
-        private System.Windows.Forms.TextBox txtSupplierNameFilter;
+        private System.Windows.Forms.DataGridView dgvNCC;
+        private System.Windows.Forms.Button btnEditNCC;
+        private System.Windows.Forms.TextBox txtFindDiaChiNCC;
+        private System.Windows.Forms.TextBox txtFindTenNCC;
     }
 }

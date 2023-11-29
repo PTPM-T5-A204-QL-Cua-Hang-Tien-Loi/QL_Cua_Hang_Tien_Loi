@@ -1387,7 +1387,7 @@ namespace BLL_DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _MANCC;
+		private string _MANCC = "NCC" + GetFormatString.MakingIDNow();
 		
 		private string _TENNCC;
 		

@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbDetail = new System.Windows.Forms.GroupBox();
             this.txtLoaiSP = new System.Windows.Forms.TextBox();
-            this.btnLoadSupplier = new System.Windows.Forms.Button();
+            this.btnLoadNCC = new System.Windows.Forms.Button();
             this.btnEditProduct = new System.Windows.Forms.Button();
             this.gbSupplier = new System.Windows.Forms.GroupBox();
             this.btnSeeMoreSupplier = new System.Windows.Forms.Button();
             this.btnEditSupplier = new System.Windows.Forms.Button();
             this.gbProductOfSupplier = new System.Windows.Forms.GroupBox();
-            this.dgvProductOfSupplier = new System.Windows.Forms.DataGridView();
+            this.dgvSPTheoNCC = new System.Windows.Forms.DataGridView();
             this.txtSDTNCC = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtEmailNCC = new System.Windows.Forms.TextBox();
@@ -79,7 +79,7 @@
             this.gbDetail.SuspendLayout();
             this.gbSupplier.SuspendLayout();
             this.gbProductOfSupplier.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductOfSupplier)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSPTheoNCC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSanPham)).BeginInit();
             this.gbFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSP)).BeginInit();
@@ -91,7 +91,7 @@
             // 
             this.gbDetail.BackColor = System.Drawing.Color.SpringGreen;
             this.gbDetail.Controls.Add(this.txtLoaiSP);
-            this.gbDetail.Controls.Add(this.btnLoadSupplier);
+            this.gbDetail.Controls.Add(this.btnLoadNCC);
             this.gbDetail.Controls.Add(this.btnEditProduct);
             this.gbDetail.Controls.Add(this.gbSupplier);
             this.gbDetail.Controls.Add(this.txtDonGia);
@@ -120,14 +120,15 @@
             this.txtLoaiSP.Size = new System.Drawing.Size(311, 26);
             this.txtLoaiSP.TabIndex = 39;
             // 
-            // btnLoadSupplier
+            // btnLoadNCC
             // 
-            this.btnLoadSupplier.Location = new System.Drawing.Point(338, 259);
-            this.btnLoadSupplier.Name = "btnLoadSupplier";
-            this.btnLoadSupplier.Size = new System.Drawing.Size(299, 59);
-            this.btnLoadSupplier.TabIndex = 38;
-            this.btnLoadSupplier.Text = "Tải thông tin nhà cung cấp";
-            this.btnLoadSupplier.UseVisualStyleBackColor = true;
+            this.btnLoadNCC.Location = new System.Drawing.Point(338, 259);
+            this.btnLoadNCC.Name = "btnLoadNCC";
+            this.btnLoadNCC.Size = new System.Drawing.Size(299, 59);
+            this.btnLoadNCC.TabIndex = 38;
+            this.btnLoadNCC.Text = "Tải thông tin nhà cung cấp";
+            this.btnLoadNCC.UseVisualStyleBackColor = true;
+            this.btnLoadNCC.Click += new System.EventHandler(this.btnLoadNCC_Click);
             // 
             // btnEditProduct
             // 
@@ -181,10 +182,11 @@
             this.btnEditSupplier.TabIndex = 39;
             this.btnEditSupplier.Text = "Điều chỉnh thông tin";
             this.btnEditSupplier.UseVisualStyleBackColor = true;
+            this.btnEditSupplier.Click += new System.EventHandler(this.btnEditSupplier_Click);
             // 
             // gbProductOfSupplier
             // 
-            this.gbProductOfSupplier.Controls.Add(this.dgvProductOfSupplier);
+            this.gbProductOfSupplier.Controls.Add(this.dgvSPTheoNCC);
             this.gbProductOfSupplier.Location = new System.Drawing.Point(7, 223);
             this.gbProductOfSupplier.Name = "gbProductOfSupplier";
             this.gbProductOfSupplier.Size = new System.Drawing.Size(616, 220);
@@ -192,25 +194,26 @@
             this.gbProductOfSupplier.TabStop = false;
             this.gbProductOfSupplier.Text = "Các sản phẩm đang cung cấp";
             // 
-            // dgvProductOfSupplier
+            // dgvSPTheoNCC
             // 
-            this.dgvProductOfSupplier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductOfSupplier.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvProductOfSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductOfSupplier.EnableHeadersVisualStyles = false;
-            this.dgvProductOfSupplier.Location = new System.Drawing.Point(6, 26);
-            this.dgvProductOfSupplier.Name = "dgvProductOfSupplier";
-            this.dgvProductOfSupplier.ReadOnly = true;
-            this.dgvProductOfSupplier.RowHeadersWidth = 51;
-            this.dgvProductOfSupplier.Size = new System.Drawing.Size(604, 188);
-            this.dgvProductOfSupplier.TabIndex = 0;
+            this.dgvSPTheoNCC.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSPTheoNCC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvSPTheoNCC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSPTheoNCC.EnableHeadersVisualStyles = false;
+            this.dgvSPTheoNCC.Location = new System.Drawing.Point(6, 26);
+            this.dgvSPTheoNCC.Name = "dgvSPTheoNCC";
+            this.dgvSPTheoNCC.ReadOnly = true;
+            this.dgvSPTheoNCC.RowHeadersWidth = 51;
+            this.dgvSPTheoNCC.Size = new System.Drawing.Size(604, 188);
+            this.dgvSPTheoNCC.TabIndex = 0;
+            this.dgvSPTheoNCC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSPTheoNCC_CellClick);
             // 
             // txtSDTNCC
             // 
@@ -430,14 +433,14 @@
             // dgvSP
             // 
             this.dgvSP.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSP.EnableHeadersVisualStyles = false;
             this.dgvSP.Location = new System.Drawing.Point(15, 281);
@@ -486,6 +489,7 @@
             this.btnFind.TabIndex = 27;
             this.btnFind.Text = "Tìm";
             this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // btnClear
             // 
@@ -629,7 +633,7 @@
             this.gbSupplier.ResumeLayout(false);
             this.gbSupplier.PerformLayout();
             this.gbProductOfSupplier.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductOfSupplier)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSPTheoNCC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSanPham)).EndInit();
             this.gbFilter.ResumeLayout(false);
             this.gbFilter.PerformLayout();
@@ -643,13 +647,13 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbDetail;
-        private System.Windows.Forms.Button btnLoadSupplier;
+        private System.Windows.Forms.Button btnLoadNCC;
         private System.Windows.Forms.Button btnEditProduct;
         private System.Windows.Forms.GroupBox gbSupplier;
         private System.Windows.Forms.Button btnSeeMoreSupplier;
         private System.Windows.Forms.Button btnEditSupplier;
         private System.Windows.Forms.GroupBox gbProductOfSupplier;
-        private System.Windows.Forms.DataGridView dgvProductOfSupplier;
+        private System.Windows.Forms.DataGridView dgvSPTheoNCC;
         private System.Windows.Forms.TextBox txtSDTNCC;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtEmailNCC;

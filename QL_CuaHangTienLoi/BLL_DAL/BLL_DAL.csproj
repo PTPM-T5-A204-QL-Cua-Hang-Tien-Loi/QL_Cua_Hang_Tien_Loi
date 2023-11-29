@@ -64,6 +64,7 @@
     <Compile Include="BLL_DAL_Quyen.cs" />
     <Compile Include="BLL_DAL_SanPham.cs" />
     <Compile Include="BLL_DAL_TaiKhoan.cs" />
+    <Compile Include="Function\Checking.cs" />
     <Compile Include="Function\FConvert.cs" />
     <Compile Include="Function\GetFormatString.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

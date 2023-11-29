@@ -34,7 +34,7 @@ namespace QL_CuaHangTienLoi
         {
             txtMaSP.Text = sp.MASP;
             txtTenSP.Text = sp.TENSP;
-            txtDonVi.Text = sp.DONVI.ToString();
+            txtDonVi.Text = sp.DONVI;
             txtSoLuong.Text = sp.SOLUONG.ToString();
             txtGia.Text = sp.DONGIABAN.ToString();
 
