@@ -25,19 +25,17 @@ namespace BLL_DAL
             dt.Columns.Add("Mã tài khoản");
             dt.Columns.Add("Tên đăng nhập");
             dt.Columns.Add("Mật khẩu");
-            dt.Columns.Add("Email");
             dt.Columns.Add("Mã quyền");
             dt.Columns.Add("Mã nhân viên");
-            var taikhoan = from tk in qlch.TAIKHOANs select new { tk.MATAIKHOAN,tk.TAIKHOAN1,tk.MATKHAU,tk.EMAIL,tk.MAQUYEN,tk.MANHANVIEN };
+            var taikhoan = from tk in qlch.TAIKHOANs select new { tk.MATAIKHOAN,tk.TAIKHOAN1,tk.MATKHAU,tk.MAQUYEN,tk.MANHANVIEN };
             foreach (var item in taikhoan)
             {
                 var row = dt.NewRow();
                 row[0] = item.MATAIKHOAN;
                 row[1] = item.TAIKHOAN1;
                 row[2] = item.MATKHAU;
-                row[3] = item.EMAIL;
-                row[4] = item.MAQUYEN;
-                row[5] = item.MANHANVIEN;
+                row[3] = item.MAQUYEN;
+                row[4] = item.MANHANVIEN;
                 dt.Rows.Add(row);
             }
             return dt;
