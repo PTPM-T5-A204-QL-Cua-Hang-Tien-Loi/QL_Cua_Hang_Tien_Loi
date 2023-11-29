@@ -12,7 +12,7 @@ namespace Web_CuaHangTienLoi.Controllers
         //
         // GET: /DanhMuc/
 
-        QL_CuaHangTienLoi db = new QL_CuaHangTienLoi();
+        QLCuaHangTienLoi db = new QLCuaHangTienLoi();
 
         public ActionResult DanhmucPartial()
         {

@@ -14,7 +14,7 @@ namespace Web_CuaHangTienLoi.Controllers
         //
         // GET: /DonHang/
 
-        QL_CuaHangTienLoi db = new QL_CuaHangTienLoi();
+        QLCuaHangTienLoi db = new QLCuaHangTienLoi();
         public ActionResult Index()
         {
             //Kiểm tra đang đăng nhập

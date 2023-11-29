@@ -12,7 +12,7 @@ namespace Web_CuaHangTienLoi.Controllers
         //
         // GET: /GioHang/
 
-        QL_CuaHangTienLoi db = new QL_CuaHangTienLoi();
+        QLCuaHangTienLoi db = new QLCuaHangTienLoi();
        
         public ActionResult GioHang()
         {
@@ -179,7 +179,7 @@ namespace Web_CuaHangTienLoi.Controllers
             List<GioHang> gh = LayGioHang();
             ddh.MaNguoiDung = kh.MaNguoiDung;
             ddh.Ngaydat = DateTime.Now;
-            Console.WriteLine(ddh);
+            ddh.Tinhtrang="Đang chờ xác nhận";
             db.DonhangOnls.Add(ddh);
             db.SaveChanges();
             //Thêm chi tiết đơn hàng
