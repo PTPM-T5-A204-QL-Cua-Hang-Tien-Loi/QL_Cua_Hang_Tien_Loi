@@ -41,6 +41,7 @@ namespace QL_CuaHangTienLoi.UserControls
         private void UC_SanPham_Load(object sender, EventArgs e)
         {
             dgvSP.DataSource = sanpham.getSanPhams_Table();
+            dgvSP.Columns[0].Visible = false;
 
             loadCTHD();
 

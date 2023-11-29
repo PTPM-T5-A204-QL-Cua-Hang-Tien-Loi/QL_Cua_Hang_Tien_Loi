@@ -53,7 +53,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL_DAL_ChiTietHD.cs" />
-    <Compile Include="BLL_DAL_ChucVu.cs" />
     <Compile Include="BLL_DAL_CTNhapHang.cs" />
     <Compile Include="BLL_DAL_HDBan.cs" />
     <Compile Include="BLL_DAL_Khach.cs" />

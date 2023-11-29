@@ -13,6 +13,11 @@ namespace BLL_DAL.Function
             return DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() +
                    DateTime.Now.Second.ToString();
         }
+        public static string MakingIDNHANVIEN()
+        {
+            return DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() +
+                   DateTime.Now.Second.ToString();
+        }
 
     }
 }
