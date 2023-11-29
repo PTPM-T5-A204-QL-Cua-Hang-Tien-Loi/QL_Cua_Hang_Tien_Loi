@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL_DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,6 +28,11 @@ namespace QL_CuaHangTienLoi.UserControls
         public UC_TrangChu()
         {
             InitializeComponent();
+        }
+
+        public void LoadDataNhanVien(NHANVIEN nv)
+        {
+            
         }
     }
 }

@@ -3084,9 +3084,9 @@ namespace BLL_DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _MANHAPHANG;
+		private string _MANHAPHANG = GetFormatString.MakingIDNow();
 		
-		private System.DateTime _NGAYTAO;
+		private System.DateTime _NGAYTAO = DateTime.Now;
 		
 		private double _TONGTIEN;
 		

@@ -57,5 +57,19 @@ namespace BLL_DAL
             }
             return dt;
         }
+
+        public bool Create(NHAPHANG nhap)
+        {
+            try
+            {
+                qlch.NHAPHANGs.InsertOnSubmit(nhap);
+                qlch.SubmitChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

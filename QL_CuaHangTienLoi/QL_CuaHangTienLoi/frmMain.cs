@@ -1,4 +1,5 @@
-﻿using QL_CuaHangTienLoi.UserControls;
+﻿using BLL_DAL;
+using QL_CuaHangTienLoi.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace QL_CuaHangTienLoi.GUI
 {
     public partial class frmMain : Form
     {
+        public static NHANVIEN nhanVien_using;
         public frmMain()
         {
             InitializeComponent();
@@ -22,6 +24,7 @@ namespace QL_CuaHangTienLoi.GUI
 
             AddTabToControl();
 
+            lblTenNV.Text = nhanVien_using.TENNHANVIEN;
 
             timer1.Start();
         }

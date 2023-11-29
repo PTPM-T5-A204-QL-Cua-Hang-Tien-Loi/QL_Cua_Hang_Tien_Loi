@@ -1,5 +1,6 @@
 ﻿using BLL_DAL;
 using QL_CuaHangTienLoi.GUI;
+using QL_CuaHangTienLoi.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace QL_CuaHangTienLoi
     public partial class frmDangNhap : Form
     {
         BLL_DAL_TaiKhoan bLL_DAL_TaiKhoan = new BLL_DAL_TaiKhoan();
+        BLL_DAL_NhanVien BLL_DAL_NhanVien = new BLL_DAL_NhanVien();
         public frmDangNhap()
         {
             InitializeComponent();
@@ -37,11 +39,12 @@ namespace QL_CuaHangTienLoi
             else if (matkhau.Trim() == "") { MessageBox.Show("Vui lòng nhập mật khẩu!"); }
             else
             {
-                if (bLL_DAL_TaiKhoan.GetTaiKhoan(tentk, matkhau))
+                string maNhanVien = bLL_DAL_TaiKhoan.GetTaiKhoan(tentk, matkhau);
+                if (maNhanVien != null)
                 {
-                    MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
+                    frmMain.nhanVien_using = BLL_DAL_NhanVien.getInfoNhanVien(maNhanVien);
+                    new frmMain().ShowDialog();
+                    this.Close();
                 }
                 else
                 {
