@@ -1,12 +1,19 @@
 ﻿@using Web_CuaHangTienLoi.Models;
 @model List<LOAISP>
 
+
+@{
+    ViewBag.Title = "MINISTOP - Danh Mục";
+}
+
 <div>
     <h3 style="padding-left:20px">Danh Mục</h3>
     @{
         foreach (var item in Model)
         {
-            <button type="button" class="btn btn-primary"><a href="@Url.Action("SanPhamTheoLH", "DanhMuc", new { @maLH = item.MALOAI })">@item.TENLOAI</a></button>
+            <button type="button" class="btn btn-primary">
+                <a href="@Url.Action("SanPhamTheoLH", "DanhMuc", new { @maLH = item.MALOAI })">@item.TENLOAI</a>
+            </button>
         }
     }
 </div>

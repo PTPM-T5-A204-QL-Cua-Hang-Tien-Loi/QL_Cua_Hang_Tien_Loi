@@ -198,9 +198,6 @@
     <Compile Include="Models\SANPHAM.cs">
       <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\TAIKHOAN.cs">
       <DependentUpon>QLCuaHangTienLoi.tt</DependentUpon>
     </Compile>

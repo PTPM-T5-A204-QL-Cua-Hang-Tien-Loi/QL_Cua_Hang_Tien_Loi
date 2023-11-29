@@ -14,7 +14,7 @@ namespace Web_CuaHangTienLoi.Controllers
         //
         // GET: /DonHang/
 
-        QL_CuaHangTienLoiEntities4 db = new QL_CuaHangTienLoiEntities4();
+        QL_CuaHangTienLoi db = new QL_CuaHangTienLoi();
         public ActionResult Index()
         {
             //Kiểm tra đang đăng nhập
@@ -23,9 +23,11 @@ namespace Web_CuaHangTienLoi.Controllers
                 return RedirectToAction("Dangnhap", "User");
             }
             Nguoidung kh = (Nguoidung)Session["use"];
+            DonhangOnl dh= new DonhangOnl();
             int maND = kh.MaNguoiDung;
-            var donhangs = db.DonhangOnls.Include(d => d.Nguoidung).Where(d => d.MaNguoidung == maND);
+            var donhangs = db.DonhangOnls.Include(d => d.Nguoidung).Where(d => d.MaNguoiDung == maND);
             return View(donhangs.ToList());
+            
         }
 
         //Hiển thị chi tiết đơn hàng

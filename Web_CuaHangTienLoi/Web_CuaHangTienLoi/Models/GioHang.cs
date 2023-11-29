@@ -8,7 +8,7 @@ namespace Web_CuaHangTienLoi.Models
 {
     public class GioHang
     {
-        QL_CuaHangTienLoiEntities4 db = new QL_CuaHangTienLoiEntities4();
+        QL_CuaHangTienLoi db = new QL_CuaHangTienLoi();
 
         public string iMasp { get; set; }
         public string sTensp { get; set; }

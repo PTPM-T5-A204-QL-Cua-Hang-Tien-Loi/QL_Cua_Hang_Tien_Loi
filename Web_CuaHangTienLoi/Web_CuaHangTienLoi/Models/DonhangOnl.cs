@@ -21,8 +21,8 @@ namespace Web_CuaHangTienLoi.Models
     
         public int Madon { get; set; }
         public Nullable<System.DateTime> Ngaydat { get; set; }
-        public Nullable<int> Tinhtrang { get; set; }
-        public Nullable<int> MaNguoidung { get; set; }
+        public string Tinhtrang { get; set; }
+        public Nullable<int> MaNguoiDung { get; set; }
     
         public virtual ICollection<ChitietdonhangOnl> ChitietdonhangOnls { get; set; }
         public virtual Nguoidung Nguoidung { get; set; }

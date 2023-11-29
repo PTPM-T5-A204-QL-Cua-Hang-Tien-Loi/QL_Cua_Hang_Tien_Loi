@@ -22,7 +22,6 @@
         <tr>
             <td> @item.iMasp</td>
             <td> @item.sTensp</td>
-            @*<td> <img src="@Url.Content("~/HinhanhSP/" +item.sAnhBia)" width="50" height="50" /></td>*@
             <td>  @String.Format("{0:0,0}", item.dDonGia) VNĐ</td>
             @*Chỉnh sửa giỏ hàng gọi về action CapNhatGioHang*@
             @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { @iMaSP = item.iMasp }))

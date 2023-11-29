@@ -12,7 +12,7 @@ namespace Web_CuaHangTienLoi.Controllers
         //
         // GET: /GioHang/
 
-        QL_CuaHangTienLoiEntities4 db = new QL_CuaHangTienLoiEntities4();
+        QL_CuaHangTienLoi db = new QL_CuaHangTienLoi();
        
         public ActionResult GioHang()
         {
@@ -177,7 +177,7 @@ namespace Web_CuaHangTienLoi.Controllers
             DonhangOnl ddh = new DonhangOnl();
             Nguoidung kh = (Nguoidung)Session["use"];
             List<GioHang> gh = LayGioHang();
-            ddh.MaNguoidung = kh.MaNguoiDung;
+            ddh.MaNguoiDung = kh.MaNguoiDung;
             ddh.Ngaydat = DateTime.Now;
             Console.WriteLine(ddh);
             db.DonhangOnls.Add(ddh);

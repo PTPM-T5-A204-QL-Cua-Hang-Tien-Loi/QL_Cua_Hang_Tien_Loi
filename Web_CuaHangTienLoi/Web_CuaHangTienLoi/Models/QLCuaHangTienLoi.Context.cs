@@ -13,10 +13,10 @@ namespace Web_CuaHangTienLoi.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QL_CuaHangTienLoiEntities4 : DbContext
+    public partial class QL_CuaHangTienLoi : DbContext
     {
-        public QL_CuaHangTienLoiEntities4()
-            : base("name=QL_CuaHangTienLoiEntities4")
+        public QL_CuaHangTienLoi()
+            : base("name=QL_CuaHangTienLoi")
         {
         }
     
@@ -39,7 +39,6 @@ namespace Web_CuaHangTienLoi.Models
         public DbSet<NHAPHANG> NHAPHANGs { get; set; }
         public DbSet<QUYEN> QUYENs { get; set; }
         public DbSet<SANPHAM> SANPHAMs { get; set; }
-        public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<TAIKHOAN> TAIKHOANs { get; set; }
     }
 }
