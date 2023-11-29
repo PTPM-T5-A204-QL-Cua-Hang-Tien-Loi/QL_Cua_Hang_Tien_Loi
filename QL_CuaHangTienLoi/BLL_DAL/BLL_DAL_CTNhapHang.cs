@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BLL_DAL
 {
-    internal class BLL_DAL_CTNhapHang
+    public class BLL_DAL_CTNhapHang
     {
         QLCuaHangTienLoiDataContext qlch = new QLCuaHangTienLoiDataContext();
         public BLL_DAL_CTNhapHang() { }
@@ -40,6 +40,20 @@ namespace BLL_DAL
                 dt.Rows.Add(row);
             }
             return dt;
+        }
+
+        public bool Create(CHITIETNHAPHANG cHITIETNHAPHANG)
+        {
+            try
+            {
+                qlch.CHITIETNHAPHANGs.InsertOnSubmit(cHITIETNHAPHANG);
+                qlch.SubmitChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

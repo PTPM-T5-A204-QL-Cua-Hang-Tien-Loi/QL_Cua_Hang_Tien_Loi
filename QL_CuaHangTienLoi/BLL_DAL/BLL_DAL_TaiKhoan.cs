@@ -69,12 +69,13 @@ namespace BLL_DAL
 
         }
 
-        public bool GetTaiKhoan(string TaiKhoan, string MatKhau)
+        public string GetTaiKhoan(string taiKhoan, string matKhau)
         {
-            int count = qlch.TAIKHOANs.Count(tk => tk.TAIKHOAN1 == TaiKhoan && tk.MATKHAU == MatKhau);
+            var maNhanVien = (from tk in qlch.TAIKHOANs
+                              where tk.TAIKHOAN1 == taiKhoan && tk.MATKHAU == matKhau
+                              select tk.MANHANVIEN).FirstOrDefault();
 
-            return count > 0;
-
+            return maNhanVien;
         }
 
         public bool Create(TAIKHOAN tk)

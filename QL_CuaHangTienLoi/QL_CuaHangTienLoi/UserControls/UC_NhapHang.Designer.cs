@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbFilter = new System.Windows.Forms.GroupBox();
-            this.dgvProduct = new System.Windows.Forms.DataGridView();
+            this.cbFindNCC = new System.Windows.Forms.ComboBox();
+            this.dgvSanPham = new System.Windows.Forms.DataGridView();
             this.btnReload = new System.Windows.Forms.Button();
             this.btnThemSP = new System.Windows.Forms.Button();
             this.btnXemTTNCC = new System.Windows.Forms.Button();
@@ -42,19 +43,18 @@
             this.numUDTo = new System.Windows.Forms.NumericUpDown();
             this.numUDFrom = new System.Windows.Forms.NumericUpDown();
             this.cbFindLoaiSP = new System.Windows.Forms.ComboBox();
-            this.cbFindNCC = new System.Windows.Forms.TextBox();
             this.txtFindTenSP = new System.Windows.Forms.TextBox();
             this.chbLoaiSP = new System.Windows.Forms.CheckBox();
             this.chbNCC = new System.Windows.Forms.CheckBox();
             this.chbGia = new System.Windows.Forms.CheckBox();
             this.chbFindTenSP = new System.Windows.Forms.CheckBox();
             this.gbMakeBill = new System.Windows.Forms.GroupBox();
+            this.txtTenNV = new System.Windows.Forms.TextBox();
             this.btnTaoPN = new System.Windows.Forms.Button();
             this.btnHuyPN = new System.Windows.Forms.Button();
             this.gbListProduct = new System.Windows.Forms.GroupBox();
             this.flowpnl_Item = new System.Windows.Forms.FlowLayoutPanel();
             this.dtpNgayTao = new System.Windows.Forms.DateTimePicker();
-            this.txtTenNV = new System.Windows.Forms.TextBox();
             this.txtMaPN = new System.Windows.Forms.TextBox();
             this.txtTongTien = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -62,7 +62,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.gbFilter.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDTo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDFrom)).BeginInit();
             this.gbMakeBill.SuspendLayout();
@@ -72,7 +72,8 @@
             // gbFilter
             // 
             this.gbFilter.BackColor = System.Drawing.Color.Gold;
-            this.gbFilter.Controls.Add(this.dgvProduct);
+            this.gbFilter.Controls.Add(this.cbFindNCC);
+            this.gbFilter.Controls.Add(this.dgvSanPham);
             this.gbFilter.Controls.Add(this.btnReload);
             this.gbFilter.Controls.Add(this.btnThemSP);
             this.gbFilter.Controls.Add(this.btnXemTTNCC);
@@ -84,7 +85,6 @@
             this.gbFilter.Controls.Add(this.numUDTo);
             this.gbFilter.Controls.Add(this.numUDFrom);
             this.gbFilter.Controls.Add(this.cbFindLoaiSP);
-            this.gbFilter.Controls.Add(this.cbFindNCC);
             this.gbFilter.Controls.Add(this.txtFindTenSP);
             this.gbFilter.Controls.Add(this.chbLoaiSP);
             this.gbFilter.Controls.Add(this.chbNCC);
@@ -99,24 +99,34 @@
             this.gbFilter.TabStop = false;
             this.gbFilter.Text = "Lọc thông tin";
             // 
-            // dgvProduct
+            // cbFindNCC
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.MediumPurple;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProduct.EnableHeadersVisualStyles = false;
-            this.dgvProduct.Location = new System.Drawing.Point(15, 281);
-            this.dgvProduct.Name = "dgvProduct";
-            this.dgvProduct.ReadOnly = true;
-            this.dgvProduct.RowHeadersWidth = 51;
-            this.dgvProduct.Size = new System.Drawing.Size(661, 483);
-            this.dgvProduct.TabIndex = 34;
+            this.cbFindNCC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFindNCC.FormattingEnabled = true;
+            this.cbFindNCC.Location = new System.Drawing.Point(201, 141);
+            this.cbFindNCC.Name = "cbFindNCC";
+            this.cbFindNCC.Size = new System.Drawing.Size(475, 28);
+            this.cbFindNCC.TabIndex = 35;
+            // 
+            // dgvSanPham
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.MediumPurple;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSanPham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSanPham.EnableHeadersVisualStyles = false;
+            this.dgvSanPham.Location = new System.Drawing.Point(15, 281);
+            this.dgvSanPham.Name = "dgvSanPham";
+            this.dgvSanPham.ReadOnly = true;
+            this.dgvSanPham.RowHeadersWidth = 51;
+            this.dgvSanPham.Size = new System.Drawing.Size(661, 483);
+            this.dgvSanPham.TabIndex = 34;
+            this.dgvSanPham.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSanPham_CellDoubleClick);
             // 
             // btnReload
             // 
@@ -126,6 +136,7 @@
             this.btnReload.TabIndex = 33;
             this.btnReload.Text = "Tải lại";
             this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // btnThemSP
             // 
@@ -156,6 +167,7 @@
             this.btnChooseProduct.TabIndex = 29;
             this.btnChooseProduct.Text = "Chọn sản phẩm";
             this.btnChooseProduct.UseVisualStyleBackColor = true;
+            this.btnChooseProduct.Click += new System.EventHandler(this.btnChooseProduct_Click);
             // 
             // btnXemLichSuNH
             // 
@@ -175,6 +187,7 @@
             this.btnFind.TabIndex = 27;
             this.btnFind.Text = "Tìm";
             this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // btnClear
             // 
@@ -184,6 +197,7 @@
             this.btnClear.TabIndex = 26;
             this.btnClear.Text = "Làm trống";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // label1
             // 
@@ -247,13 +261,6 @@
             this.cbFindLoaiSP.Size = new System.Drawing.Size(475, 28);
             this.cbFindLoaiSP.TabIndex = 22;
             // 
-            // cbFindNCC
-            // 
-            this.cbFindNCC.Location = new System.Drawing.Point(201, 139);
-            this.cbFindNCC.Name = "cbFindNCC";
-            this.cbFindNCC.Size = new System.Drawing.Size(475, 26);
-            this.cbFindNCC.TabIndex = 21;
-            // 
             // txtFindTenSP
             // 
             this.txtFindTenSP.Location = new System.Drawing.Point(201, 43);
@@ -312,11 +319,11 @@
             // gbMakeBill
             // 
             this.gbMakeBill.BackColor = System.Drawing.Color.Gold;
+            this.gbMakeBill.Controls.Add(this.txtTenNV);
             this.gbMakeBill.Controls.Add(this.btnTaoPN);
             this.gbMakeBill.Controls.Add(this.btnHuyPN);
             this.gbMakeBill.Controls.Add(this.gbListProduct);
             this.gbMakeBill.Controls.Add(this.dtpNgayTao);
-            this.gbMakeBill.Controls.Add(this.txtTenNV);
             this.gbMakeBill.Controls.Add(this.txtMaPN);
             this.gbMakeBill.Controls.Add(this.txtTongTien);
             this.gbMakeBill.Controls.Add(this.label6);
@@ -332,6 +339,14 @@
             this.gbMakeBill.TabStop = false;
             this.gbMakeBill.Text = "Tạo thông tin nhập hàng";
             // 
+            // txtTenNV
+            // 
+            this.txtTenNV.Location = new System.Drawing.Point(189, 46);
+            this.txtTenNV.Name = "txtTenNV";
+            this.txtTenNV.ReadOnly = true;
+            this.txtTenNV.Size = new System.Drawing.Size(351, 26);
+            this.txtTenNV.TabIndex = 39;
+            // 
             // btnTaoPN
             // 
             this.btnTaoPN.Location = new System.Drawing.Point(468, 812);
@@ -340,6 +355,7 @@
             this.btnTaoPN.TabIndex = 38;
             this.btnTaoPN.Text = "Tạo phiếu nhập";
             this.btnTaoPN.UseVisualStyleBackColor = true;
+            this.btnTaoPN.Click += new System.EventHandler(this.btnTaoPN_Click);
             // 
             // btnHuyPN
             // 
@@ -349,6 +365,7 @@
             this.btnHuyPN.TabIndex = 32;
             this.btnHuyPN.Text = "Hủy phiếu nhập";
             this.btnHuyPN.UseVisualStyleBackColor = true;
+            this.btnHuyPN.Click += new System.EventHandler(this.btnHuyPN_Click);
             // 
             // gbListProduct
             // 
@@ -382,13 +399,6 @@
             this.dtpNgayTao.Size = new System.Drawing.Size(351, 26);
             this.dtpNgayTao.TabIndex = 36;
             this.dtpNgayTao.Value = new System.DateTime(2022, 2, 4, 0, 0, 0, 0);
-            // 
-            // txtTenNV
-            // 
-            this.txtTenNV.Location = new System.Drawing.Point(189, 43);
-            this.txtTenNV.Name = "txtTenNV";
-            this.txtTenNV.Size = new System.Drawing.Size(446, 26);
-            this.txtTenNV.TabIndex = 35;
             // 
             // txtMaPN
             // 
@@ -453,7 +463,7 @@
             this.Load += new System.EventHandler(this.UC_NhapHang_Load);
             this.gbFilter.ResumeLayout(false);
             this.gbFilter.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDTo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDFrom)).EndInit();
             this.gbMakeBill.ResumeLayout(false);
@@ -466,7 +476,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbFilter;
-        private System.Windows.Forms.DataGridView dgvProduct;
+        private System.Windows.Forms.DataGridView dgvSanPham;
         private System.Windows.Forms.Button btnReload;
         private System.Windows.Forms.Button btnThemSP;
         private System.Windows.Forms.Button btnXemTTNCC;
@@ -477,7 +487,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown numUDTo;
         private System.Windows.Forms.NumericUpDown numUDFrom;
-        private System.Windows.Forms.TextBox cbFindNCC;
         private System.Windows.Forms.TextBox txtFindTenSP;
         private System.Windows.Forms.CheckBox chbLoaiSP;
         private System.Windows.Forms.CheckBox chbNCC;
@@ -489,7 +498,6 @@
         private System.Windows.Forms.GroupBox gbListProduct;
         private System.Windows.Forms.FlowLayoutPanel flowpnl_Item;
         private System.Windows.Forms.DateTimePicker dtpNgayTao;
-        private System.Windows.Forms.TextBox txtTenNV;
         private System.Windows.Forms.TextBox txtMaPN;
         private System.Windows.Forms.TextBox txtTongTien;
         private System.Windows.Forms.Label label6;
@@ -497,5 +505,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbFindLoaiSP;
+        private System.Windows.Forms.TextBox txtTenNV;
+        private System.Windows.Forms.ComboBox cbFindNCC;
     }
 }
