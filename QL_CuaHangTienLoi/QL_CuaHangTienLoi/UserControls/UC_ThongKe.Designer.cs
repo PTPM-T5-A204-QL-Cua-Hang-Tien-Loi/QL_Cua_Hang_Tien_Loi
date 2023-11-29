@@ -28,22 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.gbSales = new System.Windows.Forms.GroupBox();
             this.gbCheckTime = new System.Windows.Forms.GroupBox();
-            this.btnCreateChart = new System.Windows.Forms.Button();
             this.rad6months = new System.Windows.Forms.RadioButton();
             this.rad5years = new System.Windows.Forms.RadioButton();
             this.rad7days = new System.Windows.Forms.RadioButton();
             this.gbImportHistory = new System.Windows.Forms.GroupBox();
-            this.btnReloadImportHistory = new System.Windows.Forms.Button();
             this.dgvImportHistory = new System.Windows.Forms.DataGridView();
             this.gbSellingHistory = new System.Windows.Forms.GroupBox();
-            this.btnReloadSellingHistory = new System.Windows.Forms.Button();
             this.dgvSellingHistory = new System.Windows.Forms.DataGridView();
-            this.chartSales = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.gbCheckTypeProductChart = new System.Windows.Forms.GroupBox();
             this.txtProfit = new System.Windows.Forms.TextBox();
@@ -55,15 +48,17 @@
             this.txtSpendingDay = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIncomeDay = new System.Windows.Forms.TextBox();
-            this.btnReloadValue = new System.Windows.Forms.Button();
+            this.btnBaoCaoHD = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnBaoCaoNhapHang = new System.Windows.Forms.Button();
+            this.rad1Year = new System.Windows.Forms.RadioButton();
+            this.rad1Month = new System.Windows.Forms.RadioButton();
             this.gbSales.SuspendLayout();
             this.gbCheckTime.SuspendLayout();
             this.gbImportHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImportHistory)).BeginInit();
             this.gbSellingHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSellingHistory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartSales)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.gbCheckTypeProductChart.SuspendLayout();
             this.SuspendLayout();
@@ -71,7 +66,6 @@
             // gbSales
             // 
             this.gbSales.BackColor = System.Drawing.Color.Aquamarine;
-            this.gbSales.Controls.Add(this.chartSales);
             this.gbSales.Controls.Add(this.gbCheckTime);
             this.gbSales.Controls.Add(this.gbImportHistory);
             this.gbSales.Controls.Add(this.gbSellingHistory);
@@ -87,46 +81,40 @@
             // gbCheckTime
             // 
             this.gbCheckTime.BackColor = System.Drawing.Color.Turquoise;
-            this.gbCheckTime.Controls.Add(this.btnCreateChart);
+            this.gbCheckTime.Controls.Add(this.rad1Month);
             this.gbCheckTime.Controls.Add(this.rad6months);
+            this.gbCheckTime.Controls.Add(this.rad1Year);
             this.gbCheckTime.Controls.Add(this.rad5years);
             this.gbCheckTime.Controls.Add(this.rad7days);
             this.gbCheckTime.ForeColor = System.Drawing.Color.Black;
-            this.gbCheckTime.Location = new System.Drawing.Point(6, 361);
+            this.gbCheckTime.Location = new System.Drawing.Point(6, 812);
             this.gbCheckTime.Name = "gbCheckTime";
             this.gbCheckTime.Size = new System.Drawing.Size(782, 64);
             this.gbCheckTime.TabIndex = 7;
             this.gbCheckTime.TabStop = false;
             this.gbCheckTime.Text = "Biểu đồ doanh thu";
             // 
-            // btnCreateChart
-            // 
-            this.btnCreateChart.Location = new System.Drawing.Point(472, 24);
-            this.btnCreateChart.Name = "btnCreateChart";
-            this.btnCreateChart.Size = new System.Drawing.Size(304, 34);
-            this.btnCreateChart.TabIndex = 8;
-            this.btnCreateChart.Text = "Tạo biểu đồ";
-            this.btnCreateChart.UseVisualStyleBackColor = true;
-            // 
             // rad6months
             // 
             this.rad6months.AutoSize = true;
-            this.rad6months.Location = new System.Drawing.Point(153, 28);
+            this.rad6months.Location = new System.Drawing.Point(320, 28);
             this.rad6months.Name = "rad6months";
-            this.rad6months.Size = new System.Drawing.Size(71, 20);
+            this.rad6months.Size = new System.Drawing.Size(68, 20);
             this.rad6months.TabIndex = 2;
             this.rad6months.Text = "6 tháng";
             this.rad6months.UseVisualStyleBackColor = true;
+            this.rad6months.CheckedChanged += new System.EventHandler(this.rad6months_CheckedChanged);
             // 
             // rad5years
             // 
             this.rad5years.AutoSize = true;
-            this.rad5years.Location = new System.Drawing.Point(306, 28);
+            this.rad5years.Location = new System.Drawing.Point(657, 28);
             this.rad5years.Name = "rad5years";
-            this.rad5years.Size = new System.Drawing.Size(64, 20);
+            this.rad5years.Size = new System.Drawing.Size(61, 20);
             this.rad5years.TabIndex = 1;
             this.rad5years.Text = "5 năm";
             this.rad5years.UseVisualStyleBackColor = true;
+            this.rad5years.CheckedChanged += new System.EventHandler(this.rad5years_CheckedChanged);
             // 
             // rad7days
             // 
@@ -134,33 +122,24 @@
             this.rad7days.Checked = true;
             this.rad7days.Location = new System.Drawing.Point(6, 28);
             this.rad7days.Name = "rad7days";
-            this.rad7days.Size = new System.Drawing.Size(68, 20);
+            this.rad7days.Size = new System.Drawing.Size(65, 20);
             this.rad7days.TabIndex = 0;
             this.rad7days.TabStop = true;
             this.rad7days.Text = "7 ngày";
             this.rad7days.UseVisualStyleBackColor = true;
+            this.rad7days.CheckedChanged += new System.EventHandler(this.rad7days_CheckedChanged);
             // 
             // gbImportHistory
             // 
             this.gbImportHistory.BackColor = System.Drawing.Color.Turquoise;
-            this.gbImportHistory.Controls.Add(this.btnReloadImportHistory);
             this.gbImportHistory.Controls.Add(this.dgvImportHistory);
             this.gbImportHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbImportHistory.Location = new System.Drawing.Point(406, 30);
             this.gbImportHistory.Name = "gbImportHistory";
-            this.gbImportHistory.Size = new System.Drawing.Size(388, 325);
+            this.gbImportHistory.Size = new System.Drawing.Size(388, 776);
             this.gbImportHistory.TabIndex = 3;
             this.gbImportHistory.TabStop = false;
             this.gbImportHistory.Text = "Lịch sử nhập hàng";
-            // 
-            // btnReloadImportHistory
-            // 
-            this.btnReloadImportHistory.Location = new System.Drawing.Point(6, 286);
-            this.btnReloadImportHistory.Name = "btnReloadImportHistory";
-            this.btnReloadImportHistory.Size = new System.Drawing.Size(370, 33);
-            this.btnReloadImportHistory.TabIndex = 2;
-            this.btnReloadImportHistory.Text = "Tải lại";
-            this.btnReloadImportHistory.UseVisualStyleBackColor = true;
             // 
             // dgvImportHistory
             // 
@@ -171,30 +150,21 @@
             this.dgvImportHistory.ReadOnly = true;
             this.dgvImportHistory.RowHeadersVisible = false;
             this.dgvImportHistory.RowHeadersWidth = 51;
-            this.dgvImportHistory.Size = new System.Drawing.Size(376, 254);
+            this.dgvImportHistory.Size = new System.Drawing.Size(376, 736);
             this.dgvImportHistory.TabIndex = 0;
+            this.dgvImportHistory.DataSourceChanged += new System.EventHandler(this.dgvImportHistory_DataSourceChanged);
             // 
             // gbSellingHistory
             // 
             this.gbSellingHistory.BackColor = System.Drawing.Color.Turquoise;
-            this.gbSellingHistory.Controls.Add(this.btnReloadSellingHistory);
             this.gbSellingHistory.Controls.Add(this.dgvSellingHistory);
             this.gbSellingHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbSellingHistory.Location = new System.Drawing.Point(6, 30);
             this.gbSellingHistory.Name = "gbSellingHistory";
-            this.gbSellingHistory.Size = new System.Drawing.Size(394, 325);
+            this.gbSellingHistory.Size = new System.Drawing.Size(394, 776);
             this.gbSellingHistory.TabIndex = 0;
             this.gbSellingHistory.TabStop = false;
             this.gbSellingHistory.Text = "Lịch sử bán hàng";
-            // 
-            // btnReloadSellingHistory
-            // 
-            this.btnReloadSellingHistory.Location = new System.Drawing.Point(6, 286);
-            this.btnReloadSellingHistory.Name = "btnReloadSellingHistory";
-            this.btnReloadSellingHistory.Size = new System.Drawing.Size(380, 33);
-            this.btnReloadSellingHistory.TabIndex = 2;
-            this.btnReloadSellingHistory.Text = "Tải lại";
-            this.btnReloadSellingHistory.UseVisualStyleBackColor = true;
             // 
             // dgvSellingHistory
             // 
@@ -204,26 +174,9 @@
             this.dgvSellingHistory.ReadOnly = true;
             this.dgvSellingHistory.RowHeadersVisible = false;
             this.dgvSellingHistory.RowHeadersWidth = 51;
-            this.dgvSellingHistory.Size = new System.Drawing.Size(382, 254);
+            this.dgvSellingHistory.Size = new System.Drawing.Size(382, 736);
             this.dgvSellingHistory.TabIndex = 0;
-            // 
-            // chartSales
-            // 
-            this.chartSales.BorderlineWidth = 4;
-            chartArea4.Name = "ChartArea1";
-            this.chartSales.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chartSales.Legends.Add(legend4);
-            this.chartSales.Location = new System.Drawing.Point(6, 431);
-            this.chartSales.Name = "chartSales";
-            this.chartSales.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chartSales.Series.Add(series4);
-            this.chartSales.Size = new System.Drawing.Size(788, 445);
-            this.chartSales.TabIndex = 8;
-            this.chartSales.Text = "Biểu đồ thu nhập";
+            this.dgvSellingHistory.DataSourceChanged += new System.EventHandler(this.dgvSellingHistory_DataSourceChanged);
             // 
             // groupBox2
             // 
@@ -250,7 +203,8 @@
             this.gbCheckTypeProductChart.Controls.Add(this.txtSpendingDay);
             this.gbCheckTypeProductChart.Controls.Add(this.label2);
             this.gbCheckTypeProductChart.Controls.Add(this.txtIncomeDay);
-            this.gbCheckTypeProductChart.Controls.Add(this.btnReloadValue);
+            this.gbCheckTypeProductChart.Controls.Add(this.btnBaoCaoNhapHang);
+            this.gbCheckTypeProductChart.Controls.Add(this.btnBaoCaoHD);
             this.gbCheckTypeProductChart.Controls.Add(this.label1);
             this.gbCheckTypeProductChart.ForeColor = System.Drawing.Color.Black;
             this.gbCheckTypeProductChart.Location = new System.Drawing.Point(6, 30);
@@ -275,7 +229,7 @@
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(24, 382);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(107, 25);
+            this.label5.Size = new System.Drawing.Size(88, 20);
             this.label5.TabIndex = 20;
             this.label5.Text = "Lợi nhuận";
             // 
@@ -295,7 +249,7 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(24, 293);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(137, 25);
+            this.label4.Size = new System.Drawing.Size(112, 20);
             this.label4.TabIndex = 18;
             this.label4.Text = "Tổng chi tiêu";
             // 
@@ -315,7 +269,7 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(24, 204);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(152, 25);
+            this.label3.Size = new System.Drawing.Size(125, 20);
             this.label3.TabIndex = 16;
             this.label3.Text = "Tổng thu nhập";
             // 
@@ -335,7 +289,7 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(24, 115);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(194, 25);
+            this.label2.Size = new System.Drawing.Size(160, 20);
             this.label2.TabIndex = 14;
             this.label2.Text = "Chi tiêu trong ngày";
             // 
@@ -348,15 +302,16 @@
             this.txtIncomeDay.Size = new System.Drawing.Size(500, 35);
             this.txtIncomeDay.TabIndex = 13;
             // 
-            // btnReloadValue
+            // btnBaoCaoHD
             // 
-            this.btnReloadValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReloadValue.Location = new System.Drawing.Point(158, 485);
-            this.btnReloadValue.Name = "btnReloadValue";
-            this.btnReloadValue.Size = new System.Drawing.Size(266, 57);
-            this.btnReloadValue.TabIndex = 12;
-            this.btnReloadValue.Text = "Lọc lại";
-            this.btnReloadValue.UseVisualStyleBackColor = true;
+            this.btnBaoCaoHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBaoCaoHD.Location = new System.Drawing.Point(158, 485);
+            this.btnBaoCaoHD.Name = "btnBaoCaoHD";
+            this.btnBaoCaoHD.Size = new System.Drawing.Size(266, 57);
+            this.btnBaoCaoHD.TabIndex = 12;
+            this.btnBaoCaoHD.Text = "Báo cáo hóa đơn";
+            this.btnBaoCaoHD.UseVisualStyleBackColor = true;
+            this.btnBaoCaoHD.Click += new System.EventHandler(this.btnBaoCao_Click);
             // 
             // label1
             // 
@@ -365,9 +320,42 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(24, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(212, 25);
+            this.label1.Size = new System.Drawing.Size(174, 20);
             this.label1.TabIndex = 11;
             this.label1.Text = "Thu nhập trong ngày";
+            // 
+            // btnBaoCaoNhapHang
+            // 
+            this.btnBaoCaoNhapHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBaoCaoNhapHang.Location = new System.Drawing.Point(158, 566);
+            this.btnBaoCaoNhapHang.Name = "btnBaoCaoNhapHang";
+            this.btnBaoCaoNhapHang.Size = new System.Drawing.Size(266, 57);
+            this.btnBaoCaoNhapHang.TabIndex = 12;
+            this.btnBaoCaoNhapHang.Text = "Báo cáo nhập hàng";
+            this.btnBaoCaoNhapHang.UseVisualStyleBackColor = true;
+            this.btnBaoCaoNhapHang.Click += new System.EventHandler(this.btnBaoCaoNhapHang_Click);
+            // 
+            // rad1Year
+            // 
+            this.rad1Year.AutoSize = true;
+            this.rad1Year.Location = new System.Drawing.Point(487, 28);
+            this.rad1Year.Name = "rad1Year";
+            this.rad1Year.Size = new System.Drawing.Size(61, 20);
+            this.rad1Year.TabIndex = 1;
+            this.rad1Year.Text = "1 năm";
+            this.rad1Year.UseVisualStyleBackColor = true;
+            this.rad1Year.CheckedChanged += new System.EventHandler(this.rad1Year_CheckedChanged);
+            // 
+            // rad1Month
+            // 
+            this.rad1Month.AutoSize = true;
+            this.rad1Month.Location = new System.Drawing.Point(150, 28);
+            this.rad1Month.Name = "rad1Month";
+            this.rad1Month.Size = new System.Drawing.Size(68, 20);
+            this.rad1Month.TabIndex = 2;
+            this.rad1Month.Text = "1 tháng";
+            this.rad1Month.UseVisualStyleBackColor = true;
+            this.rad1Month.CheckedChanged += new System.EventHandler(this.rad1Month_CheckedChanged);
             // 
             // UC_ThongKe
             // 
@@ -377,6 +365,7 @@
             this.Controls.Add(this.gbSales);
             this.Name = "UC_ThongKe";
             this.Size = new System.Drawing.Size(1374, 879);
+            this.Load += new System.EventHandler(this.UC_ThongKe_Load);
             this.gbSales.ResumeLayout(false);
             this.gbCheckTime.ResumeLayout(false);
             this.gbCheckTime.PerformLayout();
@@ -384,7 +373,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvImportHistory)).EndInit();
             this.gbSellingHistory.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSellingHistory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartSales)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.gbCheckTypeProductChart.ResumeLayout(false);
             this.gbCheckTypeProductChart.PerformLayout();
@@ -395,17 +383,13 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbSales;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartSales;
         private System.Windows.Forms.GroupBox gbCheckTime;
-        private System.Windows.Forms.Button btnCreateChart;
         private System.Windows.Forms.RadioButton rad6months;
         private System.Windows.Forms.RadioButton rad5years;
         private System.Windows.Forms.RadioButton rad7days;
         private System.Windows.Forms.GroupBox gbImportHistory;
-        private System.Windows.Forms.Button btnReloadImportHistory;
         private System.Windows.Forms.DataGridView dgvImportHistory;
         private System.Windows.Forms.GroupBox gbSellingHistory;
-        private System.Windows.Forms.Button btnReloadSellingHistory;
         private System.Windows.Forms.DataGridView dgvSellingHistory;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox gbCheckTypeProductChart;
@@ -418,7 +402,10 @@
         private System.Windows.Forms.TextBox txtSpendingDay;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtIncomeDay;
-        private System.Windows.Forms.Button btnReloadValue;
+        private System.Windows.Forms.Button btnBaoCaoHD;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnBaoCaoNhapHang;
+        private System.Windows.Forms.RadioButton rad1Month;
+        private System.Windows.Forms.RadioButton rad1Year;
     }
 }

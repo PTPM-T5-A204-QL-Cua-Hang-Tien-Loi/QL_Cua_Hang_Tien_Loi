@@ -17,8 +17,7 @@ namespace BLL_DAL
             list = qlch.HDBANs.ToList();
             return list;
         }
-        //Gọi hàm này khi dùng cho datagridview
-        public DataTable getHDBans_Table()
+        private DataTable taoTable()
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("Mã hóa đơn");
@@ -26,6 +25,12 @@ namespace BLL_DAL
             dt.Columns.Add("Ngày bán");
             dt.Columns.Add("Mã khách");
             dt.Columns.Add("Tổng tiền");
+            return dt;
+        }
+        //Gọi hàm này khi dùng cho datagridview
+        public DataTable getHDBans_Table()
+        {
+            DataTable dt = taoTable();
             var hoadon = from hd in qlch.HDBANs select new { hd.MAHDBAN,hd.MANHANVIEN,hd.NGAYBAN,hd.MAKHACH,hd.TONGTIEN };
             foreach (var item in hoadon)
             {
@@ -38,6 +43,28 @@ namespace BLL_DAL
                 dt.Rows.Add(row);
             }
             return dt;
+        }
+        public DataTable getHDBansTheoNgay_Table(DateTime datenow, DateTime datethen)
+        {
+            DataTable dt = taoTable();
+            var hoadon = from hd in qlch.HDBANs where hd.NGAYBAN>=datethen && hd.NGAYBAN<=datenow select new { hd.MAHDBAN, hd.MANHANVIEN, hd.NGAYBAN, hd.MAKHACH, hd.TONGTIEN };
+            foreach (var item in hoadon)
+            {
+                var row = dt.NewRow();
+                row[0] = item.MAHDBAN;
+                row[1] = item.MANHANVIEN;
+                row[2] = item.NGAYBAN;
+                row[3] = item.MAKHACH;
+                row[4] = item.TONGTIEN;
+                dt.Rows.Add(row);
+            }
+            return dt;
+        }
+        public List<HDBAN> getHDBansTheoNgay_List(DateTime datenow, DateTime datethen)
+        {
+            List<HDBAN> list = new List<HDBAN>();
+            list = (List<HDBAN>)qlch.HDBANs.ToList().Where(hd => hd.NGAYBAN >= datethen && hd.NGAYBAN <= datenow);
+            return list;
         }
         public bool taoHD(string mahd, string manv, DateTime ngayban, string makhach, decimal tongtien)
         {
@@ -58,5 +85,6 @@ namespace BLL_DAL
                 return false;
             }
         }
+
     }
 }

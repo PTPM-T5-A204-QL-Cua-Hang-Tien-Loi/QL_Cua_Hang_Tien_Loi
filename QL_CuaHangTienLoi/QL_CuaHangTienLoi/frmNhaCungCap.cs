@@ -16,5 +16,10 @@ namespace QL_CuaHangTienLoi
         {
             InitializeComponent();
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

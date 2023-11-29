@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QL_CUAHANGTIENLOI" Class="QLCuaHangTienLoiDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-D5ACUIJ\SQL;Initial Catalog=QL_CUAHANGTIENLOI;Integrated Security=True" SettingsObjectName="BLL_DAL.Properties.Settings" SettingsPropertyName="QL_CUAHANGTIENLOIConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-D5ACUIJ\SQL;Initial Catalog=QL_CUAHANGTIENLOI;Integrated Security=True" SettingsObjectName="BLL_DAL.Properties.Settings" SettingsPropertyName="QL_CUAHANGTIENLOIConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.CHITIETHDBAN" Member="CHITIETHDBANs">
     <Type Name="CHITIETHDBAN">
       <Column Name="MAHDBAN" Type="System.String" DbType="NVarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -31,6 +31,15 @@
       <Association Name="CHUCVU_NHANVIEN" Member="NHANVIENs" ThisKey="MACHUCVU" OtherKey="MACHUCVU" Type="NHANVIEN" />
     </Type>
   </Table>
+  <Table Name="dbo.KHACH" Member="KHACHes">
+    <Type Name="KHACH">
+      <Column Name="MAKHACH" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENKHACH" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="DIACHI_KH" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DIENTHOAI_KH" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="KHACH_HDBAN" Member="HDBANs" ThisKey="MAKHACH" OtherKey="MAKHACH" Type="HDBAN" />
+    </Type>
+  </Table>
   <Table Name="dbo.HDBAN" Member="HDBANs">
     <Type Name="HDBAN">
       <Column Name="MAHDBAN" Type="System.String" DbType="NVarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -41,15 +50,6 @@
       <Association Name="HDBAN_CHITIETHDBAN" Member="CHITIETHDBANs" ThisKey="MAHDBAN" OtherKey="MAHDBAN" Type="CHITIETHDBAN" />
       <Association Name="KHACH_HDBAN" Member="KHACH" ThisKey="MAKHACH" OtherKey="MAKHACH" Type="KHACH" IsForeignKey="true" />
       <Association Name="NHANVIEN_HDBAN" Member="NHANVIEN" ThisKey="MANHANVIEN" OtherKey="MANHANVIEN" Type="NHANVIEN" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.KHACH" Member="KHACHes">
-    <Type Name="KHACH">
-      <Column Name="MAKHACH" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TENKHACH" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
-      <Column Name="DIACHI_KH" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="DIENTHOAI_KH" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Association Name="KHACH_HDBAN" Member="HDBANs" ThisKey="MAKHACH" OtherKey="MAKHACH" Type="HDBAN" />
     </Type>
   </Table>
   <Table Name="dbo.LOAISP" Member="LOAISPs">
@@ -84,13 +84,6 @@
       <Association Name="CHUCVU_NHANVIEN" Member="CHUCVU" ThisKey="MACHUCVU" OtherKey="MACHUCVU" Type="CHUCVU" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.QUYEN" Member="QUYENs">
-    <Type Name="QUYEN">
-      <Column Name="MAQUYEN" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TENQUYEN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="QUYEN_TAIKHOAN" Member="TAIKHOANs" ThisKey="MAQUYEN" OtherKey="MAQUYEN" Type="TAIKHOAN" />
-    </Type>
-  </Table>
   <Table Name="dbo.NHAPHANG" Member="NHAPHANGs">
     <Type Name="NHAPHANG">
       <Column Name="MANHAPHANG" Type="System.String" DbType="Char(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -99,6 +92,13 @@
       <Column Name="MANHANVIEN" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
       <Association Name="NHAPHANG_CHITIETNHAPHANG" Member="CHITIETNHAPHANGs" ThisKey="MANHAPHANG" OtherKey="MANHAPHANG" Type="CHITIETNHAPHANG" />
       <Association Name="NHANVIEN_NHAPHANG" Member="NHANVIEN" ThisKey="MANHANVIEN" OtherKey="MANHANVIEN" Type="NHANVIEN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QUYEN" Member="QUYENs">
+    <Type Name="QUYEN">
+      <Column Name="MAQUYEN" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TENQUYEN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="QUYEN_TAIKHOAN" Member="TAIKHOANs" ThisKey="MAQUYEN" OtherKey="MAQUYEN" Type="TAIKHOAN" />
     </Type>
   </Table>
   <Table Name="dbo.SANPHAM" Member="SANPHAMs">

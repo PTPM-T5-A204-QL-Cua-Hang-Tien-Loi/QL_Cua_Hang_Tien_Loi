@@ -20,9 +20,9 @@ namespace BLL_DAL
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
-    using BLL_DAL.Function;
-
-    [global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QL_CUAHANGTIENLOI")]
+	
+	
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QL_CUAHANGTIENLOI")]
 	public partial class QLCuaHangTienLoiDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -39,12 +39,12 @@ namespace BLL_DAL
     partial void InsertCHUCVU(CHUCVU instance);
     partial void UpdateCHUCVU(CHUCVU instance);
     partial void DeleteCHUCVU(CHUCVU instance);
-    partial void InsertHDBAN(HDBAN instance);
-    partial void UpdateHDBAN(HDBAN instance);
-    partial void DeleteHDBAN(HDBAN instance);
     partial void InsertKHACH(KHACH instance);
     partial void UpdateKHACH(KHACH instance);
     partial void DeleteKHACH(KHACH instance);
+    partial void InsertHDBAN(HDBAN instance);
+    partial void UpdateHDBAN(HDBAN instance);
+    partial void DeleteHDBAN(HDBAN instance);
     partial void InsertLOAISP(LOAISP instance);
     partial void UpdateLOAISP(LOAISP instance);
     partial void DeleteLOAISP(LOAISP instance);
@@ -54,12 +54,12 @@ namespace BLL_DAL
     partial void InsertNHANVIEN(NHANVIEN instance);
     partial void UpdateNHANVIEN(NHANVIEN instance);
     partial void DeleteNHANVIEN(NHANVIEN instance);
-    partial void InsertQUYEN(QUYEN instance);
-    partial void UpdateQUYEN(QUYEN instance);
-    partial void DeleteQUYEN(QUYEN instance);
     partial void InsertNHAPHANG(NHAPHANG instance);
     partial void UpdateNHAPHANG(NHAPHANG instance);
     partial void DeleteNHAPHANG(NHAPHANG instance);
+    partial void InsertQUYEN(QUYEN instance);
+    partial void UpdateQUYEN(QUYEN instance);
+    partial void DeleteQUYEN(QUYEN instance);
     partial void InsertSANPHAM(SANPHAM instance);
     partial void UpdateSANPHAM(SANPHAM instance);
     partial void DeleteSANPHAM(SANPHAM instance);
@@ -69,7 +69,7 @@ namespace BLL_DAL
     #endregion
 		
 		public QLCuaHangTienLoiDataContext() : 
-				base(global::BLL_DAL.Properties.Settings.Default.QL_CUAHANGTIENLOIConnectionString1, mappingSource)
+				base(global::BLL_DAL.Properties.Settings.Default.QL_CUAHANGTIENLOIConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -122,19 +122,19 @@ namespace BLL_DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<HDBAN> HDBANs
-		{
-			get
-			{
-				return this.GetTable<HDBAN>();
-			}
-		}
-		
 		public System.Data.Linq.Table<KHACH> KHACHes
 		{
 			get
 			{
 				return this.GetTable<KHACH>();
+			}
+		}
+		
+		public System.Data.Linq.Table<HDBAN> HDBANs
+		{
+			get
+			{
+				return this.GetTable<HDBAN>();
 			}
 		}
 		
@@ -162,19 +162,19 @@ namespace BLL_DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<QUYEN> QUYENs
-		{
-			get
-			{
-				return this.GetTable<QUYEN>();
-			}
-		}
-		
 		public System.Data.Linq.Table<NHAPHANG> NHAPHANGs
 		{
 			get
 			{
 				return this.GetTable<NHAPHANG>();
+			}
+		}
+		
+		public System.Data.Linq.Table<QUYEN> QUYENs
+		{
+			get
+			{
+				return this.GetTable<QUYEN>();
 			}
 		}
 		
@@ -837,6 +837,168 @@ namespace BLL_DAL
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.KHACH")]
+	public partial class KHACH : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MAKHACH;
+		
+		private string _TENKHACH;
+		
+		private string _DIACHI_KH;
+		
+		private string _DIENTHOAI_KH;
+		
+		private EntitySet<HDBAN> _HDBANs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMAKHACHChanging(string value);
+    partial void OnMAKHACHChanged();
+    partial void OnTENKHACHChanging(string value);
+    partial void OnTENKHACHChanged();
+    partial void OnDIACHI_KHChanging(string value);
+    partial void OnDIACHI_KHChanged();
+    partial void OnDIENTHOAI_KHChanging(string value);
+    partial void OnDIENTHOAI_KHChanged();
+    #endregion
+		
+		public KHACH()
+		{
+			this._HDBANs = new EntitySet<HDBAN>(new Action<HDBAN>(this.attach_HDBANs), new Action<HDBAN>(this.detach_HDBANs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAKHACH", DbType="NVarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MAKHACH
+		{
+			get
+			{
+				return this._MAKHACH;
+			}
+			set
+			{
+				if ((this._MAKHACH != value))
+				{
+					this.OnMAKHACHChanging(value);
+					this.SendPropertyChanging();
+					this._MAKHACH = value;
+					this.SendPropertyChanged("MAKHACH");
+					this.OnMAKHACHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENKHACH", DbType="NVarChar(40) NOT NULL", CanBeNull=false)]
+		public string TENKHACH
+		{
+			get
+			{
+				return this._TENKHACH;
+			}
+			set
+			{
+				if ((this._TENKHACH != value))
+				{
+					this.OnTENKHACHChanging(value);
+					this.SendPropertyChanging();
+					this._TENKHACH = value;
+					this.SendPropertyChanged("TENKHACH");
+					this.OnTENKHACHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIACHI_KH", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string DIACHI_KH
+		{
+			get
+			{
+				return this._DIACHI_KH;
+			}
+			set
+			{
+				if ((this._DIACHI_KH != value))
+				{
+					this.OnDIACHI_KHChanging(value);
+					this.SendPropertyChanging();
+					this._DIACHI_KH = value;
+					this.SendPropertyChanged("DIACHI_KH");
+					this.OnDIACHI_KHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIENTHOAI_KH", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string DIENTHOAI_KH
+		{
+			get
+			{
+				return this._DIENTHOAI_KH;
+			}
+			set
+			{
+				if ((this._DIENTHOAI_KH != value))
+				{
+					this.OnDIENTHOAI_KHChanging(value);
+					this.SendPropertyChanging();
+					this._DIENTHOAI_KH = value;
+					this.SendPropertyChanged("DIENTHOAI_KH");
+					this.OnDIENTHOAI_KHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KHACH_HDBAN", Storage="_HDBANs", ThisKey="MAKHACH", OtherKey="MAKHACH")]
+		public EntitySet<HDBAN> HDBANs
+		{
+			get
+			{
+				return this._HDBANs;
+			}
+			set
+			{
+				this._HDBANs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_HDBANs(HDBAN entity)
+		{
+			this.SendPropertyChanging();
+			entity.KHACH = this;
+		}
+		
+		private void detach_HDBANs(HDBAN entity)
+		{
+			this.SendPropertyChanging();
+			entity.KHACH = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HDBAN")]
 	public partial class HDBAN : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1102,168 +1264,6 @@ namespace BLL_DAL
 		{
 			this.SendPropertyChanging();
 			entity.HDBAN = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.KHACH")]
-	public partial class KHACH : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _MAKHACH;
-		
-		private string _TENKHACH;
-		
-		private string _DIACHI_KH;
-		
-		private string _DIENTHOAI_KH;
-		
-		private EntitySet<HDBAN> _HDBANs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMAKHACHChanging(string value);
-    partial void OnMAKHACHChanged();
-    partial void OnTENKHACHChanging(string value);
-    partial void OnTENKHACHChanged();
-    partial void OnDIACHI_KHChanging(string value);
-    partial void OnDIACHI_KHChanged();
-    partial void OnDIENTHOAI_KHChanging(string value);
-    partial void OnDIENTHOAI_KHChanged();
-    #endregion
-		
-		public KHACH()
-		{
-			this._HDBANs = new EntitySet<HDBAN>(new Action<HDBAN>(this.attach_HDBANs), new Action<HDBAN>(this.detach_HDBANs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAKHACH", DbType="NVarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MAKHACH
-		{
-			get
-			{
-				return this._MAKHACH;
-			}
-			set
-			{
-				if ((this._MAKHACH != value))
-				{
-					this.OnMAKHACHChanging(value);
-					this.SendPropertyChanging();
-					this._MAKHACH = value;
-					this.SendPropertyChanged("MAKHACH");
-					this.OnMAKHACHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENKHACH", DbType="NVarChar(40) NOT NULL", CanBeNull=false)]
-		public string TENKHACH
-		{
-			get
-			{
-				return this._TENKHACH;
-			}
-			set
-			{
-				if ((this._TENKHACH != value))
-				{
-					this.OnTENKHACHChanging(value);
-					this.SendPropertyChanging();
-					this._TENKHACH = value;
-					this.SendPropertyChanged("TENKHACH");
-					this.OnTENKHACHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIACHI_KH", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string DIACHI_KH
-		{
-			get
-			{
-				return this._DIACHI_KH;
-			}
-			set
-			{
-				if ((this._DIACHI_KH != value))
-				{
-					this.OnDIACHI_KHChanging(value);
-					this.SendPropertyChanging();
-					this._DIACHI_KH = value;
-					this.SendPropertyChanged("DIACHI_KH");
-					this.OnDIACHI_KHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIENTHOAI_KH", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string DIENTHOAI_KH
-		{
-			get
-			{
-				return this._DIENTHOAI_KH;
-			}
-			set
-			{
-				if ((this._DIENTHOAI_KH != value))
-				{
-					this.OnDIENTHOAI_KHChanging(value);
-					this.SendPropertyChanging();
-					this._DIENTHOAI_KH = value;
-					this.SendPropertyChanged("DIENTHOAI_KH");
-					this.OnDIENTHOAI_KHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KHACH_HDBAN", Storage="_HDBANs", ThisKey="MAKHACH", OtherKey="MAKHACH")]
-		public EntitySet<HDBAN> HDBANs
-		{
-			get
-			{
-				return this._HDBANs;
-			}
-			set
-			{
-				this._HDBANs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_HDBANs(HDBAN entity)
-		{
-			this.SendPropertyChanging();
-			entity.KHACH = this;
-		}
-		
-		private void detach_HDBANs(HDBAN entity)
-		{
-			this.SendPropertyChanging();
-			entity.KHACH = null;
 		}
 	}
 	
@@ -1898,120 +1898,6 @@ namespace BLL_DAL
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.QUYEN")]
-	public partial class QUYEN : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _MAQUYEN;
-		
-		private string _TENQUYEN;
-		
-		private EntitySet<TAIKHOAN> _TAIKHOANs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMAQUYENChanging(int value);
-    partial void OnMAQUYENChanged();
-    partial void OnTENQUYENChanging(string value);
-    partial void OnTENQUYENChanged();
-    #endregion
-		
-		public QUYEN()
-		{
-			this._TAIKHOANs = new EntitySet<TAIKHOAN>(new Action<TAIKHOAN>(this.attach_TAIKHOANs), new Action<TAIKHOAN>(this.detach_TAIKHOANs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAQUYEN", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int MAQUYEN
-		{
-			get
-			{
-				return this._MAQUYEN;
-			}
-			set
-			{
-				if ((this._MAQUYEN != value))
-				{
-					this.OnMAQUYENChanging(value);
-					this.SendPropertyChanging();
-					this._MAQUYEN = value;
-					this.SendPropertyChanged("MAQUYEN");
-					this.OnMAQUYENChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENQUYEN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string TENQUYEN
-		{
-			get
-			{
-				return this._TENQUYEN;
-			}
-			set
-			{
-				if ((this._TENQUYEN != value))
-				{
-					this.OnTENQUYENChanging(value);
-					this.SendPropertyChanging();
-					this._TENQUYEN = value;
-					this.SendPropertyChanged("TENQUYEN");
-					this.OnTENQUYENChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QUYEN_TAIKHOAN", Storage="_TAIKHOANs", ThisKey="MAQUYEN", OtherKey="MAQUYEN")]
-		public EntitySet<TAIKHOAN> TAIKHOANs
-		{
-			get
-			{
-				return this._TAIKHOANs;
-			}
-			set
-			{
-				this._TAIKHOANs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_TAIKHOANs(TAIKHOAN entity)
-		{
-			this.SendPropertyChanging();
-			entity.QUYEN = this;
-		}
-		
-		private void detach_TAIKHOANs(TAIKHOAN entity)
-		{
-			this.SendPropertyChanging();
-			entity.QUYEN = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NHAPHANG")]
 	public partial class NHAPHANG : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2215,21 +2101,135 @@ namespace BLL_DAL
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.QUYEN")]
+	public partial class QUYEN : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _MAQUYEN;
+		
+		private string _TENQUYEN;
+		
+		private EntitySet<TAIKHOAN> _TAIKHOANs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMAQUYENChanging(int value);
+    partial void OnMAQUYENChanged();
+    partial void OnTENQUYENChanging(string value);
+    partial void OnTENQUYENChanged();
+    #endregion
+		
+		public QUYEN()
+		{
+			this._TAIKHOANs = new EntitySet<TAIKHOAN>(new Action<TAIKHOAN>(this.attach_TAIKHOANs), new Action<TAIKHOAN>(this.detach_TAIKHOANs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAQUYEN", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int MAQUYEN
+		{
+			get
+			{
+				return this._MAQUYEN;
+			}
+			set
+			{
+				if ((this._MAQUYEN != value))
+				{
+					this.OnMAQUYENChanging(value);
+					this.SendPropertyChanging();
+					this._MAQUYEN = value;
+					this.SendPropertyChanged("MAQUYEN");
+					this.OnMAQUYENChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENQUYEN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string TENQUYEN
+		{
+			get
+			{
+				return this._TENQUYEN;
+			}
+			set
+			{
+				if ((this._TENQUYEN != value))
+				{
+					this.OnTENQUYENChanging(value);
+					this.SendPropertyChanging();
+					this._TENQUYEN = value;
+					this.SendPropertyChanged("TENQUYEN");
+					this.OnTENQUYENChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QUYEN_TAIKHOAN", Storage="_TAIKHOANs", ThisKey="MAQUYEN", OtherKey="MAQUYEN")]
+		public EntitySet<TAIKHOAN> TAIKHOANs
+		{
+			get
+			{
+				return this._TAIKHOANs;
+			}
+			set
+			{
+				this._TAIKHOANs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TAIKHOANs(TAIKHOAN entity)
+		{
+			this.SendPropertyChanging();
+			entity.QUYEN = this;
+		}
+		
+		private void detach_TAIKHOANs(TAIKHOAN entity)
+		{
+			this.SendPropertyChanging();
+			entity.QUYEN = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SANPHAM")]
 	public partial class SANPHAM : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-
-		private string _MASP = GetFormatString.MakingIDNow();
+		
+		private string _MASP;
 		
 		private string _TENSP;
 		
 		private string _DONVI;
 		
-		private int _SOLUONG = 0;
+		private int _SOLUONG;
 		
-		private double _DONGIABAN = 0.0f;
+		private double _DONGIABAN;
 		
 		private System.Data.Linq.Binary _HINHANH;
 		

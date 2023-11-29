@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "QL_CuaHangTienLoi\GU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL_DAL", "BLL_DAL\BLL_DAL.csproj", "{8470E723-E355-4AA0-B241-AD923454F6A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordExcelExport", "WordExcelExport\WordExcelExport.csproj", "{5FE63E2E-BB12-4C2A-9EB5-4AABA45CA35C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8470E723-E355-4AA0-B241-AD923454F6A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8470E723-E355-4AA0-B241-AD923454F6A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8470E723-E355-4AA0-B241-AD923454F6A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FE63E2E-BB12-4C2A-9EB5-4AABA45CA35C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FE63E2E-BB12-4C2A-9EB5-4AABA45CA35C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FE63E2E-BB12-4C2A-9EB5-4AABA45CA35C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FE63E2E-BB12-4C2A-9EB5-4AABA45CA35C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

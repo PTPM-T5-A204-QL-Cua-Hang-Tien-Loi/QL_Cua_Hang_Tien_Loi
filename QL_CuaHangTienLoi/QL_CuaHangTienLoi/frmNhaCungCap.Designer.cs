@@ -70,6 +70,7 @@
             this.btnSave.TabIndex = 77;
             this.btnSave.Text = "Lưu thông tin";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label12
             // 
@@ -77,7 +78,7 @@
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(20, 237);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(126, 25);
+            this.label12.Size = new System.Drawing.Size(102, 20);
             this.label12.TabIndex = 75;
             this.label12.Text = "Số điện thoại";
             // 
@@ -86,7 +87,7 @@
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(195, 194);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(477, 34);
+            this.txtEmail.Size = new System.Drawing.Size(477, 29);
             this.txtEmail.TabIndex = 74;
             // 
             // label11
@@ -95,7 +96,7 @@
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(21, 195);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(60, 25);
+            this.label11.Size = new System.Drawing.Size(48, 20);
             this.label11.TabIndex = 73;
             this.label11.Text = "Email";
             // 
@@ -114,7 +115,7 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(22, 107);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(108, 25);
+            this.label10.Size = new System.Drawing.Size(87, 20);
             this.label10.TabIndex = 71;
             this.label10.Text = "Địa chỉ kho";
             // 
@@ -123,7 +124,7 @@
             this.txtTenNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenNCC.Location = new System.Drawing.Point(197, 64);
             this.txtTenNCC.Name = "txtTenNCC";
-            this.txtTenNCC.Size = new System.Drawing.Size(477, 34);
+            this.txtTenNCC.Size = new System.Drawing.Size(477, 29);
             this.txtTenNCC.TabIndex = 70;
             // 
             // label9
@@ -132,7 +133,7 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(23, 65);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(120, 25);
+            this.label9.Size = new System.Drawing.Size(95, 20);
             this.label9.TabIndex = 69;
             this.label9.Text = "Tên đại diện";
             // 
@@ -142,7 +143,7 @@
             this.txtMaNCC.Location = new System.Drawing.Point(197, 22);
             this.txtMaNCC.Name = "txtMaNCC";
             this.txtMaNCC.ReadOnly = true;
-            this.txtMaNCC.Size = new System.Drawing.Size(314, 34);
+            this.txtMaNCC.Size = new System.Drawing.Size(314, 29);
             this.txtMaNCC.TabIndex = 68;
             // 
             // label8
@@ -151,7 +152,7 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(23, 23);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(131, 25);
+            this.label8.Size = new System.Drawing.Size(105, 20);
             this.label8.TabIndex = 67;
             this.label8.Text = "Mã định danh";
             // 
