@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbFilter = new System.Windows.Forms.GroupBox();
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
             this.txtFindEmail = new System.Windows.Forms.TextBox();
@@ -36,6 +36,7 @@
             this.btnAddNew = new System.Windows.Forms.Button();
             this.btnReload = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnEditNV = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -59,10 +60,9 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtTaiKhoan = new System.Windows.Forms.TextBox();
             this.txtGioiTinh = new System.Windows.Forms.TextBox();
             this.btnLoadTTTK = new System.Windows.Forms.Button();
-            this.btnEditNV = new System.Windows.Forms.Button();
             this.dtPickNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtTenNV = new System.Windows.Forms.TextBox();
@@ -73,6 +73,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.picNhanVien = new System.Windows.Forms.PictureBox();
+            this.btnDeleteTaiKhoan = new System.Windows.Forms.Button();
+            this.btnSuaTaiKhoan = new System.Windows.Forms.Button();
             this.gbFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDTo)).BeginInit();
@@ -119,14 +121,14 @@
             // dgvNhanVien
             // 
             this.dgvNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNhanVien.EnableHeadersVisualStyles = false;
             this.dgvNhanVien.Location = new System.Drawing.Point(16, 345);
@@ -180,6 +182,16 @@
             this.btnDelete.Text = "Xóa thông tin";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnEditNV
+            // 
+            this.btnEditNV.Location = new System.Drawing.Point(235, 812);
+            this.btnEditNV.Name = "btnEditNV";
+            this.btnEditNV.Size = new System.Drawing.Size(231, 36);
+            this.btnEditNV.TabIndex = 31;
+            this.btnEditNV.Text = "Sửa thông tin nhân viên";
+            this.btnEditNV.UseVisualStyleBackColor = true;
+            this.btnEditNV.Click += new System.EventHandler(this.btnEditNV_Click);
             // 
             // btnFind
             // 
@@ -400,7 +412,7 @@
             // 
             // btnCapTK
             // 
-            this.btnCapTK.Location = new System.Drawing.Point(366, 549);
+            this.btnCapTK.Location = new System.Drawing.Point(356, 314);
             this.btnCapTK.Name = "btnCapTK";
             this.btnCapTK.Size = new System.Drawing.Size(289, 36);
             this.btnCapTK.TabIndex = 35;
@@ -411,12 +423,14 @@
             // gbContractsAndAccount
             // 
             this.gbContractsAndAccount.BackColor = System.Drawing.Color.Salmon;
+            this.gbContractsAndAccount.Controls.Add(this.btnSuaTaiKhoan);
+            this.gbContractsAndAccount.Controls.Add(this.btnDeleteTaiKhoan);
             this.gbContractsAndAccount.Controls.Add(this.btnShowPassword);
             this.gbContractsAndAccount.Controls.Add(this.label10);
             this.gbContractsAndAccount.Controls.Add(this.label9);
             this.gbContractsAndAccount.Controls.Add(this.txtPassword);
-            this.gbContractsAndAccount.Controls.Add(this.txtUsername);
-            this.gbContractsAndAccount.Location = new System.Drawing.Point(26, 345);
+            this.gbContractsAndAccount.Controls.Add(this.txtTaiKhoan);
+            this.gbContractsAndAccount.Location = new System.Drawing.Point(28, 374);
             this.gbContractsAndAccount.Name = "gbContractsAndAccount";
             this.gbContractsAndAccount.Size = new System.Drawing.Size(629, 180);
             this.gbContractsAndAccount.TabIndex = 34;
@@ -425,12 +439,13 @@
             // 
             // btnShowPassword
             // 
-            this.btnShowPassword.Location = new System.Drawing.Point(434, 130);
+            this.btnShowPassword.Location = new System.Drawing.Point(43, 132);
             this.btnShowPassword.Name = "btnShowPassword";
             this.btnShowPassword.Size = new System.Drawing.Size(164, 33);
             this.btnShowPassword.TabIndex = 35;
             this.btnShowPassword.Text = "Hiện mật khẩu";
             this.btnShowPassword.UseVisualStyleBackColor = true;
+            this.btnShowPassword.Click += new System.EventHandler(this.btnShowPassword_Click);
             // 
             // label10
             // 
@@ -459,13 +474,13 @@
             this.txtPassword.Size = new System.Drawing.Size(444, 26);
             this.txtPassword.TabIndex = 33;
             // 
-            // txtUsername
+            // txtTaiKhoan
             // 
-            this.txtUsername.Location = new System.Drawing.Point(154, 42);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.ReadOnly = true;
-            this.txtUsername.Size = new System.Drawing.Size(444, 26);
-            this.txtUsername.TabIndex = 32;
+            this.txtTaiKhoan.Location = new System.Drawing.Point(154, 42);
+            this.txtTaiKhoan.Name = "txtTaiKhoan";
+            this.txtTaiKhoan.ReadOnly = true;
+            this.txtTaiKhoan.Size = new System.Drawing.Size(444, 26);
+            this.txtTaiKhoan.TabIndex = 32;
             // 
             // txtGioiTinh
             // 
@@ -477,22 +492,13 @@
             // 
             // btnLoadTTTK
             // 
-            this.btnLoadTTTK.Location = new System.Drawing.Point(26, 549);
+            this.btnLoadTTTK.Location = new System.Drawing.Point(28, 314);
             this.btnLoadTTTK.Name = "btnLoadTTTK";
             this.btnLoadTTTK.Size = new System.Drawing.Size(252, 36);
             this.btnLoadTTTK.TabIndex = 32;
             this.btnLoadTTTK.Text = "Tải thông tin tài khoản";
             this.btnLoadTTTK.UseVisualStyleBackColor = true;
-            // 
-            // btnEditNV
-            // 
-            this.btnEditNV.Location = new System.Drawing.Point(235, 812);
-            this.btnEditNV.Name = "btnEditNV";
-            this.btnEditNV.Size = new System.Drawing.Size(231, 36);
-            this.btnEditNV.TabIndex = 31;
-            this.btnEditNV.Text = "Sửa thông tin nhân viên";
-            this.btnEditNV.UseVisualStyleBackColor = true;
-            this.btnEditNV.Click += new System.EventHandler(this.btnEditNV_Click);
+            this.btnLoadTTTK.Click += new System.EventHandler(this.btnLoadTTTK_Click);
             // 
             // dtPickNgaySinh
             // 
@@ -586,6 +592,26 @@
             this.picNhanVien.TabIndex = 0;
             this.picNhanVien.TabStop = false;
             // 
+            // btnDeleteTaiKhoan
+            // 
+            this.btnDeleteTaiKhoan.Location = new System.Drawing.Point(422, 130);
+            this.btnDeleteTaiKhoan.Name = "btnDeleteTaiKhoan";
+            this.btnDeleteTaiKhoan.Size = new System.Drawing.Size(176, 36);
+            this.btnDeleteTaiKhoan.TabIndex = 39;
+            this.btnDeleteTaiKhoan.Text = "Xoá tài khoản";
+            this.btnDeleteTaiKhoan.UseVisualStyleBackColor = true;
+            this.btnDeleteTaiKhoan.Click += new System.EventHandler(this.btnDeleteTaiKhoan_Click);
+            // 
+            // btnSuaTaiKhoan
+            // 
+            this.btnSuaTaiKhoan.Location = new System.Drawing.Point(222, 129);
+            this.btnSuaTaiKhoan.Name = "btnSuaTaiKhoan";
+            this.btnSuaTaiKhoan.Size = new System.Drawing.Size(182, 36);
+            this.btnSuaTaiKhoan.TabIndex = 40;
+            this.btnSuaTaiKhoan.Text = "Sửa tài khoản";
+            this.btnSuaTaiKhoan.UseVisualStyleBackColor = true;
+            this.btnSuaTaiKhoan.Click += new System.EventHandler(this.btnSuaTaiKhoan_Click);
+            // 
             // UC_NhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -650,10 +676,12 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtTaiKhoan;
         private System.Windows.Forms.Button btnCapTK;
         private System.Windows.Forms.DataGridView dgvNhanVien;
         private System.Windows.Forms.MaskedTextBox txtSoDT;
         private System.Windows.Forms.TextBox txtDiaChi;
+        private System.Windows.Forms.Button btnDeleteTaiKhoan;
+        private System.Windows.Forms.Button btnSuaTaiKhoan;
     }
 }
