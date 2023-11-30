@@ -43,14 +43,19 @@ namespace QL_CuaHangTienLoi
                 if (maNhanVien != null)
                 {
                     frmMain.nhanVien_using = BLL_DAL_NhanVien.getInfoNhanVien(maNhanVien);
+                    this.Hide();
                     new frmMain().ShowDialog();
-                    this.Close();
                 }
                 else
                 {
                     MessageBox.Show("Sai tên tài khoản hoặc mật khẩu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void frmDangNhap_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
