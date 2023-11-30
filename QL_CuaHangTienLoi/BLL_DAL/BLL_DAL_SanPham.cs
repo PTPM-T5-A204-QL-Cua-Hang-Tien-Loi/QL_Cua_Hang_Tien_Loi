@@ -291,5 +291,13 @@ namespace BLL_DAL
                 return null; 
             }
         }
+        public int getSLSP(string masp)
+        {
+            var sl = (from sp in qlch.SANPHAMs
+                          where sp.MASP == masp
+                          select sp.SOLUONG).FirstOrDefault();
+            return sl;
+
+        }
     }
 }
