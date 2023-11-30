@@ -238,23 +238,51 @@ namespace QL_CuaHangTienLoi.UserControls
             string makhach = cboKhach.SelectedValue.ToString();
             DateTime ngaytao = dtpNgayTao.Value;
             decimal tongtien = decimal.Parse(txtTongTien.Text);
-            if(hd.taoHD(mahd, manv, ngaytao, makhach, tongtien))
-                MessageBox.Show("Tạo thành công", "Thông tin");
+            if (soSanhSL())
+            {
+                MessageBox.Show("Số lượng bán vượt quá số lượng trong kho");
+            }
             else
-                MessageBox.Show("Tạo thất bại", "Thông tin");
+            {
+                if (hd.taoHD(mahd, manv, ngaytao, makhach, tongtien))
+                    MessageBox.Show("Tạo thành công", "Thông tin");
+                else
+                    MessageBox.Show("Tạo thất bại", "Thông tin");
+                foreach (DataGridViewRow item in dgvCTHD.Rows)
+                {
+
+                    if (item.Cells[0].Value != null)
+                    {
+
+                        string masp = item.Cells[0].Value.ToString();
+                        int sl = int.Parse(item.Cells[2].Value.ToString());
+                        decimal dongia = decimal.Parse(item.Cells[3].Value.ToString());
+                        decimal giamgia = decimal.Parse(item.Cells[4].Value.ToString());
+                        decimal thanhtien = decimal.Parse(item.Cells[5].Value.ToString());
+                        cthd.themCTHD(mahd, masp, sl, dongia, giamgia, thanhtien);
+                    }
+                }
+                clearCTHD();
+                loadTable();
+            }    
+        }
+        private bool soSanhSL()
+        {
             foreach (DataGridViewRow item in dgvCTHD.Rows)
             {
+
                 if (item.Cells[0].Value != null)
                 {
+
                     string masp = item.Cells[0].Value.ToString();
                     int sl = int.Parse(item.Cells[2].Value.ToString());
-                    decimal dongia = decimal.Parse(item.Cells[3].Value.ToString());
-                    decimal giamgia = decimal.Parse(item.Cells[4].Value.ToString());
-                    decimal thanhtien = decimal.Parse(item.Cells[5].Value.ToString());
-                    cthd.themCTHD(mahd, masp, sl, dongia, giamgia, thanhtien);
-                }    
+                    if (sanpham.getSLSP(masp) < sl)
+                    {
+                        return true;
+                    }
+                }
             }
-            clearCTHD();
+            return false;
         }
 
         private void UC_BanHang_Load(object sender, EventArgs e)
