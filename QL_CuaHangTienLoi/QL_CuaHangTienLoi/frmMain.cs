@@ -88,5 +88,21 @@ namespace QL_CuaHangTienLoi.GUI
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn kết thúc phiên đăng nhập không?", "THÔNG BÁO",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                frmMain.nhanVien_using = null;
+                this.Hide();
+                new frmDangNhap().ShowDialog();
+            }
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -161,7 +161,8 @@ namespace QL_CuaHangTienLoi.UserControls
                     DateTime date = DateTime.Now;
                     string mahd = "HD" + date.ToString("ddMMyyyyHHmmss");
                     txtMaHD.Text = mahd;
-                }    
+                }
+                txtTenNhanVien.Text = frmMain.nhanVien_using.TENNHANVIEN;
                 string masp = dgvProduct.CurrentRow.Cells[0].Value.ToString();
                 string tensp = dgvProduct.CurrentRow.Cells[1].Value.ToString();
                 decimal dongia = decimal.Parse(dgvProduct.CurrentRow.Cells[6].Value.ToString());
@@ -207,9 +208,6 @@ namespace QL_CuaHangTienLoi.UserControls
             cbFindNCC.DisplayMember = "TENNCC";
             cbFindNCC.ValueMember = "MANCC";
             cbFindNCC.DataSource = ncc.getNCCs_List();
-            cboNhanVien.DisplayMember = "TENNHANVIEN";
-            cboNhanVien.ValueMember = "MANHANVIEN";
-            cboNhanVien.DataSource = nhanvien.getNhanViens_List();
             cboKhach.DisplayMember = "TENKHACH";
             cboKhach.ValueMember = "MAKHACH";
             cboKhach.DataSource = khach.getKhachs_List();
@@ -221,8 +219,12 @@ namespace QL_CuaHangTienLoi.UserControls
 
         private void btnCancelBill_Click(object sender, EventArgs e)
         {
+            clearCTHD();
+        }
+
+        private void clearCTHD()
+        {
             txtMaHD.Clear();
-            cboNhanVien.ResetText();
             cboKhach.ResetText();
             txtTongTien.Clear();
             dtpNgayTao.ResetText();
@@ -232,7 +234,7 @@ namespace QL_CuaHangTienLoi.UserControls
         private void btnMakeBills_Click(object sender, EventArgs e)
         {
             string mahd = txtMaHD.Text;
-            string manv = cboNhanVien.SelectedValue.ToString();
+            string manv = frmMain.nhanVien_using.MANHANVIEN;
             string makhach = cboKhach.SelectedValue.ToString();
             DateTime ngaytao = dtpNgayTao.Value;
             decimal tongtien = decimal.Parse(txtTongTien.Text);
@@ -252,12 +254,14 @@ namespace QL_CuaHangTienLoi.UserControls
                     cthd.themCTHD(mahd, masp, sl, dongia, giamgia, thanhtien);
                 }    
             }
+            clearCTHD();
         }
 
         private void UC_BanHang_Load(object sender, EventArgs e)
         {
             loadTable();
             loadCBO();
+
         }
         private decimal tinhTongTien()
         {
@@ -271,6 +275,10 @@ namespace QL_CuaHangTienLoi.UserControls
             }
             return tongtien;
         }
-        
+
+        private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

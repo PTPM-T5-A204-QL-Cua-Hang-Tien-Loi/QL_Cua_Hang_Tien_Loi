@@ -28,9 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbFilter = new System.Windows.Forms.GroupBox();
+            this.txtGiamGia = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.numSL = new System.Windows.Forms.NumericUpDown();
             this.cbFindNCC = new System.Windows.Forms.ComboBox();
             this.dgvProduct = new System.Windows.Forms.DataGridView();
             this.btnReload = new System.Windows.Forms.Button();
@@ -60,20 +64,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.numSL = new System.Windows.Forms.NumericUpDown();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtGiamGia = new System.Windows.Forms.TextBox();
-            this.cboNhanVien = new System.Windows.Forms.ComboBox();
             this.cboKhach = new System.Windows.Forms.ComboBox();
+            this.txtTenNhanVien = new System.Windows.Forms.TextBox();
             this.gbFilter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numSL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDTo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDFrom)).BeginInit();
             this.gbMakeBill.SuspendLayout();
             this.gbListProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCTHD)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numSL)).BeginInit();
             this.SuspendLayout();
             // 
             // gbFilter
@@ -108,6 +108,54 @@
             this.gbFilter.TabStop = false;
             this.gbFilter.Text = "Lọc thông tin";
             // 
+            // txtGiamGia
+            // 
+            this.txtGiamGia.Location = new System.Drawing.Point(93, 773);
+            this.txtGiamGia.Name = "txtGiamGia";
+            this.txtGiamGia.Size = new System.Drawing.Size(128, 26);
+            this.txtGiamGia.TabIndex = 38;
+            this.txtGiamGia.Text = "0";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(11, 776);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(76, 20);
+            this.label8.TabIndex = 37;
+            this.label8.Text = "Giảm giá";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(452, 776);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(111, 20);
+            this.label7.TabIndex = 37;
+            this.label7.Text = "Số lượng mua";
+            // 
+            // numSL
+            // 
+            this.numSL.Location = new System.Drawing.Point(569, 774);
+            this.numSL.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numSL.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numSL.Name = "numSL";
+            this.numSL.Size = new System.Drawing.Size(107, 26);
+            this.numSL.TabIndex = 36;
+            this.numSL.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // cbFindNCC
             // 
             this.cbFindNCC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -119,14 +167,14 @@
             // 
             // dgvProduct
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProduct.EnableHeadersVisualStyles = false;
             this.dgvProduct.Location = new System.Drawing.Point(15, 281);
@@ -135,6 +183,7 @@
             this.dgvProduct.RowHeadersWidth = 51;
             this.dgvProduct.Size = new System.Drawing.Size(661, 469);
             this.dgvProduct.TabIndex = 34;
+            this.dgvProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellContentClick);
             // 
             // btnReload
             // 
@@ -310,6 +359,7 @@
             this.gbMakeBill.Controls.Add(this.btnCancelBill);
             this.gbMakeBill.Controls.Add(this.gbListProduct);
             this.gbMakeBill.Controls.Add(this.dtpNgayTao);
+            this.gbMakeBill.Controls.Add(this.txtTenNhanVien);
             this.gbMakeBill.Controls.Add(this.txtMaHD);
             this.gbMakeBill.Controls.Add(this.txtTongTien);
             this.gbMakeBill.Controls.Add(this.label5);
@@ -318,7 +368,6 @@
             this.gbMakeBill.Controls.Add(this.label3);
             this.gbMakeBill.Controls.Add(this.label2);
             this.gbMakeBill.Controls.Add(this.cboKhach);
-            this.gbMakeBill.Controls.Add(this.cboNhanVien);
             this.gbMakeBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbMakeBill.Location = new System.Drawing.Point(697, 0);
             this.gbMakeBill.Margin = new System.Windows.Forms.Padding(0);
@@ -360,14 +409,14 @@
             // 
             // dgvCTHD
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCTHD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCTHD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvCTHD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCTHD.EnableHeadersVisualStyles = false;
             this.dgvCTHD.Location = new System.Drawing.Point(6, 21);
@@ -447,66 +496,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(18, 46);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 20);
+            this.label2.Size = new System.Drawing.Size(113, 20);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Mã nhân viên";
-            // 
-            // numSL
-            // 
-            this.numSL.Location = new System.Drawing.Point(569, 774);
-            this.numSL.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numSL.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numSL.Name = "numSL";
-            this.numSL.Size = new System.Drawing.Size(107, 26);
-            this.numSL.TabIndex = 36;
-            this.numSL.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(452, 776);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(111, 20);
-            this.label7.TabIndex = 37;
-            this.label7.Text = "Số lượng mua";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(11, 776);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 20);
-            this.label8.TabIndex = 37;
-            this.label8.Text = "Giảm giá";
-            // 
-            // txtGiamGia
-            // 
-            this.txtGiamGia.Location = new System.Drawing.Point(93, 773);
-            this.txtGiamGia.Name = "txtGiamGia";
-            this.txtGiamGia.Size = new System.Drawing.Size(128, 26);
-            this.txtGiamGia.TabIndex = 38;
-            this.txtGiamGia.Text = "0";
-            // 
-            // cboNhanVien
-            // 
-            this.cboNhanVien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboNhanVien.FormattingEnabled = true;
-            this.cboNhanVien.Location = new System.Drawing.Point(189, 43);
-            this.cboNhanVien.Name = "cboNhanVien";
-            this.cboNhanVien.Size = new System.Drawing.Size(446, 28);
-            this.cboNhanVien.TabIndex = 22;
+            this.label2.Text = "Tên nhân viên";
             // 
             // cboKhach
             // 
@@ -516,6 +508,14 @@
             this.cboKhach.Name = "cboKhach";
             this.cboKhach.Size = new System.Drawing.Size(446, 28);
             this.cboKhach.TabIndex = 22;
+            // 
+            // txtTenNhanVien
+            // 
+            this.txtTenNhanVien.Location = new System.Drawing.Point(189, 46);
+            this.txtTenNhanVien.Name = "txtTenNhanVien";
+            this.txtTenNhanVien.ReadOnly = true;
+            this.txtTenNhanVien.Size = new System.Drawing.Size(351, 26);
+            this.txtTenNhanVien.TabIndex = 34;
             // 
             // UC_BanHang
             // 
@@ -528,6 +528,7 @@
             this.Load += new System.EventHandler(this.UC_BanHang_Load);
             this.gbFilter.ResumeLayout(false);
             this.gbFilter.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numSL)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDTo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDFrom)).EndInit();
@@ -535,7 +536,6 @@
             this.gbMakeBill.PerformLayout();
             this.gbListProduct.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCTHD)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numSL)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -577,6 +577,6 @@
         private System.Windows.Forms.TextBox txtGiamGia;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cboKhach;
-        private System.Windows.Forms.ComboBox cboNhanVien;
+        private System.Windows.Forms.TextBox txtTenNhanVien;
     }
 }

@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbFilter = new System.Windows.Forms.GroupBox();
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
-            this.txtFindEmail = new System.Windows.Forms.TextBox();
             this.txtFindSoDT = new System.Windows.Forms.TextBox();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.btnReload = new System.Windows.Forms.Button();
@@ -39,23 +38,16 @@
             this.btnEditNV = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.numUDTo = new System.Windows.Forms.NumericUpDown();
-            this.numUDFrom = new System.Windows.Forms.NumericUpDown();
-            this.cbFindGioiTinh = new System.Windows.Forms.ComboBox();
-            this.txtFindDiaChi = new System.Windows.Forms.TextBox();
             this.txtFindTenNV = new System.Windows.Forms.TextBox();
-            this.chbEmail = new System.Windows.Forms.CheckBox();
             this.chbSoDT = new System.Windows.Forms.CheckBox();
-            this.chbGioiTinh = new System.Windows.Forms.CheckBox();
-            this.chbDiaChi = new System.Windows.Forms.CheckBox();
-            this.chbTuoi = new System.Windows.Forms.CheckBox();
             this.chbFindTenNV = new System.Windows.Forms.CheckBox();
             this.gbDetail = new System.Windows.Forms.GroupBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.txtSoDT = new System.Windows.Forms.MaskedTextBox();
             this.btnCapTK = new System.Windows.Forms.Button();
             this.gbContractsAndAccount = new System.Windows.Forms.GroupBox();
+            this.btnSuaTaiKhoan = new System.Windows.Forms.Button();
+            this.btnDeleteTaiKhoan = new System.Windows.Forms.Button();
             this.btnShowPassword = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -73,12 +65,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.picNhanVien = new System.Windows.Forms.PictureBox();
-            this.btnDeleteTaiKhoan = new System.Windows.Forms.Button();
-            this.btnSuaTaiKhoan = new System.Windows.Forms.Button();
+            this.cbFindGioiTinh = new System.Windows.Forms.ComboBox();
+            this.chbGioiTinh = new System.Windows.Forms.CheckBox();
             this.gbFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUDTo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUDFrom)).BeginInit();
             this.gbDetail.SuspendLayout();
             this.gbContractsAndAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picNhanVien)).BeginInit();
@@ -88,7 +78,6 @@
             // 
             this.gbFilter.BackColor = System.Drawing.Color.LightSalmon;
             this.gbFilter.Controls.Add(this.dgvNhanVien);
-            this.gbFilter.Controls.Add(this.txtFindEmail);
             this.gbFilter.Controls.Add(this.txtFindSoDT);
             this.gbFilter.Controls.Add(this.btnAddNew);
             this.gbFilter.Controls.Add(this.btnReload);
@@ -96,17 +85,10 @@
             this.gbFilter.Controls.Add(this.btnEditNV);
             this.gbFilter.Controls.Add(this.btnFind);
             this.gbFilter.Controls.Add(this.btnClear);
-            this.gbFilter.Controls.Add(this.label1);
-            this.gbFilter.Controls.Add(this.numUDTo);
-            this.gbFilter.Controls.Add(this.numUDFrom);
             this.gbFilter.Controls.Add(this.cbFindGioiTinh);
-            this.gbFilter.Controls.Add(this.txtFindDiaChi);
             this.gbFilter.Controls.Add(this.txtFindTenNV);
-            this.gbFilter.Controls.Add(this.chbEmail);
             this.gbFilter.Controls.Add(this.chbSoDT);
             this.gbFilter.Controls.Add(this.chbGioiTinh);
-            this.gbFilter.Controls.Add(this.chbDiaChi);
-            this.gbFilter.Controls.Add(this.chbTuoi);
             this.gbFilter.Controls.Add(this.chbFindTenNV);
             this.gbFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbFilter.Location = new System.Drawing.Point(0, 0);
@@ -121,34 +103,27 @@
             // dgvNhanVien
             // 
             this.dgvNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNhanVien.EnableHeadersVisualStyles = false;
-            this.dgvNhanVien.Location = new System.Drawing.Point(16, 345);
+            this.dgvNhanVien.Location = new System.Drawing.Point(13, 202);
             this.dgvNhanVien.Name = "dgvNhanVien";
             this.dgvNhanVien.ReadOnly = true;
             this.dgvNhanVien.RowHeadersWidth = 51;
-            this.dgvNhanVien.Size = new System.Drawing.Size(661, 445);
+            this.dgvNhanVien.Size = new System.Drawing.Size(661, 590);
             this.dgvNhanVien.TabIndex = 32;
             this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
             // 
-            // txtFindEmail
-            // 
-            this.txtFindEmail.Location = new System.Drawing.Point(205, 217);
-            this.txtFindEmail.Name = "txtFindEmail";
-            this.txtFindEmail.Size = new System.Drawing.Size(475, 26);
-            this.txtFindEmail.TabIndex = 26;
-            // 
             // txtFindSoDT
             // 
-            this.txtFindSoDT.Location = new System.Drawing.Point(205, 179);
+            this.txtFindSoDT.Location = new System.Drawing.Point(205, 112);
             this.txtFindSoDT.Name = "txtFindSoDT";
             this.txtFindSoDT.Size = new System.Drawing.Size(475, 26);
             this.txtFindSoDT.TabIndex = 25;
@@ -165,7 +140,7 @@
             // 
             // btnReload
             // 
-            this.btnReload.Location = new System.Drawing.Point(19, 303);
+            this.btnReload.Location = new System.Drawing.Point(16, 160);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(183, 37);
             this.btnReload.TabIndex = 20;
@@ -195,95 +170,23 @@
             // 
             // btnFind
             // 
-            this.btnFind.Location = new System.Drawing.Point(497, 303);
+            this.btnFind.Location = new System.Drawing.Point(494, 160);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(183, 36);
             this.btnFind.TabIndex = 18;
             this.btnFind.Text = "Tìm";
             this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(308, 303);
+            this.btnClear.Location = new System.Drawing.Point(305, 160);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(183, 36);
             this.btnClear.TabIndex = 17;
             this.btnClear.Text = "Làm trống";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(329, 70);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 20);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "đến";
-            // 
-            // numUDTo
-            // 
-            this.numUDTo.Location = new System.Drawing.Point(404, 71);
-            this.numUDTo.Maximum = new decimal(new int[] {
-            35,
-            0,
-            0,
-            0});
-            this.numUDTo.Minimum = new decimal(new int[] {
-            16,
-            0,
-            0,
-            0});
-            this.numUDTo.Name = "numUDTo";
-            this.numUDTo.Size = new System.Drawing.Size(107, 26);
-            this.numUDTo.TabIndex = 14;
-            this.numUDTo.Value = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            // 
-            // numUDFrom
-            // 
-            this.numUDFrom.Location = new System.Drawing.Point(205, 71);
-            this.numUDFrom.Maximum = new decimal(new int[] {
-            35,
-            0,
-            0,
-            0});
-            this.numUDFrom.Minimum = new decimal(new int[] {
-            16,
-            0,
-            0,
-            0});
-            this.numUDFrom.Name = "numUDFrom";
-            this.numUDFrom.Size = new System.Drawing.Size(107, 26);
-            this.numUDFrom.TabIndex = 13;
-            this.numUDFrom.Value = new decimal(new int[] {
-            16,
-            0,
-            0,
-            0});
-            // 
-            // cbFindGioiTinh
-            // 
-            this.cbFindGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFindGioiTinh.FormattingEnabled = true;
-            this.cbFindGioiTinh.Items.AddRange(new object[] {
-            "nam",
-            "nữ",
-            "khác"});
-            this.cbFindGioiTinh.Location = new System.Drawing.Point(205, 139);
-            this.cbFindGioiTinh.Name = "cbFindGioiTinh";
-            this.cbFindGioiTinh.Size = new System.Drawing.Size(176, 28);
-            this.cbFindGioiTinh.TabIndex = 10;
-            // 
-            // txtFindDiaChi
-            // 
-            this.txtFindDiaChi.Location = new System.Drawing.Point(205, 105);
-            this.txtFindDiaChi.Name = "txtFindDiaChi";
-            this.txtFindDiaChi.Size = new System.Drawing.Size(475, 26);
-            this.txtFindDiaChi.TabIndex = 9;
             // 
             // txtFindTenNV
             // 
@@ -292,65 +195,17 @@
             this.txtFindTenNV.Size = new System.Drawing.Size(475, 26);
             this.txtFindTenNV.TabIndex = 8;
             // 
-            // chbEmail
-            // 
-            this.chbEmail.AutoSize = true;
-            this.chbEmail.Checked = true;
-            this.chbEmail.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbEmail.Location = new System.Drawing.Point(16, 217);
-            this.chbEmail.Name = "chbEmail";
-            this.chbEmail.Size = new System.Drawing.Size(73, 24);
-            this.chbEmail.TabIndex = 7;
-            this.chbEmail.Text = "Email";
-            this.chbEmail.UseVisualStyleBackColor = true;
-            // 
             // chbSoDT
             // 
             this.chbSoDT.AutoSize = true;
             this.chbSoDT.Checked = true;
             this.chbSoDT.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbSoDT.Location = new System.Drawing.Point(16, 181);
+            this.chbSoDT.Location = new System.Drawing.Point(16, 114);
             this.chbSoDT.Name = "chbSoDT";
             this.chbSoDT.Size = new System.Drawing.Size(136, 24);
             this.chbSoDT.TabIndex = 5;
             this.chbSoDT.Text = "Số Điện Thoại";
             this.chbSoDT.UseVisualStyleBackColor = true;
-            // 
-            // chbGioiTinh
-            // 
-            this.chbGioiTinh.AutoSize = true;
-            this.chbGioiTinh.Checked = true;
-            this.chbGioiTinh.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbGioiTinh.Location = new System.Drawing.Point(16, 144);
-            this.chbGioiTinh.Name = "chbGioiTinh";
-            this.chbGioiTinh.Size = new System.Drawing.Size(93, 24);
-            this.chbGioiTinh.TabIndex = 3;
-            this.chbGioiTinh.Text = "Giới tính";
-            this.chbGioiTinh.UseVisualStyleBackColor = true;
-            // 
-            // chbDiaChi
-            // 
-            this.chbDiaChi.AutoSize = true;
-            this.chbDiaChi.Checked = true;
-            this.chbDiaChi.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbDiaChi.Location = new System.Drawing.Point(16, 108);
-            this.chbDiaChi.Name = "chbDiaChi";
-            this.chbDiaChi.Size = new System.Drawing.Size(83, 24);
-            this.chbDiaChi.TabIndex = 2;
-            this.chbDiaChi.Text = "Địa chỉ";
-            this.chbDiaChi.UseVisualStyleBackColor = true;
-            // 
-            // chbTuoi
-            // 
-            this.chbTuoi.AutoSize = true;
-            this.chbTuoi.Checked = true;
-            this.chbTuoi.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbTuoi.Location = new System.Drawing.Point(16, 72);
-            this.chbTuoi.Name = "chbTuoi";
-            this.chbTuoi.Size = new System.Drawing.Size(84, 24);
-            this.chbTuoi.TabIndex = 1;
-            this.chbTuoi.Text = "Độ tuổi";
-            this.chbTuoi.UseVisualStyleBackColor = true;
             // 
             // chbFindTenNV
             // 
@@ -436,6 +291,26 @@
             this.gbContractsAndAccount.TabIndex = 34;
             this.gbContractsAndAccount.TabStop = false;
             this.gbContractsAndAccount.Text = "Thông tin tài khoản";
+            // 
+            // btnSuaTaiKhoan
+            // 
+            this.btnSuaTaiKhoan.Location = new System.Drawing.Point(222, 129);
+            this.btnSuaTaiKhoan.Name = "btnSuaTaiKhoan";
+            this.btnSuaTaiKhoan.Size = new System.Drawing.Size(182, 36);
+            this.btnSuaTaiKhoan.TabIndex = 40;
+            this.btnSuaTaiKhoan.Text = "Sửa tài khoản";
+            this.btnSuaTaiKhoan.UseVisualStyleBackColor = true;
+            this.btnSuaTaiKhoan.Click += new System.EventHandler(this.btnSuaTaiKhoan_Click);
+            // 
+            // btnDeleteTaiKhoan
+            // 
+            this.btnDeleteTaiKhoan.Location = new System.Drawing.Point(422, 130);
+            this.btnDeleteTaiKhoan.Name = "btnDeleteTaiKhoan";
+            this.btnDeleteTaiKhoan.Size = new System.Drawing.Size(176, 36);
+            this.btnDeleteTaiKhoan.TabIndex = 39;
+            this.btnDeleteTaiKhoan.Text = "Xoá tài khoản";
+            this.btnDeleteTaiKhoan.UseVisualStyleBackColor = true;
+            this.btnDeleteTaiKhoan.Click += new System.EventHandler(this.btnDeleteTaiKhoan_Click);
             // 
             // btnShowPassword
             // 
@@ -592,25 +467,29 @@
             this.picNhanVien.TabIndex = 0;
             this.picNhanVien.TabStop = false;
             // 
-            // btnDeleteTaiKhoan
+            // cbFindGioiTinh
             // 
-            this.btnDeleteTaiKhoan.Location = new System.Drawing.Point(422, 130);
-            this.btnDeleteTaiKhoan.Name = "btnDeleteTaiKhoan";
-            this.btnDeleteTaiKhoan.Size = new System.Drawing.Size(176, 36);
-            this.btnDeleteTaiKhoan.TabIndex = 39;
-            this.btnDeleteTaiKhoan.Text = "Xoá tài khoản";
-            this.btnDeleteTaiKhoan.UseVisualStyleBackColor = true;
-            this.btnDeleteTaiKhoan.Click += new System.EventHandler(this.btnDeleteTaiKhoan_Click);
+            this.cbFindGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFindGioiTinh.FormattingEnabled = true;
+            this.cbFindGioiTinh.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ"});
+            this.cbFindGioiTinh.Location = new System.Drawing.Point(205, 72);
+            this.cbFindGioiTinh.Name = "cbFindGioiTinh";
+            this.cbFindGioiTinh.Size = new System.Drawing.Size(176, 28);
+            this.cbFindGioiTinh.TabIndex = 10;
             // 
-            // btnSuaTaiKhoan
+            // chbGioiTinh
             // 
-            this.btnSuaTaiKhoan.Location = new System.Drawing.Point(222, 129);
-            this.btnSuaTaiKhoan.Name = "btnSuaTaiKhoan";
-            this.btnSuaTaiKhoan.Size = new System.Drawing.Size(182, 36);
-            this.btnSuaTaiKhoan.TabIndex = 40;
-            this.btnSuaTaiKhoan.Text = "Sửa tài khoản";
-            this.btnSuaTaiKhoan.UseVisualStyleBackColor = true;
-            this.btnSuaTaiKhoan.Click += new System.EventHandler(this.btnSuaTaiKhoan_Click);
+            this.chbGioiTinh.AutoSize = true;
+            this.chbGioiTinh.Checked = true;
+            this.chbGioiTinh.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbGioiTinh.Location = new System.Drawing.Point(16, 77);
+            this.chbGioiTinh.Name = "chbGioiTinh";
+            this.chbGioiTinh.Size = new System.Drawing.Size(93, 24);
+            this.chbGioiTinh.TabIndex = 3;
+            this.chbGioiTinh.Text = "Giới tính";
+            this.chbGioiTinh.UseVisualStyleBackColor = true;
             // 
             // UC_NhanVien
             // 
@@ -624,8 +503,6 @@
             this.gbFilter.ResumeLayout(false);
             this.gbFilter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUDTo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUDFrom)).EndInit();
             this.gbDetail.ResumeLayout(false);
             this.gbDetail.PerformLayout();
             this.gbContractsAndAccount.ResumeLayout(false);
@@ -643,15 +520,7 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numUDTo;
-        private System.Windows.Forms.NumericUpDown numUDFrom;
-        private System.Windows.Forms.ComboBox cbFindGioiTinh;
-        private System.Windows.Forms.TextBox txtFindDiaChi;
         private System.Windows.Forms.TextBox txtFindTenNV;
-        private System.Windows.Forms.CheckBox chbGioiTinh;
-        private System.Windows.Forms.CheckBox chbDiaChi;
-        private System.Windows.Forms.CheckBox chbTuoi;
         private System.Windows.Forms.CheckBox chbFindTenNV;
         private System.Windows.Forms.GroupBox gbDetail;
         private System.Windows.Forms.TextBox txtGioiTinh;
@@ -667,10 +536,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox picNhanVien;
-        private System.Windows.Forms.CheckBox chbEmail;
         private System.Windows.Forms.CheckBox chbSoDT;
         private System.Windows.Forms.TextBox txtFindSoDT;
-        private System.Windows.Forms.TextBox txtFindEmail;
         private System.Windows.Forms.GroupBox gbContractsAndAccount;
         private System.Windows.Forms.Button btnShowPassword;
         private System.Windows.Forms.Label label10;
@@ -683,5 +550,7 @@
         private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.Button btnDeleteTaiKhoan;
         private System.Windows.Forms.Button btnSuaTaiKhoan;
+        private System.Windows.Forms.ComboBox cbFindGioiTinh;
+        private System.Windows.Forms.CheckBox chbGioiTinh;
     }
 }

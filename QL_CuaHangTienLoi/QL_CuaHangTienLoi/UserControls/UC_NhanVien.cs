@@ -205,5 +205,37 @@ namespace QL_CuaHangTienLoi.UserControls
         {
             new frmTaiKhoan(taiKhoan, nv).ShowDialog();
         }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            string tennv = txtFindTenNV.Text;
+            string gt = cbFindGioiTinh.Text;
+            string sdt = txtFindSoDT.Text;
+            if (chbFindTenNV.Checked && !chbGioiTinh.Checked && !chbSoDT.Checked)
+            {
+                dgvNhanVien.DataSource = bLL_DAL_NhanVien.timSP_NhieuGiaTri(tennv, null, null);
+            }
+            else if (chbFindTenNV.Checked && chbGioiTinh.Checked && !chbSoDT.Checked)
+            {
+                dgvNhanVien.DataSource = bLL_DAL_NhanVien.timSP_NhieuGiaTri(tennv, gt, null);
+            }
+            else if (chbFindTenNV.Checked && chbGioiTinh.Checked && chbSoDT.Checked)
+            {
+                dgvNhanVien.DataSource = bLL_DAL_NhanVien.timSP_NhieuGiaTri(tennv, gt, sdt);
+            }
+            else if (!chbFindTenNV.Checked && chbGioiTinh.Checked && !chbSoDT.Checked)
+            {
+                dgvNhanVien.DataSource = bLL_DAL_NhanVien.timSP_NhieuGiaTri(null, gt, null);
+            }
+            else if (!chbFindTenNV.Checked && chbGioiTinh.Checked && chbSoDT.Checked)
+            {
+                dgvNhanVien.DataSource = bLL_DAL_NhanVien.timSP_NhieuGiaTri(null, gt, sdt);
+            }
+            else if (!chbFindTenNV.Checked && !chbGioiTinh.Checked && !chbSoDT.Checked)
+            {
+                dgvNhanVien.DataSource = bLL_DAL_NhanVien.timSP_NhieuGiaTri(null, null, sdt);
+            }
+
+        }
     }
 }
