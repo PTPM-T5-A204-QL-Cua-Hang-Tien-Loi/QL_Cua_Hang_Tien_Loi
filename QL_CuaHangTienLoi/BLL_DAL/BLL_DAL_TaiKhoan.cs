@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace BLL_DAL
@@ -66,6 +67,16 @@ namespace BLL_DAL
             int count = qlch.TAIKHOANs.Count(tk => tk.TAIKHOAN1 == tenTaiKhoan);
 
             return count > 0;
+
+        }
+
+        public int? checkQuyenNhanVien(string maNhanVien)
+        {
+            var query = from tk in qlch.TAIKHOANs
+                        where tk.MANHANVIEN == maNhanVien
+                        select tk.MAQUYEN;
+
+            return query.FirstOrDefault();
 
         }
 
