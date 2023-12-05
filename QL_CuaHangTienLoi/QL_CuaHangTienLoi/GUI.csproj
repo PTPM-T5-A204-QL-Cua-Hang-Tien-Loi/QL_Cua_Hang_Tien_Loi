@@ -60,6 +60,12 @@
     <Compile Include="frmDangNhap.Designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDonHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDonHang.Designer.cs">
+      <DependentUpon>frmDonHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,12 @@
     <Compile Include="UserControls\UC_BanHang.Designer.cs">
       <DependentUpon>UC_BanHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UC_DonHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UC_DonHang.Designer.cs">
+      <DependentUpon>UC_DonHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UC_NhanVien.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -143,6 +155,9 @@
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDonHang.resx">
+      <DependentUpon>frmDonHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -173,6 +188,9 @@
     </Compile>
     <EmbeddedResource Include="UserControls\UC_BanHang.resx">
       <DependentUpon>UC_BanHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UC_DonHang.resx">
+      <DependentUpon>UC_DonHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UC_NhanVien.resx">
       <DependentUpon>UC_NhanVien.cs</DependentUpon>
@@ -207,12 +225,16 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\og-ministop.jpg" />
     <None Include="Resources\icons8_home_32.png" />
     <None Include="Resources\icons8_product_32.png" />
     <None Include="Resources\icons8_purchase_order_32.png" />
     <None Include="Resources\icons8_import_32.png" />
     <None Include="Resources\icons8_plot_32.png" />
     <None Include="Resources\icons8_staff_32.png" />
+    <None Include="Resources\cart.png" />
+    <None Include="Resources\cart-1.png" />
+    <None Include="Resources\cart-2.png" />
     <Content Include="Resources\login.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

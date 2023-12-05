@@ -35,8 +35,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblTabShow = new System.Windows.Forms.Label();
             this.pnlControl = new System.Windows.Forms.Panel();
+            this.btnDonHang = new System.Windows.Forms.Button();
             this.lblTime = new System.Windows.Forms.Label();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.btnNhanVien = new System.Windows.Forms.Button();
             this.btnThongKe = new System.Windows.Forms.Button();
             this.btnNhapHang = new System.Windows.Forms.Button();
@@ -115,8 +115,8 @@
             this.pnlControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlControl.BackColor = System.Drawing.Color.Lime;
+            this.pnlControl.Controls.Add(this.btnDonHang);
             this.pnlControl.Controls.Add(this.lblTime);
-            this.pnlControl.Controls.Add(this.monthCalendar1);
             this.pnlControl.Controls.Add(this.btnNhanVien);
             this.pnlControl.Controls.Add(this.btnThongKe);
             this.pnlControl.Controls.Add(this.btnNhapHang);
@@ -129,6 +129,19 @@
             this.pnlControl.Size = new System.Drawing.Size(348, 879);
             this.pnlControl.TabIndex = 1;
             // 
+            // btnDonHang
+            // 
+            this.btnDonHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDonHang.Image = global::QL_CuaHangTienLoi.Properties.Resources.cart_2;
+            this.btnDonHang.Location = new System.Drawing.Point(19, 570);
+            this.btnDonHang.Name = "btnDonHang";
+            this.btnDonHang.Size = new System.Drawing.Size(305, 74);
+            this.btnDonHang.TabIndex = 8;
+            this.btnDonHang.Text = "ĐƠN HÀNG";
+            this.btnDonHang.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDonHang.UseVisualStyleBackColor = true;
+            this.btnDonHang.Click += new System.EventHandler(this.btnDonHang_Click);
+            // 
             // lblTime
             // 
             this.lblTime.AutoSize = true;
@@ -139,12 +152,6 @@
             this.lblTime.TabIndex = 7;
             this.lblTime.Text = "label1";
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Location = new System.Drawing.Point(19, 576);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 6;
             // 
             // btnNhanVien
             // 
@@ -273,12 +280,12 @@
         private System.Windows.Forms.Button btnBanHang;
         private System.Windows.Forms.Button btnThongKe;
         private System.Windows.Forms.Button btnNhanVien;
-        private System.Windows.Forms.Label lblTime;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTenNV;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDonHang;
+        private System.Windows.Forms.Label lblTime;
     }
 }

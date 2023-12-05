@@ -86,37 +86,31 @@ namespace QL_CuaHangTienLoi
 
             if (checkInfomation(tAIKHOAN))
             {
-                if (!bLL_DAL_TaiKhoan.checkTaiKhoanTrung(txtTaiKhoan.Text))
+                if (checkTKNew)
                 {
-                    if(checkTKNew)
+                    if (bLL_DAL_TaiKhoan.Create(tAIKHOAN))
                     {
-                        if (bLL_DAL_TaiKhoan.Create(tAIKHOAN))
-                        {
-                            MessageBox.Show("Thêm thông tin tài khoản cho nhân viên thành công!", "THÔNG BÁO", MessageBoxButtons.OK);
-                            Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Thêm thông tin tài khoản không thành công!", "LỖI",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    } else
-                    {
-                        if (bLL_DAL_TaiKhoan.Edit(tAIKHOAN))
-                        {
-                            MessageBox.Show("Cập nhật thông tin tài khoản thành công!", "THÔNG BÁO", MessageBoxButtons.OK);
-                            Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Có lỗi trong quá trình thêm!\n Vui lòng kiểm tra lại dữ liệu!", "LỖI",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        MessageBox.Show("Thêm thông tin tài khoản cho nhân viên thành công!", "THÔNG BÁO", MessageBoxButtons.OK);
+                        Close();
                     }
-                } else
+                    else
+                    {
+                        MessageBox.Show("Thêm thông tin tài khoản không thành công!", "LỖI",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
                 {
-                    MessageBox.Show("Tên tài khoản đã được sử dụng! Vui lòng chọn tên tài khoản khác", "Thông báo",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (bLL_DAL_TaiKhoan.Edit(tAIKHOAN))
+                    {
+                        MessageBox.Show("Cập nhật thông tin tài khoản thành công!", "THÔNG BÁO", MessageBoxButtons.OK);
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Có lỗi trong quá trình thêm!\n Vui lòng kiểm tra lại dữ liệu!", "LỖI",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             else

@@ -107,6 +107,7 @@ namespace BLL_DAL
                 nHANVIEN.NGAYSINH = nv.NGAYSINH;
                 nHANVIEN.DIACHI_NV = nv.DIACHI_NV;
                 nHANVIEN.DIENTHOAI_NV = nv.DIENTHOAI_NV;
+                nHANVIEN.HinhAnh = nv.HinhAnh;
                 qlch.SubmitChanges();
                 return true;
             }

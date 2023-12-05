@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbFilter = new System.Windows.Forms.GroupBox();
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
             this.txtFindSoDT = new System.Windows.Forms.TextBox();
@@ -38,8 +38,10 @@
             this.btnEditNV = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.cbFindGioiTinh = new System.Windows.Forms.ComboBox();
             this.txtFindTenNV = new System.Windows.Forms.TextBox();
             this.chbSoDT = new System.Windows.Forms.CheckBox();
+            this.chbGioiTinh = new System.Windows.Forms.CheckBox();
             this.chbFindTenNV = new System.Windows.Forms.CheckBox();
             this.gbDetail = new System.Windows.Forms.GroupBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
@@ -65,8 +67,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.picNhanVien = new System.Windows.Forms.PictureBox();
-            this.cbFindGioiTinh = new System.Windows.Forms.ComboBox();
-            this.chbGioiTinh = new System.Windows.Forms.CheckBox();
             this.gbFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.gbDetail.SuspendLayout();
@@ -103,14 +103,14 @@
             // dgvNhanVien
             // 
             this.dgvNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNhanVien.EnableHeadersVisualStyles = false;
             this.dgvNhanVien.Location = new System.Drawing.Point(13, 202);
@@ -188,6 +188,18 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // cbFindGioiTinh
+            // 
+            this.cbFindGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFindGioiTinh.FormattingEnabled = true;
+            this.cbFindGioiTinh.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ"});
+            this.cbFindGioiTinh.Location = new System.Drawing.Point(205, 72);
+            this.cbFindGioiTinh.Name = "cbFindGioiTinh";
+            this.cbFindGioiTinh.Size = new System.Drawing.Size(176, 28);
+            this.cbFindGioiTinh.TabIndex = 10;
+            // 
             // txtFindTenNV
             // 
             this.txtFindTenNV.Location = new System.Drawing.Point(205, 37);
@@ -206,6 +218,18 @@
             this.chbSoDT.TabIndex = 5;
             this.chbSoDT.Text = "Số Điện Thoại";
             this.chbSoDT.UseVisualStyleBackColor = true;
+            // 
+            // chbGioiTinh
+            // 
+            this.chbGioiTinh.AutoSize = true;
+            this.chbGioiTinh.Checked = true;
+            this.chbGioiTinh.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbGioiTinh.Location = new System.Drawing.Point(16, 77);
+            this.chbGioiTinh.Name = "chbGioiTinh";
+            this.chbGioiTinh.Size = new System.Drawing.Size(93, 24);
+            this.chbGioiTinh.TabIndex = 3;
+            this.chbGioiTinh.Text = "Giới tính";
+            this.chbGioiTinh.UseVisualStyleBackColor = true;
             // 
             // chbFindTenNV
             // 
@@ -466,30 +490,6 @@
             this.picNhanVien.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picNhanVien.TabIndex = 0;
             this.picNhanVien.TabStop = false;
-            // 
-            // cbFindGioiTinh
-            // 
-            this.cbFindGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFindGioiTinh.FormattingEnabled = true;
-            this.cbFindGioiTinh.Items.AddRange(new object[] {
-            "Nam",
-            "Nữ"});
-            this.cbFindGioiTinh.Location = new System.Drawing.Point(205, 72);
-            this.cbFindGioiTinh.Name = "cbFindGioiTinh";
-            this.cbFindGioiTinh.Size = new System.Drawing.Size(176, 28);
-            this.cbFindGioiTinh.TabIndex = 10;
-            // 
-            // chbGioiTinh
-            // 
-            this.chbGioiTinh.AutoSize = true;
-            this.chbGioiTinh.Checked = true;
-            this.chbGioiTinh.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbGioiTinh.Location = new System.Drawing.Point(16, 77);
-            this.chbGioiTinh.Name = "chbGioiTinh";
-            this.chbGioiTinh.Size = new System.Drawing.Size(93, 24);
-            this.chbGioiTinh.TabIndex = 3;
-            this.chbGioiTinh.Text = "Giới tính";
-            this.chbGioiTinh.UseVisualStyleBackColor = true;
             // 
             // UC_NhanVien
             // 
