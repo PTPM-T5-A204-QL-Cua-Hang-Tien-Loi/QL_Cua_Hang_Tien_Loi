@@ -26,9 +26,9 @@ namespace QL_CuaHangTienLoi.GUI
 
             AddTabToControl();
 
-            lblTenNV.Text = nhanVien_using.TENNHANVIEN;
+            //lblTenNV.Text = nhanVien_using.TENNHANVIEN;
 
-            quyen = (int)bLL_DAL_TaiKhoan.checkQuyenNhanVien(nhanVien_using.MANHANVIEN);
+            //quyen = (int)bLL_DAL_TaiKhoan.checkQuyenNhanVien(nhanVien_using.MANHANVIEN);
 
             timer1.Start();
         }

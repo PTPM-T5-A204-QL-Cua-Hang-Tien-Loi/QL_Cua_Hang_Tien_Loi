@@ -1,4 +1,5 @@
 ﻿using BLL_DAL;
+using OpenCvSharp;
 using QL_CuaHangTienLoi.GUI;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,11 @@ namespace QL_CuaHangTienLoi.UserControls
 {
     public partial class UC_BanHang : UserControl
     {
+        Mat out2 = new Mat();
+        double res;
+        double res1;
+
+        private List<KeyValuePair<string, double>> similarityList;
         BLL_DAL_SanPham sanpham = new BLL_DAL_SanPham();
         BLL_DAL_HDBan hoadon = new BLL_DAL_HDBan();
         BLL_DAL_LoaiSP loaisp = new BLL_DAL_LoaiSP();
@@ -214,8 +220,32 @@ namespace QL_CuaHangTienLoi.UserControls
         }
         private void btnScan_Click(object sender, EventArgs e)
         {
-
+            OpenFileDialog openFile = new OpenFileDialog();
+            Mat image1 = new Mat();
+            if (openFile.ShowDialog() == DialogResult.OK)
+            {
+                image1 = new Mat(openFile.FileName);
+                image1.ConvertTo(image1,MatType.CV_32FC1);
+            }
+            foreach(DataGridViewRow row in dgvProduct.Rows)
+            {
+                if(row.Cells[0].Value != null)
+                {
+                    Bitmap image2 = (Bitmap)sanpham.GetHinhAnhSP(row.Cells[0].Value.ToString());
+                    var imageMat = OpenCvSharp.Extensions.BitmapConverter.ToMat(image2);
+                    imageMat.ConvertTo(imageMat, MatType.CV_32FC1);
+                    Cv2.MatchTemplate(image1 , imageMat,out2, TemplateMatchModes.CCoeffNormed);
+                    Cv2.MinMaxLoc(out2, out res1, out res);
+                    if(res > 0.7)
+                    {
+                        row.Selected = true;
+                        break;
+                    }    
+                }    
+            }    
+            
         }
+        
 
         private void btnCancelBill_Click(object sender, EventArgs e)
         {

@@ -267,5 +267,10 @@ namespace QL_CuaHangTienLoi.UserControls
             if (_ncc != null)
                 new frmNhaCungCap(_ncc).ShowDialog();
         }
+
+        private void picSanPham_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

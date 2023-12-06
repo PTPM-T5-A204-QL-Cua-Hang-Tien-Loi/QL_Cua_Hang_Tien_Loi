@@ -20,9 +20,9 @@ namespace BLL_DAL
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
-    using BLL_DAL.Function;
-
-    [global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QL_CUAHANGTIENLOI")]
+	
+	
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QL_CUAHANGTIENLOI")]
 	public partial class QLCuaHangTienLoiDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -223,7 +223,7 @@ namespace BLL_DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _MATAIKHOAN = "TK" + GetFormatString.MakingIDNHANVIEN();
+		private string _MATAIKHOAN;
 		
 		private string _TAIKHOAN1;
 		
@@ -463,17 +463,17 @@ namespace BLL_DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _MASP = "SP" + GetFormatString.MakingIDNHANVIEN();
+		private string _MASP;
 		
 		private string _TENSP;
 		
 		private string _DONVI;
 		
-		private int _SOLUONG = 0;
+		private int _SOLUONG;
 		
-		private double _DONGIABAN = 0.0f;
-
-        private System.Data.Linq.Binary _HINHANH;
+		private double _DONGIABAN;
+		
+		private System.Data.Linq.Binary _HINHANH;
 		
 		private string _MALOAI;
 		
@@ -2584,7 +2584,7 @@ namespace BLL_DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _MANCC = "NCC" + GetFormatString.MakingIDNow();
+		private string _MANCC;
 		
 		private string _TENNCC;
 		
@@ -2770,7 +2770,7 @@ namespace BLL_DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _MANHANVIEN = "NV" + GetFormatString.MakingIDNHANVIEN();
+		private string _MANHANVIEN;
 		
 		private string _TENNHANVIEN;
 		
@@ -2780,7 +2780,7 @@ namespace BLL_DAL
 		
 		private string _DIENTHOAI_NV;
 		
-		private System.Nullable<System.DateTime> _NGAYSINH = new DateTime(2000, 1, 1);
+		private System.Nullable<System.DateTime> _NGAYSINH;
 		
 		private string _Email;
 		
@@ -3084,9 +3084,9 @@ namespace BLL_DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _MANHAPHANG = GetFormatString.MakingIDNow();
+		private string _MANHAPHANG;
 		
-		private System.DateTime _NGAYTAO = DateTime.Now;
+		private System.DateTime _NGAYTAO;
 		
 		private double _TONGTIEN;
 		
