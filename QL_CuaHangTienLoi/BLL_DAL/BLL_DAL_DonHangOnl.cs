@@ -11,6 +11,8 @@ namespace BLL_DAL
     public class BLL_DAL_DonHangOnl
     {
         QLCuaHangTienLoiDataContext qlch = new QLCuaHangTienLoiDataContext();
+        BLL_DAL_SanPham bLL_DAL_SanPham = new BLL_DAL_SanPham();
+        BLL_DAL_CTDonHangOnl bLL_DAL_CTDonHangOnl = new BLL_DAL_CTDonHangOnl();
         public BLL_DAL_DonHangOnl() { }
         public List<DonhangOnl> getDonHangOnl_List()
         {
@@ -83,6 +85,16 @@ namespace BLL_DAL
                 donhang.Madon = donhangOnl.Madon;
                 donhang.Ngaydat = donhangOnl.Ngaydat;
                 donhang.Tinhtrang = donhangOnl.Tinhtrang;
+                if(donhangOnl.Tinhtrang == "Đã giao")
+                {
+                    List<ChitietdonhangOnl> ct = bLL_DAL_CTDonHangOnl.GetCTDonHangTheoMaDon(donhangOnl.Madon);
+                    foreach (var item in ct)
+                    {
+                        SANPHAM sp = bLL_DAL_SanPham.getInfoSanPham(item.MASP);
+                        sp.SOLUONG = (int)(sp.SOLUONG - item.Soluong);
+                        bLL_DAL_SanPham.Edit(sp);
+                    }
+                }
                 donhang.MaNguoiDung = donhang.MaNguoiDung;
                 qlch.SubmitChanges();
                 return true;

@@ -15,6 +15,7 @@ namespace QL_CuaHangTienLoi.UserControls
     {
         static UC_DonHang _obj;
         BLL_DAL_DonHangOnl bLL_DAL_DonHangOnl = new BLL_DAL_DonHangOnl();
+        BLL_DAL_CTDonHangOnl bLL_DAL_CTDonHangOnl = new BLL_DAL_CTDonHangOnl();
         DonhangOnl donhangOnl = new DonhangOnl();
         public static UC_DonHang Instance
         {
@@ -56,7 +57,21 @@ namespace QL_CuaHangTienLoi.UserControls
             dtpNgayDat.Value = (DateTime)donhangOnl.Ngaydat;
             txtDiaChi.Text = dgvDonHang.CurrentRow.Cells[3].Value.ToString();
             txtTrangThai.Text = donhangOnl.Tinhtrang.ToString();
+            dgvChiTietDH.DataSource = null;
+            dgvChiTietDH.DataSource = bLL_DAL_CTDonHangOnl.getCTDonHangOnl_Table(int.Parse(txtMaDonHang.Text));
+            dgvChiTietDH.Columns[0].Visible = false;
 
+            double tongTien = 0.0;
+            foreach (DataGridViewRow item in dgvChiTietDH.Rows)
+            {
+                if (item.Cells[0].Value != null)
+                {
+                    tongTien += Double.Parse(item.Cells[4].Value.ToString());
+                }
+                    
+            }
+
+            txtTongTienDH.Text = tongTien.ToString() + " VNĐ";
         }
 
         private void btnCapNhatDH_Click(object sender, EventArgs e)

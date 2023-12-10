@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml.Linq;
 
 namespace QL_CuaHangTienLoi.UserControls
@@ -139,7 +140,7 @@ namespace QL_CuaHangTienLoi.UserControls
             {
                 dgvProduct.DataSource = sanpham.timSP_NhieuGiaTri(null, 0, 0, null, maloai);
             }
-            
+
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -158,11 +159,16 @@ namespace QL_CuaHangTienLoi.UserControls
 
         private void btnChonSP_Click(object sender, EventArgs e)
         {
+            chonSP();
+        }
+
+        private void chonSP()
+        {
             if (dgvProduct.RowCount == 1)
-                    return;
+                return;
             else if (dgvProduct.CurrentRow != null && dgvProduct.CurrentRow.Index < dgvProduct.Rows.Count - 1)
             {
-                if(txtMaHD.Text == "")
+                if (txtMaHD.Text == "")
                 {
                     DateTime date = DateTime.Now;
                     string mahd = "HD" + date.ToString("ddMMyyyyHHmmss");
@@ -177,7 +183,7 @@ namespace QL_CuaHangTienLoi.UserControls
                 bool flag = false;
                 foreach (DataGridViewRow item in dgvCTHD.Rows)
                 {
-                    if(masp == item.Cells[0].Value)
+                    if (masp == item.Cells[0].Value)
                     {
                         item.Cells[2].Value = decimal.Parse(item.Cells[2].Value.ToString()) + sl;
                         item.Cells[4].Value = giamgia;
@@ -185,7 +191,7 @@ namespace QL_CuaHangTienLoi.UserControls
                         flag = true;
                         txtTongTien.Text = tinhTongTien().ToString("0#,##0");
                     }
-                    
+
                 }
                 if (flag)
                     return;
@@ -202,7 +208,7 @@ namespace QL_CuaHangTienLoi.UserControls
                     dt.Rows.Add(row);
                     dgvCTHD.DataSource = dt;
                     txtTongTien.Text = tinhTongTien().ToString("0#,##0");
-                }    
+                }
 
             }
         }
@@ -221,31 +227,40 @@ namespace QL_CuaHangTienLoi.UserControls
         private void btnScan_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFile = new OpenFileDialog();
+            List<double> list = new List<double>();
             Mat image1 = new Mat();
             if (openFile.ShowDialog() == DialogResult.OK)
             {
                 image1 = new Mat(openFile.FileName);
-                image1.ConvertTo(image1,MatType.CV_32FC1);
+                image1.ConvertTo(image1, MatType.CV_32FC1);
             }
-            foreach(DataGridViewRow row in dgvProduct.Rows)
+            foreach (DataGridViewRow row in dgvProduct.Rows)
             {
-                if(row.Cells[0].Value != null)
+                if (row.Cells[0].Value != null)
                 {
                     Bitmap image2 = (Bitmap)sanpham.GetHinhAnhSP(row.Cells[0].Value.ToString());
                     var imageMat = OpenCvSharp.Extensions.BitmapConverter.ToMat(image2);
                     imageMat.ConvertTo(imageMat, MatType.CV_32FC1);
-                    Cv2.MatchTemplate(image1 , imageMat,out2, TemplateMatchModes.CCoeffNormed);
+                    Cv2.MatchTemplate(image1, imageMat, out2, TemplateMatchModes.CCoeffNormed);
                     Cv2.MinMaxLoc(out2, out res1, out res);
-                    if(res > 0.7)
-                    {
-                        row.Selected = true;
-                        break;
-                    }    
-                }    
-            }    
-            
+                    list.Add(res);
+                }
+
+            }
+            for (int i = 0; i < list.Count;)
+            {
+                if (res > 0.7)
+                {
+                    dgvProduct.CurrentCell = dgvProduct.Rows[i].Cells[i];
+                    dgvProduct.Rows[i].Selected = true;
+                    chonSP();
+                    return;
+                }
+            }
+            MessageBox.Show("Không tìm thấy sản phẩm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
         }
-        
+
 
         private void btnCancelBill_Click(object sender, EventArgs e)
         {
@@ -294,7 +309,7 @@ namespace QL_CuaHangTienLoi.UserControls
                 }
                 clearCTHD();
                 loadTable();
-            }    
+            }
         }
         private bool soSanhSL()
         {
@@ -324,12 +339,12 @@ namespace QL_CuaHangTienLoi.UserControls
         private decimal tinhTongTien()
         {
             decimal tongtien = 0;
-            foreach(DataGridViewRow item in dgvCTHD.Rows)
+            foreach (DataGridViewRow item in dgvCTHD.Rows)
             {
-                if(item.Cells[5].Value != null)
+                if (item.Cells[5].Value != null)
                 {
                     tongtien += decimal.Parse(item.Cells[5].Value.ToString());
-                }    
+                }
             }
             return tongtien;
         }

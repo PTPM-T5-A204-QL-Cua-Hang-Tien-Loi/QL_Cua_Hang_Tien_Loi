@@ -19,6 +19,7 @@ namespace QL_CuaHangTienLoi
         BLL_DAL_Quyen bLL_DAL_Quyen = new BLL_DAL_Quyen();
         BLL_DAL_TaiKhoan bLL_DAL_TaiKhoan = new BLL_DAL_TaiKhoan();
         private bool checkTKNew;
+        private string temp;
         public frmTaiKhoan()
         {
             InitializeComponent();
@@ -41,6 +42,7 @@ namespace QL_CuaHangTienLoi
             lblTenNV.Text = nv.TENNHANVIEN;
 
             checkTKNew = false;
+            temp = taiKhoan.TAIKHOAN1;
         }
 
         private void LoadThongTinTK()
@@ -84,9 +86,9 @@ namespace QL_CuaHangTienLoi
             tAIKHOAN.MAQUYEN = (int?)cbQuyen.SelectedValue;
             tAIKHOAN.MANHANVIEN = nHANVIEN.MANHANVIEN;
 
-            if (checkInfomation(tAIKHOAN))
+            if (checkTKNew)
             {
-                if (checkTKNew)
+                if (checkInfomation(tAIKHOAN))
                 {
                     if (bLL_DAL_TaiKhoan.Create(tAIKHOAN))
                     {
@@ -101,6 +103,15 @@ namespace QL_CuaHangTienLoi
                 }
                 else
                 {
+                    MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Thông báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                
+            }
+            else
+            {
+                if (checkInfomation(tAIKHOAN) || tAIKHOAN.TAIKHOAN1 == temp)
+                {
                     if (bLL_DAL_TaiKhoan.Edit(tAIKHOAN))
                     {
                         MessageBox.Show("Cập nhật thông tin tài khoản thành công!", "THÔNG BÁO", MessageBoxButtons.OK);
@@ -112,11 +123,12 @@ namespace QL_CuaHangTienLoi
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Thông báo",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                {
+                    MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Thông báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                
             }
         }
 

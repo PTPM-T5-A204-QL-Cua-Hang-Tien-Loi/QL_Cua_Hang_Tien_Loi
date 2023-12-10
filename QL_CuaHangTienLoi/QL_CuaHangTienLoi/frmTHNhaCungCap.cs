@@ -44,12 +44,6 @@ namespace QL_CuaHangTienLoi
             LoadDataNCC();
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            txtFindDiaChiNCC.Clear();
-            txtFindTenNCC.Clear();
-        }
-
         private void btnEditNCC_Click(object sender, EventArgs e)
         {
             new frmNhaCungCap(ncc_choosing).ShowDialog();
@@ -89,6 +83,11 @@ namespace QL_CuaHangTienLoi
                     }
                 }
             }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
