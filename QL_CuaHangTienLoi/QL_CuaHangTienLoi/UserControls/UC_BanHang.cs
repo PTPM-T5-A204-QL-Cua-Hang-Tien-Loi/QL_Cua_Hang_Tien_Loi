@@ -228,11 +228,13 @@ namespace QL_CuaHangTienLoi.UserControls
         {
             OpenFileDialog openFile = new OpenFileDialog();
             List<double> list = new List<double>();
+            InterpolationFlags flag = new InterpolationFlags();
             Mat image1 = new Mat();
             if (openFile.ShowDialog() == DialogResult.OK)
             {
                 image1 = new Mat(openFile.FileName);
                 image1.ConvertTo(image1, MatType.CV_32FC1);
+                image1.Resize(new OpenCvSharp.Size(400, 400));
             }
             foreach (DataGridViewRow row in dgvProduct.Rows)
             {
@@ -241,6 +243,7 @@ namespace QL_CuaHangTienLoi.UserControls
                     Bitmap image2 = (Bitmap)sanpham.GetHinhAnhSP(row.Cells[0].Value.ToString());
                     var imageMat = OpenCvSharp.Extensions.BitmapConverter.ToMat(image2);
                     imageMat.ConvertTo(imageMat, MatType.CV_32FC1);
+                    imageMat.Resize(new OpenCvSharp.Size(400, 400));
                     Cv2.MatchTemplate(image1, imageMat, out2, TemplateMatchModes.CCoeffNormed);
                     Cv2.MinMaxLoc(out2, out res1, out res);
                     list.Add(res);
